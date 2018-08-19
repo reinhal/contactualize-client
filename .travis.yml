@@ -1,5 +1,12 @@
- language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: rkGiwKy3jqcPewuKSrOvax9OA3tkvCKiHehyf/4KOrbZqxMQLAybm+lutsD3IJY8rcKpVx3/n8bcyfzBI33aI4IksTH43+OFwGxBeng2zKfbfA2VHGHg1YHs/0e51dfTeey8UaZosDxDI/ff8O/KWc+rV2GMkVlCwsr6mDhLdYtwk50XWzZPY1qxT16VVARkSp7KmM9Op1hDvqft2lRjBPau7/AAu4Wfl2mGGyuoJDPFccBGmqlFtaCwfZ6tRVgpD0ZzlFRO/JBW8Chx/Rkw8vCCJpGDAocmBIVJ+XVadWP5aTw+tiEW/1GyBpbAN3Odky+rd237hMmUq4WkZhIa1C84ZWL3dTbAlIWDML517omeGtLJvZPPWi4fXOy9jYnpKsnU/xnaebEwWFEwWM51813yNTpiiw9zk6PgfEDnWN7QC8CJQDTI6O4IwHrYeBY/WVOHBbrD8UsC9dHlcCJrA91jCoPqpiKM5IEckDxmPk9LnJ96VkZ4qXAPJYqZEcEYzT/Ll/vlSEgByhRKq+Apf3jvglDKMEHwCAdkoEReY1gd91sMb51QpzlkHdntmVXnbn8x6aFlpNi6XAVfF+L1ov0JtgN9Xw42dw05bUpbWkYbG6kJy95bx3L951GQ6NmC/7F8cN4e0yPUCz99YUxN9XvkOxBitKG1Vj0hJZRs2P4=
+  app: contactualize-client
+  on:
+    repo: reinhal/contactualize-client
