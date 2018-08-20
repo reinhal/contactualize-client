@@ -1,5 +1,6 @@
 import React from 'react';
 
+import '.styles/Interaction.css';
 
 export default function Interaction() {
   render (

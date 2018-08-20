@@ -12,3 +12,23 @@ body {
 main {
   text-align: center;
 }
+
+@media (max-width: 320px) {
+  h2 {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  ul {
+    display: none;
+  }
+
+  .fa-bars {
+    display: inline;
+    color: black;
+  }
+}

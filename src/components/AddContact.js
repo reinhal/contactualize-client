@@ -1,5 +1,6 @@
 import React from 'react';
 
+import '.styles/AddContact.css';
 
 export default function AddContact() {
   return (
@@ -12,39 +13,39 @@ export default function AddContact() {
                 <legend>Basic Contact Information</legend>
                 <div>
                   <label for="first-name">First Name*</label>
-                  <input type="text" name="first-name" value="enter a first name " required>  
+                  <input type="text" name="first-name" value="enter a first name " required />  
                 </div>
                 <div>
                   <label for="last-name">Last Name*</label>
-                  <input type="text" name="last-name" value="enter a last name" required>
+                  <input type="text" name="last-name" value="enter a last name" required />
                 </div>
                 <div>
                   <label for="email">Email*</label>
-                  <input type="email" name="email" value="enter an email" required>
+                  <input type="email" name="email" value="enter an email" required />
                 </div>
                 <div>
                   <label for="address">Address</label>
-                  <input type="text" name="address" value="enter an address">
+                  <input type="text" name="address" value="enter an address" />
                 </div>
                 <div>
                   <label for="phone">Phone</label>
-                  <input type="phone" name="phone" value="enter an phone">       
+                  <input type="phone" name="phone" value="enter an phone" />       
                 </div>
                 <div>
                   <label for="other-phone">Add Other Phones</label>
-                  <input type="other-phone" name="other-phone" value="this is a placeholder to add other phones">
+                  <input type="other-phone" name="other-phone" value="this is a placeholder to add other phones" />
                 </div>
                 <div>
                   <label for="relationship">Relationship</label>
-                  <input type="text" name="relationship" value="name your relationship">
+                  <input type="text" name="relationship" value="name your relationship" />
                 </div>
                 <div>
                   <label for="job-title">Job Title</label>
-                  <input type="text" name="job-title" value="enter a job title" required>
+                  <input type="text" name="job-title" value="enter a job title" />
                 </div>
                 <div>
                   <label for="employment">Employment</label>
-                  <input type="text" name="employment" value="place of business/employment" required>
+                  <input type="text" name="employment" value="place of business/employment" />
                 </div>
               </fieldset>
             </div>
@@ -53,11 +54,11 @@ export default function AddContact() {
                 <legend>Additional Information</legend>
                 <div>
                   <label for="birthday">Birthday</label>
-                  <input type="text" name="birthday" value="enter an birthday">
+                  <input type="text" name="birthday" value="enter an birthday" />
                 </div>
                 <div>
                   <label for="important-dates">More Important Dates</label>
-                  <input type="text" name="important-dates" value="this is a placeholder to add other important dates">
+                  <input type="text" name="important-dates" value="this is a placeholder to add other important dates" />
                 </div>
                 <div>
                   <label for="notes">Notes</label>
