@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { BrowserRouter as Link} from 'react-router-dom';
 
 export default function DasboardWindow() {
   return (
@@ -11,10 +11,10 @@ export default function DasboardWindow() {
               <h3>Manage Contacts</h3>
               <ul>
                 <div>
-                  <li><a href="new_contact.html">Create Contact</a></li>
+                  <li><Link to='/AddContact'>Create Contact</Link></li>
                 </div>
                 <div>
-                  <li><a href="contact_list.html">Contact List</a></li>
+                <li><Link to='/ContactList'>Contact List</Link></li>
                 </div>     
               </ul>
             </div>    
@@ -24,10 +24,10 @@ export default function DasboardWindow() {
               <h3>Manage Interactions</h3>
               <ul>
                 <div>
-                  <li><a href="schedule.html">Schedule Interactions</a></li>
+                  <li><Link to='/NewInteraction'>Schedule Interactions</Link></li>
                 </div>
                 <div>
-                  <li><a href="interactions.html">Upcoming Interactions</a></li>
+                <li><Link to='/InteractionList'>Upcoming Interactions</Link></li>
                 </div>     
               </ul>
             </div>    
