@@ -5,12 +5,11 @@ import './styles/NewInteractionForm.css';
 export default function NewInteractionForm() {
   return (
     <div>
-      <h1> Schedule an Interaction </h1>
       <section>
         <form id="create-contact">
           <div class="form-section">          
             <fieldset>
-              <legend>Create a new interaction</legend>
+              <legend>Record a new interaction</legend>
               <h4>Choose interaction type:</h4>
               <div>
                 <input class="interaction" id="phone-call" type="radio" name="interaction-type" value="phone-call" />

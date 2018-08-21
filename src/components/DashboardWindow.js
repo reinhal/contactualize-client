@@ -8,47 +8,34 @@ export default function DasboardWindow() {
     <div>
       <main role="main">
         <div class="row">
-          <div class="col-4">
+          <div class="col-6">
             <div class="info-box">
               <h3>Manage Contacts</h3>
               <ul>
                 <div>
-                  <li><Link to='/AddContact'>Create Contact</Link></li>
+                  <li><a href="new_contact.html">Create Contact</a></li>
                 </div>
                 <div>
-                <li><Link to='/ContactList'>Contact List</Link></li>
+                  <li><a href="contact_list.html">Contact List</a></li>
                 </div>     
               </ul>
             </div>    
           </div>
-          <div class="col-4">
-            <div class="info-box">
-              <h3>Manage Interactions</h3>
-              <ul>
-                <div>
-                  <li><Link to='/NewInteraction'>Schedule Interactions</Link></li>
-                </div>
-                <div>
-                <li><Link to='/InteractionList'>Upcoming Interactions</Link></li>
-                </div>     
-              </ul>
-            </div>    
-          </div>
-        <div class="col-4">
+        <div class="col-6">
             <div class="info-box">
               <h3>Important Notes</h3>
               <ul>
                 <div>
-                  <li>Note Linked to Contact</li>
+                  <li>Some really interesting information.</li>
                 </div>
                 <div>
-                  <li>Note Linked to Contact</li>
+                  <li>Some really interesting information.</li>
                 </div>
                 <div>
-                  <li>Note Linked to Contact</li>
+                  <li>Some really interesting information.</li>
                 </div>
                 <div>
-                  <li>Note Linked to Contact</li>
+                  <li>Some really interesting information.</li>
                 </div>
               </ul>
             </div>    

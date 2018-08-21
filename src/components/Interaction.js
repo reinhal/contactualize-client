@@ -6,7 +6,7 @@ export default function Interaction() {
   return (
     <div>
       <section role="region">
-        <h3><a href="#">Interaction Title</a></h3>
+        <h3>Interaction Title</h3>
         <p>A placeholder for the information for this interaction.</p>
       </section>
     </div>
