@@ -4,7 +4,7 @@ import InfoSection from "./InfoSection";
 import SignUp from './SignUp';
 
 export default function LandingPage() {
-  render (
+  return (
     <div>
       <main role="main">
         <InfoSection />

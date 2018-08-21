@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import Header from './Header';
-import LandingPage from './LandingPage';
-import Home from './Home';
-import Footer from './Footer';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import Header from './components/Header';
+import LandingPage from './components/LandingPage';
+import Home from './components/Home';
+import Footer from './components/Footer';
 import './App.css';
 
 class App extends Component {

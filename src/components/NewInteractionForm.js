@@ -1,12 +1,12 @@
 import React from 'react';
 
-import '.styles/NewInteractionForm.css';
+import './styles/NewInteractionForm.css';
 
 export default function NewInteractionForm() {
-  render (
+  return (
     <div>
       <h1> Schedule an Interaction </h1>
-      <section role="region">
+      <section>
         <form id="create-contact">
           <div class="form-section">          
             <fieldset>

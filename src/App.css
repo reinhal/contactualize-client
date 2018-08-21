@@ -9,8 +9,20 @@ body {
   line-height: 1.5;
 }
 
+header {
+  background-color: gainsboro;
+  padding: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 main {
   text-align: center;
+}
+
+p {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 @media (max-width: 320px) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Link} from 'react-router-dom';
 
-import '.styles/DashboardWindow.css';
+import './styles/DashboardWindow.css';
 
 export default function DasboardWindow() {
   return (

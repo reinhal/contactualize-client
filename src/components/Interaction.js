@@ -1,9 +1,9 @@
 import React from 'react';
 
-import '.styles/Interaction.css';
+import './styles/Interaction.css';
 
 export default function Interaction() {
-  render (
+  return (
     <div>
       <section role="region">
         <h3><a href="#">Interaction Title</a></h3>

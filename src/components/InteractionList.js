@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Interaction from './Interaction';
-import '.styles/InteractionList.css';
+import './styles/InteractionList.css';
 
 export default function InteractionList() {
-  render (
+  return (
     <div>
       <h1>Interaction List</h1>
       <Interaction />

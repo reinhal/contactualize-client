@@ -1,9 +1,9 @@
 import React from 'react';
 
-import '.styles/ContactList.css';
+import './styles/ContactList.css';
 
 export default function ContactList() {
-  render (
+  return (
     <div>
       <section role="region">
         <h3><a href="contact.html">Contact Name</a></h3>

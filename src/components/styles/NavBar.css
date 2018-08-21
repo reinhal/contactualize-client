@@ -1,0 +1,36 @@
+nav {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    padding: 5px;
+}
+
+.fa-bars {
+  color: gainsboro;
+}
+
+@media (max-width: 320px) {
+  h2 {
+    font-size: 14px;
+  }
+
+  ul {
+    display: none;
+  }
+
+  .fa-bars {
+    display: inline;
+    color: black;
+  }
+}

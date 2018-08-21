@@ -1,0 +1,13 @@
+form {
+  text-align: center;
+}
+
+fieldset {
+  background-color: ghostwhite;
+  margin: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 500px;
+}

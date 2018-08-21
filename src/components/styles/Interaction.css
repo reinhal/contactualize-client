@@ -1,0 +1,9 @@
+section {
+  min-height: 200px;
+  padding: 30px 15px;
+  background-color: ghostwhite;
+}
+
+section:nth-child(even) {
+  background-color: gainsboro;
+}
