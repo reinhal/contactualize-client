@@ -20,7 +20,13 @@ main {
   text-align: center;
 }
 
-p {
+.copy-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+fieldset {
   max-width: 1000px;
   margin: 0 auto;
 }

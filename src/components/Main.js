@@ -11,7 +11,9 @@ export default function Main() {
   return (
     <div>
       <Switch>
-        <Route exact path='/' component={LandingPage}/>
+        <Route exact path='/' 
+        component={ () => <LandingPage message={'hello'}/>}
+        />
         <Route exact path='/home' component={Home}/>
         <Route exact path='/new-contact' component={AddContact}/>
         <Route exact path='/contact-list' component={ContactList}/>
