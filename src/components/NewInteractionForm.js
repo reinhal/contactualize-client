@@ -10,7 +10,7 @@ export default function NewInteractionForm() {
           <div class="form-section">          
             <fieldset>
               <legend>Record a new interaction</legend>
-              <h4>Choose interaction type:</h4>
+              <h2>Choose interaction type:</h2>
               <div>
                 <input class="interaction" id="phone-call" type="radio" name="interaction-type" value="phone-call" />
                 <label for="phone-call">Phone Call</label>
@@ -27,14 +27,14 @@ export default function NewInteractionForm() {
                 <input class="interaction"  id="Visit " type="radio" name="interaction-type" value="Visit" />
                 <label for="Visit">Visit</label>
               </div>
-              <h4><label for="frequency">Choose the frequency:</label></h4>
+              <h2><label for="frequency">Choose the frequency:</label></h2>
                 <select id="frequency" name="select">
                   <option value="once">Once</option>
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
                   <option value="monthly">Monthly</option>
                 </select>
-              <h4>Select date to start:</h4>
+              <h2>Select date to start:</h2>
               <i class="fas fa-calendar-alt"></i>
             </fieldset>
           </div>

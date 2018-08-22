@@ -10,7 +10,7 @@ export default function DasboardWindow() {
         <div class="row">
           <div class="col-6">
             <div class="info-box">
-              <h3>Manage Contacts</h3>
+              <h2>Manage Contacts</h2>
               <ul>
                 <div>
                   <li><a href="new_contact.html">Create Contact</a></li>
@@ -23,7 +23,7 @@ export default function DasboardWindow() {
           </div>
         <div class="col-6">
             <div class="info-box">
-              <h3>Important Notes</h3>
+              <h2>Important Notes</h2>
               <ul>
                 <div>
                   <li>Some really interesting information.</li>

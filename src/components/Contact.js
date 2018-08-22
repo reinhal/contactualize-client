@@ -5,11 +5,11 @@ import '.styles/Contact.css';
 export default function Contact() {
   return (
     <div>
-      <h1>Contact Name</h1>
+      <h2>Contact Name</h2>
       <p>All the contact information for this contact here.</p>
-      <h3>Notes</h3>
+      <h2>Notes</h2>
       <p>Special notes go here regarding likes, dislikes, allergens, gifts, and important milestones. The scheduled reminders for future interactions will be noted here as well.</p>
-      <h3>Interaction History</h3>
+      <h2>Interaction History</h2>
       <p>A list of emails, phone calls, texts, and visits will be displayed here.</p>
     </div>
   );

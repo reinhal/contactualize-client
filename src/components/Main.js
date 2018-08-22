@@ -14,11 +14,25 @@ export default function Main() {
         <Route exact path='/' 
         component={ () => <LandingPage message={'hello'}/>}
         />
-        <Route exact path='/home' component={Home}/>
-        <Route exact path='/new-contact' component={AddContact}/>
-        <Route exact path='/contact-list' component={ContactList}/>
-        <Route exact path='/record-interaction' component={NewInteractionForm}/>
-        <Route exact path='/interactions' component={InteractionList}/>
+        <Route 
+        exact path='/home' 
+        component={Home}
+        />
+        <Route exact path='/new-contact' 
+        component={AddContact}
+        />
+        <Route 
+        exact path='/contact-list' 
+        component={ContactList}
+        />
+        <Route 
+        exact path='/record-interaction' 
+        component={NewInteractionForm}
+        />
+        <Route 
+        exact path='/interactions' 
+        component={(props) => <InteractionList {...props}/>}
+        />
       </Switch>
     </div>
   );

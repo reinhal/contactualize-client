@@ -2,15 +2,22 @@ import React from 'react';
 
 import './styles/Interaction.css';
 
-export default function Interaction() {
+export default function Interaction(props) {
   return (
     <div>
       <section>
-        <div className='copy-containter'>
-          <h3>Interaction Title</h3>
-          <p>A placeholder for the information for this interaction.</p>
+        <div className='copy-container'>
+          <div className='interaction'>
+            <h2>{props.title}</h2>
+            <p>{props.text}</p>
+          </div>
         </div>
       </section>
     </div>
   );
-}
+};
+
+Interaction.defaultProps = {
+  title: '',
+  text: ''
+};
