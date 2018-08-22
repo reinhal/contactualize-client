@@ -23,7 +23,7 @@ export default function Main() {
         />
         <Route 
         exact path='/contact-list' 
-        component={ContactList}
+        component={(props) => <ContactList {...props}/>}
         />
         <Route 
         exact path='/record-interaction' 

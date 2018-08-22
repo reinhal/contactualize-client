@@ -6,7 +6,6 @@ export default function NavBar() {
   return (
     <div>
       <nav role="naviagtion">
-        <i className="fas fa-bars"></i>
         <ul>
           <li><a href="#">Login</a></li>
           <li><Link to="/home">Home</Link></li>

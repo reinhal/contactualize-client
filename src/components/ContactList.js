@@ -1,40 +1,46 @@
 import React from 'react';
+import Contact from './Contact';
 
 import './styles/ContactList.css';
 
-export default function ContactList() {
-  return (
-    <div>
-      <section>
-        <div className="copy-container">
-          <h2><a href="contact.html">Contact Name</a></h2>
-          <p>A placeholder for the high level stats of this contact and next scheduled interaction.</p>
-        </div>
-      </section>
-      <section>
-        <div className="copy-container">
-          <h2><a href="contact.html">Contact Name</a></h2>
-          <p>A placeholder for the high level stats of this contact and next scheduled interaction.</p>
-        </div>
-      </section>
-      <section>
-        <div className="copy-container">
-          <h2><a href="contact.html">Contact Name</a></h2>
-          <p>A placeholder for the high level stats of this contact and next scheduled interaction.</p>
-        </div>
-      </section>
-      <section>
-        <div className="copy-container">
-          <h2><a href="contact.html">Contact Name</a></h2>
-          <p>A placeholder for the high level stats of this contact and next scheduled interaction.</p>
-        </div>
-      </section>
-      <section>
-        <div className="copy-container">
-          <h2><a href="contact.html">Contact Name</a></h2>
-          <p>A placeholder for the high level stats of this contact and next scheduled interaction.</p>
-        </div>
-      </section>
-    </div>
-  );
+export default class ContactList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      contacts: [{
+        name: 'Carl',
+        notes: 'We need to go out for ice cream.'
+      }, {
+        name: 'Irma',
+        notes: 'Weekly date to play cards and bake cookies.'
+      }, {
+        name: 'Bertha',
+        notes: 'Monthly knitting lessons.'
+      }, {
+        name: 'William',
+        notes: 'Yearly camping trip up north'
+      }]
+    }
+  }
+
+  render() {
+    const contacts = this.state.contacts.map((contact, index) =>
+      <li key={index}>
+        <Contact {...contact}/>
+      </li>
+    );
+    return (
+      <div>
+        <h2>Contacts</h2>
+        {contacts}
+        <h3>{this.props.name}</h3>
+        <p>{this.props.notes}</p>
+      </div>
+    );
+  }
 }
+
+Contact.defaultProps = {
+  name: '',
+  notes: ''
+};
