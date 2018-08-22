@@ -13,7 +13,7 @@ export default function AddContact() {
                 <legend>New Contact Information</legend>
                 <div>
                   <label for="name">Name*</label>
-                  <input type="text" name="name" value="enter a name " required />  
+                  <input className="newName" type="text" name="name" value="enter a name " required />  
                 </div>
                 <div>
                   <label for="notes">Notes</label>

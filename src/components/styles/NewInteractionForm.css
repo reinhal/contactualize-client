@@ -1,3 +1,7 @@
 .fa-calendar-alt {
   font-size: 48px;
 }
+
+input {
+  width: 15px;
+}

@@ -8,7 +8,7 @@ fieldset {
   max-width: 1000px;
 }
 
-input, textarea {
+.newName, textarea {
   width: 100%;
   max-width: 500px;
 }
