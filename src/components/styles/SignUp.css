@@ -7,7 +7,11 @@ fieldset {
   margin: 10px;
 }
 
-input, textarea {
+textarea {
   width: 100%;
   max-width: 500px;
+}
+
+.signup-field {
+  width: 500px;
 }
