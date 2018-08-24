@@ -4,19 +4,32 @@ const initialState = {
     {
       name: 'Anne',
       notes: 'Meet regarding material making for classroom'
+    },  {
+      name: 'Michael',
+      notes: 'Plan a camping trip outside the Twin Cities.'
+    },  {
+      name: 'Frederik',
+      notes: 'Is looking for a new job and connections.'
+    },  {
+      name: 'Louise',
+      notes: 'Would like to get together to make kimchi.'
     }
   ],
-    // name: ['Anne', 'Michael', 'Fredrik', 'Louise'],
-    // notes: ['Meet regarding material making for classroom', 'Plan a camping trip outside the Twin Cities.', 'Is looking for a new job and connections.', 'Would like to get together to make kimchi.']
   interactions: [
     {
       title: 'Coffee Date',
       text: 'Discussed plans for a trip'
+    },  {
+      title: 'Phone Call',
+      text: 'Went through ideas for the new website.'
+    },  {
+      title: 'Email',
+      text: 'Followed up on last week\'s meeing'
+    }, {
+      title: 'Dinner Meeting',
+      text: 'Asked about the surgery from the day before.'
     }
   ]
-    // title: ['Coffee Date', 'Phone Call', 'Email', 'Dinner Meeting'],
-    // text: ['Discussed plans for a trip', 'Went through ideas for the new website.', 'Followed up on last week\'s meeing', 'Asked about the surgery from the day before']
-  
 };
 
 export const contactualizeReducer = (state=initialState) => {
