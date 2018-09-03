@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './styles/AddContact.css';
+import './styles/AddContactForm.css';
 
-export default function AddContact() {
+export default function AddContactForm() {
   return (
     <div>
       <main role="main">
