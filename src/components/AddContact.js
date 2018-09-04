@@ -37,9 +37,19 @@ export default class AddContact extends React.Component {
     .then(newContact => {
       this.setState({
         person: newContact.person,
-        notes: newContact.notes
+        notes: newContact.notes,
+        loading: false
       })
     })
+    .catch(err => 
+      this.setState({
+        error: 'Could not create new contact.',
+        loading: false
+      })
+    );
+  }
+  render() {
+    
   }
 }
 
