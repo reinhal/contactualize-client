@@ -8,19 +8,19 @@ export default function SignUp() {
       <h2>Try Contactualize Now</h2>
       <form class='signup-form'>
           <div>
-            <label for="first-name">First name</label>
+            <label htmlFor="first-name">First name</label>
             <input className='signup-field' value='enter a first name' type="text" name='first-name' id='first-name' />
           </div>
           <div>
-            <label for="last-name">Last name</label>
+            <label htmlFor="last-name">Last name</label>
             <input className='signup-field' type="text" name='last-name' id='last-name' value='enter a last name' />
           </div>
           <div>
-            <label for="username">Email</label>
+            <label htmlFor="username">Email</label>
             <input className='signup-field' type="text" name='username' id='username' value='enter an email' />
           </div>
           <div>
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input className='signup-field' type="password" name='password' id='password' />
           </div>
           <button type='submit'>Sign Up</button>

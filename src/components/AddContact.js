@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {API_BASE_URL} from '../config';
 import AddContactForm from './AddContactForm';
 
@@ -10,6 +10,7 @@ export default class AddContact extends React.Component {
       person: '',
       notes: ''
     };
+    this.loadAddContact = this.loadAddContact.bind(this);
   }
 
   componentDidMount() {
@@ -49,7 +50,22 @@ export default class AddContact extends React.Component {
     );
   }
   render() {
-    
+    let main;
+    // return <AddContactForm handleSubmit={this.loadAddContact}/>;
+    if(this.state.error) {
+      main = (
+        <div className="message message-error">{this.state.error}</div>
+      );
+    } else if (this.state.loading) {
+      main = (
+        <div className="message message-default">Creating new contact...</div>
+      );
+    } else {
+      main = <div><AddContactForm /></div>
+    }
+    return (
+      <Fragment>{main}</Fragment>
+    );
   }
 }
 

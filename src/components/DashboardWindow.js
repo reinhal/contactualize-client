@@ -9,9 +9,9 @@ export default function DasboardWindow() {
   return (
     <div>
       <main role="main">
-        <div class="row">
-          <div class="col-6">
-            <div class="info-box">
+        <div className="row">
+          <div className="col-6">
+            <div className="info-box">
               <h2>Manage Contacts</h2>
               <ul>
                 <div>
@@ -23,8 +23,8 @@ export default function DasboardWindow() {
               </ul>
             </div>    
           </div>
-        <div class="col-6">
-            <div class="info-box">
+        <div className="col-6">
+            <div className="info-box">
               <h2>Recent Interactions</h2>
               <ul>
                 <div>
