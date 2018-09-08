@@ -67,7 +67,6 @@ export default class ContactList extends React.Component {
         ));
         main = <ul>{contacts}</ul>;
     }
-    console.log(main);
     return (
       <Fragment>{main}</Fragment>
     );

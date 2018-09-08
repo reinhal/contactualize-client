@@ -16,7 +16,8 @@ export default class AddContactForm extends React.Component {
       method: 'POST',
       body: JSON.stringify(newContactData),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8' 
+        'Content-type': 'application/json; charset=UTF-8',
+      success: alert('Contact successfully created!')
       }
     })
     .then(res => {
@@ -39,7 +40,7 @@ export default class AddContactForm extends React.Component {
       person: e.currentTarget.person.value,
       notes: e.currentTarget.notes.value
     };
-
+    
     this.createContact(contactData);
   }
 
