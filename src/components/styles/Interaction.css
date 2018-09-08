@@ -11,3 +11,7 @@ section:nth-child(even) {
 .interaction {
   text-align: center;
 }
+
+button {
+  float: right;
+}

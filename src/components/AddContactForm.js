@@ -10,6 +10,7 @@ export default class AddContactForm extends React.Component {
       notes: ''
     }
   }
+
   createContact(newContactData) {
     return fetch(`${API_BASE_URL}/contacts`, {
       method: 'POST',
@@ -31,6 +32,7 @@ export default class AddContactForm extends React.Component {
       })
     })
   }
+
   onSubmit(e) {
     e.preventDefault();
     const contactData = {
@@ -54,7 +56,6 @@ export default class AddContactForm extends React.Component {
               type="text" 
               name="name" 
               defaultValue="enter a name "
-              onChange={(e) => this.setState({ person: '', notes: ''})}
             required />
           </div>
           <div>
