@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './Home';
-import AddContact from './AddContact';
+import AddContactForm from './AddContactForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
 import NewInteractionForm from './NewInteractionForm';
@@ -19,7 +19,7 @@ export default function Main() {
         component={Home}
         />
         <Route exact path='/new-contact' 
-        component={AddContact}
+        component={AddContactForm}
         />
         <Route 
         exact path='/contact-list' 

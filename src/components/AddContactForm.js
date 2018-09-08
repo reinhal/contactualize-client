@@ -1,85 +1,71 @@
 import React from 'react';
-
+import {API_BASE_URL} from '../config';
 import './styles/AddContactForm.css';
 
 export default class AddContactForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false
+      person: '',
+      notes: ''
     }
   }
+  createContact(newContactData) {
+    return fetch(`${API_BASE_URL}/contacts`, {
+      method: 'POST',
+      body: JSON.stringify(newContactData),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8' 
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .catch(err => {
+      this.setState({
+        error: 'Could not create new contact.',
+        loading: false
+      })
+    })
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    const contactData = {
+      person: e.currentTarget.person.value,
+      notes: e.currentTarget.notes.value
+    };
 
-  // onSubmit(event) {
-  //   event.preventDefault();
-  //   const newPerson = this.newPersonInput.value.trim();
-  //   if (newPerson && this.props.onAdd) {
-  //     this.props.onAdd(newPerson);
-  //   }
-  //   const newNotes = this.newNotesInput.value.trim();
-  //   if (newNotes && this.props.onAdd) {
-  //     this.props.onAdd(newNotes);
-  //   }
-
-  //   this.newPersonInput.value = '';
-  //   this.newNotesInput.value = '';
-  // }
-
-  setEditing(editing) {
-    this.setState({
-      editing
-    });
+    this.createContact(contactData);
   }
 
-  render() {
-    if (!this.state.editing) {
-      return (
-        <form id="create-contact" onSubmit={this.props.submitFnc}>
-          <fieldset>
-            <legend>New Contact Information</legend>
-            <div>
-              <label htmlFor="name">Name*</label>
-              <input id="person" className="newName" type="text" name="name" defaultValue="enter a name " required />
-            </div>
-            <div>
-              <label htmlFor="notes">Notes*</label>
-              <textarea id="notes" name="notes" rows="15" required></textarea>
-            </div>
-          </fieldset>
-          <div className="add-contact-button"
-            onClick={() => this.setEditing(true)}>
-            <button type="submit">Create</button>
+  render() {  
+    return (
+      <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
+        <fieldset>
+          <legend>New Contact Information</legend>
+          <div>
+            <label htmlFor="person">Name*</label>
+            <input 
+              id="person" 
+              className="newName" 
+              type="text" 
+              name="name" 
+              defaultValue="enter a name "
+              onChange={(e) => this.setState({ person: '', notes: ''})}
+            required />
           </div>
-        </form>
-      );
-    }
+          <div>
+            <label htmlFor="notes">Notes*</label>
+            <textarea id="notes" name="notes" rows="15" required></textarea>
+          </div>
+        </fieldset>
+        <div className="add-contact-button">
+          <button type="submit">Create</button>
+        </div>
+      </form>
+    );
   }
 }
-
-// export default function AddContactForm() {
-//   return (
-//     <div>
-//       <main role="main">
-//         <section>
-//           <form id="create-contact">
-//             <div class="form-section">
-//               <fieldset>
-//                 <legend>New Contact Information</legend>
-//                 <div>
-//                   <label for="name">Name*</label>
-//                   <input id="person" className="newName" type="text" name="name" value="enter a name " ref={input => this.newPersonInput = input}required />  
-//                 </div>
-//                 <div>
-//                   <label for="notes">Notes</label>
-//                   <textarea id="notes" name="notes" rows="15" ref={input => this.newNotesInput = input}required></textarea>
-//                 </div>
-//               </fieldset>
-//             </div>
-//             <button type="submit">Create</button>
-//             <button type="reset">Reset</button>
-//           </form>
-//         </section>
-//       </main>
-//     </div>
-//   );
-// }
