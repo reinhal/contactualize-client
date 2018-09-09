@@ -37,7 +37,7 @@ export default function Main() {
         />
         <Route 
         exact path='/edit-contact' 
-        component={EditContactForm}
+        component={(props) => <EditContactForm {...props}/>}
         />
         <Route 
         exact path='/edit-interaction' 

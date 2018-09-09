@@ -11,14 +11,15 @@ export default class DeleteInteraction extends React.Component {
   }
 
   deleteInteraction() {
-    return fetch(`${API_BASE_URL}/interactions/${this.props._id}`, {
+    return fetch(`${API_BASE_URL}/interactions/${this.props.interactionID}`, {
       method: 'DELETE',
-      success: alert('Interaction successfully deleted!')
+      // success: alert('Interaction successfully deleted!')
      })
   }
 
   onClick(e) {
     e.preventDefault();
+    window.location.reload(true);
     this.deleteInteraction();
   }
   

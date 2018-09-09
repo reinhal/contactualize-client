@@ -14,13 +14,12 @@ export default class EditContactForm extends React.Component {
   }
 
   editContact(updatedContactData) {
-    return fetch(`${API_BASE_URL}/contacts`, {
+    return fetch(`${API_BASE_URL}/contacts/${this.props.contactID}`, {
       method: 'PUT',
       body: JSON.stringify(updatedContactData),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-      },
-      success: alert('Contact successfully updated!')
+      }
     })
     .then(res => {
       if (!res.ok) {

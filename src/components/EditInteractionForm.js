@@ -12,7 +12,7 @@ export default class EditInteractionForm extends React.Component {
   }
 
   editnteraction(updatedInteractionData) {
-    return fetch(`${API_BASE_URL}/interactions`, {
+    return fetch(`${API_BASE_URL}/interactions/${this.props.interactionID}`, {
       method: 'PUT',
       body: JSON.stringify(updatedInteractionData),
       headers: {
