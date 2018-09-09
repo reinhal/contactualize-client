@@ -2,6 +2,8 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './Home';
 import AddContactForm from './AddContactForm';
+import EditContactForm from './EditContactForm';
+import EditInteractionForm from './EditInteractionForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
 import NewInteractionForm from './NewInteractionForm';
@@ -32,6 +34,14 @@ export default function Main() {
         <Route 
         exact path='/interactions' 
         component={(props) => <InteractionList {...props}/>}
+        />
+        <Route 
+        exact path='/edit-contact' 
+        component={EditContactForm}
+        />
+        <Route 
+        exact path='/edit-interaction' 
+        component={EditInteractionForm}
         />
       </Switch>
     </div>

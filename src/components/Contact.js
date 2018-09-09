@@ -1,5 +1,7 @@
 import React from 'react';
 import DeleteContact from './DeleteContact';
+import EditContact from './EditContact';
+import {Link} from 'react-router-dom';
 import './styles/Contact.css';
 
   
@@ -10,8 +12,8 @@ export default function Contact(props){
         <div className='copy-container'>
           <div className='contact'>
           <DeleteContact />
-          <button className ="edit-contact" type="submit" data-a11y-dialog-hide aria-label="Edit this contact"><i className="far fa-edit"></i></button>
-            <h2>{props.person}</h2>
+          <EditContact />
+            <h2><Link to="/contacts/{props.person}">{props.person}</Link></h2>
             <p>{props.notes}</p>
           </div>
         </div>

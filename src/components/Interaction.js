@@ -1,5 +1,7 @@
 import React from 'react';
 import DeleteInteraction from './DeleteInteraction';
+import EditInteraction from './EditInteraction';
+import {Link} from 'react-router-dom';
 import './styles/Interaction.css';
 
 export default function Interaction(props) {
@@ -9,8 +11,8 @@ export default function Interaction(props) {
         <div className='copy-container'>
           <div className='interaction'>
           <DeleteInteraction />
-          <button className ="edit-interaction" type="submit" data-a11y-dialog-hide aria-label="Edit this interaction"><i class="far fa-edit"></i></button>
-            <h2>{props.title}</h2>
+          <EditInteraction />
+            <h2><Link to="/contacts/{props.person}">{props.title}</Link></h2>
             <p>{props.text}</p>
           </div>
         </div>
