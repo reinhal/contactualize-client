@@ -1,9 +1,10 @@
 .info-box {
-  height: 600px;
+  height: 800px;
   text-align: center;
   padding-top: 30px;
   background-color: ghostwhite;
   margin-top: 10px;
+  overflow: scroll;
 }
 
 .row {

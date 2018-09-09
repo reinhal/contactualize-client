@@ -15,3 +15,7 @@ textarea {
 .signup-field {
   width: 500px;
 }
+
+.sign-up-button {
+  margin: auto 0;
+}

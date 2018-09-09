@@ -4,10 +4,6 @@ section {
   background-color: ghostwhite;
 }
 
-section:nth-child(even) {
-  background-color: gainsboro;
-}
-
 p {
   text-align: center;
 }

@@ -13,7 +13,6 @@ export default function NavBar() {
           <li><NavLink to="/contact-list">Contact List</NavLink></li>
           <li><NavLink to="/record-interaction">+ Interactions</NavLink></li>
           <li><NavLink to="/interactions">Interactions</NavLink></li>
-          {/* <li><a href="http://localhost:8080/api/interactions">Prove Interactions</a></li> */}
         </ul>
       </nav>
     </div>

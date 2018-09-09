@@ -12,7 +12,7 @@ export default function Contact(props){
         <div className='copy-container'>
           <div className='contact'>
           <DeleteContact contactID={props.id}/>
-          <EditContact />
+          <EditContact contactID={props.id}/>
             <h2><Link to="/contacts/{props.person}">{props.person}</Link></h2>
             <p>{props.notes}</p>
           </div>

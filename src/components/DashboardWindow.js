@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './NavBar';
 import ContactList from './ContactList';
 import InteractionList from './InteractionList';
 import {Link} from 'react-router-dom';
