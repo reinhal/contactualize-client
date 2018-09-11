@@ -6,7 +6,7 @@ import EditContactForm from './EditContactForm';
 import EditInteractionForm from './EditInteractionForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
-import NewInteractionForm from './AddInteractionForm';
+import AddInteractionForm from './AddInteractionForm';
 import InteractionList from './InteractionList'; 
 
 export default function Main() {
@@ -29,7 +29,7 @@ export default function Main() {
         />
         <Route 
         exact path='/record-interaction' 
-        component={NewInteractionForm}
+        component={AddInteractionForm}
         />
         <Route 
         exact path='/interactions' 
