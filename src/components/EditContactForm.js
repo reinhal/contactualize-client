@@ -2,6 +2,7 @@ import React from 'react';
 import {API_BASE_URL} from '../config';
 
 import './styles/AddContactForm.css';
+import AddContactForm from './AddContactForm';
 
 
 export default class EditContactForm extends React.Component {
@@ -47,34 +48,35 @@ export default class EditContactForm extends React.Component {
  
   render() {
     return (
-      <form id="update-contact" onSubmit={e => this.onSubmit(e)}>
-        <fieldset>
-          <legend>Update Contact Information</legend>
-          <div>
-            <label htmlFor="person">Name*</label>
-            <input 
-              id="person" 
-              className="newName" 
-              type="text" 
-              name="name" 
-              defaultValue= "Enter a new name here"
-            required />
-          </div>
-          <div>
-            <label htmlFor="notes">Notes*</label>
-            <textarea 
-              id="notes" 
-              name="notes" 
-              rows="15"
-              defaultValue= "Enter a new note here"  
-              required>
-            </textarea>
-          </div>
-        </fieldset>
-        <div className="update-contact-button">
-          <button type="submit">Update</button>
-        </div>
-      </form>
+      <AddContactForm {...this.props} />
+      // <form id="update-contact" onSubmit={e => this.onSubmit(e)}>
+      //   <fieldset>
+      //     <legend>Update Contact Information</legend>
+      //     <div>
+      //       <label htmlFor="person">Name*</label>
+      //       <input 
+      //         id="person" 
+      //         className="newName" 
+      //         type="text" 
+      //         name="name" 
+      //         defaultValue= "Enter a new name here"
+      //       required />
+      //     </div>
+      //     <div>
+      //       <label htmlFor="notes">Notes*</label>
+      //       <textarea 
+      //         id="notes" 
+      //         name="notes" 
+      //         rows="15"
+      //         defaultValue= "Enter a new note here"  
+      //         required>
+      //       </textarea>
+      //     </div>
+      //   </fieldset>
+      //   <div className="update-contact-button">
+      //     <button type="submit">Update</button>
+      //   </div>
+      // </form>
     );
   }
 }

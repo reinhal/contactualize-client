@@ -37,7 +37,7 @@ export default function Main() {
         />
         <Route 
         exact path='/edit-contact' 
-        component={(props) => <EditContactForm {...props}/>}
+        component={(props) => <AddContactForm legendTitle="Update Contact Information" buttonType="Update" /> }
         />
         <Route 
         exact path='/edit-interaction' 
