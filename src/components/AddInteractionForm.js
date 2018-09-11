@@ -47,7 +47,7 @@ export default class NewInteractionForm extends React.Component {
     return (
       <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
         <fieldset>
-          <legend>Record a new interaction</legend>
+          <legend>{this.props.interactionLegend}</legend>
           <div>
             <label htmlFor="title">Title*</label>
             <input 
@@ -64,9 +64,14 @@ export default class NewInteractionForm extends React.Component {
           </div>
         </fieldset>
         <div className="add-interaction-button">
-          <button type="submit">Create</button>
+          <button type="submit">{this.props.interactionButton}</button>
         </div>
       </form>
     );
   }
+}
+
+NewInteractionForm.defaultProps = {
+  interactionLegend: "Record a New Interaction",
+  interactionButton: "Create"
 }

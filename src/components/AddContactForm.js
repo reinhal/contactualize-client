@@ -46,7 +46,7 @@ export default class AddContactForm extends React.Component {
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
         <fieldset>
-          <legend>{this.props.legendTitle}</legend>
+          <legend>{this.props.contactLegend}</legend>
           <div>
             <label htmlFor="person">Name*</label>
             <input 
@@ -63,7 +63,7 @@ export default class AddContactForm extends React.Component {
           </div>
         </fieldset>
         <div className="add-contact-button">
-          <button type="submit">{this.props.buttonType}</button>
+          <button type="submit">{this.props.contactButton}</button>
         </div>
       </form>
     );
@@ -71,6 +71,6 @@ export default class AddContactForm extends React.Component {
 }
 
 AddContactForm.defaultProps = {
-  legendTitle: 'New Contact Information',
-  buttonType: 'Create'
+  contactLegend: 'New Contact Information',
+  contactButton: 'Create'
 }
