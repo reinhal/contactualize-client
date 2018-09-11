@@ -6,7 +6,7 @@ import EditContactForm from './EditContactForm';
 import EditInteractionForm from './EditInteractionForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
-import NewInteractionForm from './NewInteractionForm';
+import NewInteractionForm from './AddInteractionForm';
 import InteractionList from './InteractionList'; 
 
 export default function Main() {
@@ -41,7 +41,7 @@ export default function Main() {
         />
         <Route 
         exact path='/edit-interaction' 
-        component={EditInteractionForm}
+        component={(props) => <AddInteractionForm interactionLegend="Update Interaction" interactionButton="Update" /> }
         />
       </Switch>
     </div>
