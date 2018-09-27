@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './Home';
-import AddContactForm from './AddContactForm';
+import ContactForm from './ContactForm';
 import EditContactForm from './EditContactForm';
 import EditInteractionForm from './EditInteractionForm';
 import LandingPage from './LandingPage';
@@ -21,7 +21,7 @@ export default function Main() {
         component={Home}
         />
         <Route exact path='/new-contact' 
-        component={AddContactForm}
+        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" /> }
         />
         <Route 
         exact path='/contact-list' 
@@ -36,8 +36,8 @@ export default function Main() {
         component={(props) => <InteractionList {...props}/>}
         />
         <Route 
-        exact path='/edit-contact' 
-        component={(props) => <AddContactForm contactLegend="Update Contact Information" contactButton="Update" /> }
+         path='/edit-contact/contactID' 
+        component={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" /> }
         />
         <Route 
         exact path='/edit-interaction' 

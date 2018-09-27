@@ -1,24 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import EditContactForm from './EditContactForm';
-import './styles/AddContactForm.css';
+import './styles/ContactForm.css';
+import { Link } from 'react-router-dom';
 
-
-export default function EditContact() {
-  return (
-    <Router>
+export default class EditContact extends React.Component {
+  // create an onClick function that renders the version of the ContactForm for editing
+  onClick(e) {
+    e.preventDefault();
+    // setState here using prevState
+  }
+  render() {
+    return (
       <div>
-        <button 
+        <p><Link to='/contacts/{this.props.contactID}'>Edit</Link></p>
+        {/* Link would reference the Route with the contactID at the end of URL,  */}
+        
+        {/* <button 
           className ="edit-contact" 
           type="submit" 
           data-a11y-dialog-hide aria-label="Edit this contact.">
-          <Route path="/contacts/this.props.contactID" component={EditContactForm} />
-          <i className="far fa-edit"></i>
           Edit
-        </button>
+        </button> */}
       </div>
-    </Router> 
-  );
+    );
+  }
 }
-//react router

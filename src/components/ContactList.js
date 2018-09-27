@@ -11,7 +11,8 @@ export default class ContactList extends React.Component {
     super(props);
 
     this.state = {
-      contacts: null
+      contacts: null,
+      currentContact: null
     };
   }
 
@@ -72,6 +73,8 @@ export default class ContactList extends React.Component {
     );
   }
 }
+// one part of state is all contacts, as soon as someone "picks", then the state updates
+// re-renders
 
 ContactList.defaultProps = {
   name: '',

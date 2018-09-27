@@ -14,6 +14,7 @@ export default function Interaction(props) {
           <EditInteraction interactionID={props.id}/>
             <h2><Link to="/contacts/{props.person}">{props.title}</Link></h2>
             <p>{props.text}</p>
+            {/* have small text that shows the contact the interaction is associated with */}
           </div>
         </div>
       </section>

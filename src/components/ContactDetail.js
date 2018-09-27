@@ -11,6 +11,7 @@ export default function ContactDetail() {
       <p>Special notes go here regarding likes, dislikes, allergens, gifts, and important milestones. The scheduled reminders for future interactions will be noted here as well.</p>
       <h2>Interaction History</h2>
       <p>A list of emails, phone calls, texts, and visits will be displayed here.</p>
+      {/* do a interactions.find for all interactions that match the id of the contact, map to render */}
     </div>
   );
 }

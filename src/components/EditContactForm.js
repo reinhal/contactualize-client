@@ -1,8 +1,8 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
 
-import './styles/AddContactForm.css';
-import AddContactForm from './AddContactForm';
+import './styles/ContactForm.css';
+import ContactForm from './ContactForm';
 
 
 export default class EditContactForm extends React.Component {
@@ -48,7 +48,7 @@ export default class EditContactForm extends React.Component {
  
   render() {
     return (
-      <AddContactForm {...this.props} />
+      <ContactForm {...this.props} />
     );
   }
 }

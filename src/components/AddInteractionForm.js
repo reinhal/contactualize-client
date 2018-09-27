@@ -62,6 +62,8 @@ export default class NewInteractionForm extends React.Component {
             <label htmlFor="text">Text*</label>
             <textarea id="text" name="text" rows="10"></textarea>
           </div>
+          {/* add a dropdown menu here for all current contacts, 
+          display their name but add their ID as part of the interactions props */}
         </fieldset>
         <div className="add-interaction-button">
           <button type="submit">{this.props.interactionButton}</button>
