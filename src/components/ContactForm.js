@@ -34,6 +34,10 @@ export default class ContactForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+    ///check for ID, make GET then setState
+  }
+
   createContact(contactData) {
     console.log(contactData);
     let contactUrl = `${API_BASE_URL}/contacts`;
@@ -96,10 +100,12 @@ export default class ContactForm extends React.Component {
     })
   }
 
-  render() {  
+  render() {
+    console.log("render");
+    //check for id 
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
-        <fieldset>
+        <fieldset className="contact-form">
           <legend>
             {this.reqMethod === 'POST'
               ? 'Add a Contact'
@@ -122,8 +128,8 @@ export default class ContactForm extends React.Component {
             <textarea id="notes" name="notes" rows="15" required></textarea>
           </div>
         </fieldset>
-        <div className="add-contact-button">
-          <button type="submit" onClick={this.handlePerson}>{this.reqMethod === 'POST' ? 'CREATE' : 'UPDATE'} </button>
+        <div className="button-div">
+          <button className="contact-button" type="submit" onClick={this.handlePerson}>{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
         </div>
       </form>
     );

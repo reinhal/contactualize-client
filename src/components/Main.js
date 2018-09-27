@@ -36,7 +36,7 @@ export default function Main() {
         component={(props) => <InteractionList {...props}/>}
         />
         <Route 
-         path='/edit-contact/contactID' 
+         path='/edit-contact/:id' 
         component={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" /> }
         />
         <Route 

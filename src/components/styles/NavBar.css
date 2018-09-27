@@ -3,6 +3,8 @@ nav {
   left: 0;
   right: 0;
   z-index: 10;
+  background-color: #355263;
+  padding: 15px;
 }
 
 ul {
@@ -12,12 +14,29 @@ ul {
 }
 
 li {
-    display: inline;
+    display: inline-block;
     padding: 5px;
 }
 
+.nav-link {
+  color: #FEFEFE;
+  font-size: 14px;  
+}
+
+.nav-link:visited {
+  color: #D5D5D3;
+  font-size: 16px;  
+}
+
+.nav-link:hover {
+  background-color: #1F313F;
+  color: #FDD24E;
+  padding: 10px;
+  font-size: 18px;
+}
+
 .fa-bars {
-  color: gainsboro;
+  color:  #D5D5D3;
 }
 
 @media (max-width: 320px) {

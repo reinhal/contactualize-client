@@ -3,12 +3,12 @@
 }
 
 body {
-  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  background-color: #355263;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   font-family: 'Lora', serif;
-  color: #444;
+  color:#D5D5D3;
   line-height: 1.5;
 }
 
@@ -30,10 +30,12 @@ main {
 }
 
 
+
+/* 
 fieldset {
   max-width: 1000px;
   margin: 0 auto;
-}
+} */
 
 @media (max-width: 320px) {
   h2 {

@@ -7,12 +7,12 @@ export default function NavBar() {
     <div>
       <nav role="naviagtion">
         <ul>
-          <li><a href="#">Login</a></li>
-          <li><NavLink to="/home">Home</NavLink></li>
-          <li><NavLink to="/new-contact">+ Contact</NavLink></li>
-          <li><NavLink to="/contact-list">Contact List</NavLink></li>
-          <li><NavLink to="/record-interaction">+ Interactions</NavLink></li>
-          <li><NavLink to="/interactions">Interactions</NavLink></li>
+          <li><a className="nav-link" href="#">Login</a></li>
+          <li><NavLink className="nav-link" to="/home">Home</NavLink></li>
+          <li><NavLink className="nav-link" to="/new-contact">+ Contact</NavLink></li>
+          <li><NavLink className="nav-link" to="/contact-list">Contact List</NavLink></li>
+          <li><NavLink className="nav-link" to="/record-interaction">+ Interactions</NavLink></li>
+          <li><NavLink className="nav-link" to="/interactions">Interactions</NavLink></li>
         </ul>
       </nav>
     </div>

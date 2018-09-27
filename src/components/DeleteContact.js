@@ -1,5 +1,6 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
+import "./styles/DeleteContact.css";
 
 export default class DeleteContact extends React.Component {
 
@@ -18,12 +19,11 @@ export default class DeleteContact extends React.Component {
   render() {
     return (
       <div>
-        <button 
-          className ="delete-contact" 
+        <button  
           type="submit" 
+          className ="delete-contact-link"
           data-a11y-dialog-hide aria-label="Delete this contact."
-          onClick={e => this.onClick(e)}><i className="far fa-trash-alt" ></i>
-           Delete</button>
+          onClick={e => this.onClick(e)}><i className="far fa-trash-alt" ></i> Delete</button>
       </div>
     );
   } 
