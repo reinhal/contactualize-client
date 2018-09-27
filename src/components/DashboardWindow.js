@@ -16,7 +16,7 @@ export default function DasboardWindow() {
               <h2>Manage Contacts</h2>
               <ul>
                 <div>
-                  <li><Link to="/new-contact">New Contact</Link></li>
+                  <li><Link className="dashboard-link" to="/new-contact">New Contact</Link></li>
                 </div>
                 <div>
                   <li><ContactList /></li>
@@ -29,7 +29,7 @@ export default function DasboardWindow() {
               <h2>Recent Interactions</h2>
               <ul>
                 <div>
-                  <li><Link to="/record-interaction">New Interaction</Link></li>
+                  <li><Link className="dashboard-link" to="/record-interaction">New Interaction</Link></li>
                 </div>
                 <div>
                   <li><InteractionList /></li>

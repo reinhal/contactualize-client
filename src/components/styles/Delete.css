@@ -1,4 +1,4 @@
-.delete-contact-link {
+.delete-item {
   background-color: transparent;
   font-size: 14px;
   border: none;
@@ -6,7 +6,7 @@
   float: right;
 }
 
-.delete-contact-link:hover {
+.delete-item:hover {
   background-color: #1F313F;
   color: #FDD24E;
   padding: 5px;

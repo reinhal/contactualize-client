@@ -46,7 +46,7 @@ export default class NewInteractionForm extends React.Component {
   render() {
     return (
       <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
-        <fieldset>
+        <fieldset className="interaction-form">
           <legend>{this.props.interactionLegend}</legend>
           <div>
             <label htmlFor="title">Title*</label>
@@ -65,8 +65,8 @@ export default class NewInteractionForm extends React.Component {
           {/* add a dropdown menu here for all current contacts, 
           display their name but add their ID as part of the interactions props */}
         </fieldset>
-        <div className="add-interaction-button">
-          <button type="submit">{this.props.interactionButton}</button>
+        <div className="button-div">
+          <button className="interaction-button" type="submit">{this.props.interactionButton}</button>
         </div>
       </form>
     );

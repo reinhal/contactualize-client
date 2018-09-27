@@ -24,7 +24,7 @@ li {
 }
 
 .nav-link:visited {
-  color: #D5D5D3;
+  color: floralwhite;
   font-size: 16px;  
 }
 
@@ -36,7 +36,7 @@ li {
 }
 
 .fa-bars {
-  color:  #D5D5D3;
+  color:  floralwhite;
 }
 
 @media (max-width: 320px) {

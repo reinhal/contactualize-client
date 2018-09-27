@@ -10,11 +10,12 @@ export default function Interaction(props) {
       <section>
         <div className='copy-container'>
           <div className='interaction'>
-          <DeleteInteraction interactionID={props.id}/>
-          <EditInteraction interactionID={props.id}/>
-            <h2><Link to="/contacts/{props.person}">{props.title}</Link></h2>
+          {/* <EditInteraction interactionID={props.id}/> */}
+            <h2><Link className="interaction-link" to="/contacts/{props.person}">{props.title}</Link></h2>
             <p>{props.text}</p>
             {/* have small text that shows the contact the interaction is associated with */}
+            <h2><Link className="edit-interaction-link" to={`/edit-interaction/${props.id}`}><i class="far fa-edit"></i> Edit</Link></h2>
+            <DeleteInteraction interactionID={props.id}/>
           </div>
         </div>
       </section>

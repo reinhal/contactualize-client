@@ -1,5 +1,6 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
+import './styles/Delete.css';
 
 export default class DeleteInteraction extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export default class DeleteInteraction extends React.Component {
     return (
       <div>
         <button 
-          className ="delete-interaction" 
+          className ="delete-item" 
           type="submit" 
           data-a11y-dialog-hide aria-label="Delete this contact."
           onClick={e => this.onClick(e)}><i className="far fa-trash-alt"></i>

@@ -8,6 +8,12 @@
   overflow: scroll;
 }
 
+.dashboard-link:hover {
+  color: #FDD24E;
+  background-color: #1F313F;
+  padding: 5px;
+}
+
 .row {
   /* max-width: 1000px; */
   margin: 0 auto;

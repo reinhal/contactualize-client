@@ -1,10 +1,14 @@
 h1 {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: -20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 4em;
+  color: floralwhite;
 }
 
 h2 {
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding-bottom: 30px;
+  font-family: 'Quicksand', sans-serif;
 }
