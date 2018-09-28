@@ -5,3 +5,8 @@ section {
   background-color: transparent;
   color: #1F313F
 }
+
+p {
+  width: 50%;
+  margin: 0 auto;
+}

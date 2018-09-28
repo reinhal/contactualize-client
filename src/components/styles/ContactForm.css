@@ -1,6 +1,7 @@
 
 #create-contact {
-  background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+  /* background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%); */
+  background-color: floralwhite;
   border: solid #1F313F 5px;
   margin: 0 auto;
   width: 80%;
@@ -36,7 +37,7 @@ input, textarea {
   width: 100%;
   max-width: 100%;
   background-color: floralwhite;
-  border: 0px;
+  border: solid #1F313F 2px;
   font-size: 18px;
   padding: 15px;
 }
@@ -51,7 +52,7 @@ input, textarea {
   margin: 20px;
   text-align: center;
   font-size: 48px;
-  border: solid #1F313F 5px;
+  border: solid #1F313F 2px;
   color: #1F313F;
   cursor: pointer;
 }

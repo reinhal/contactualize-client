@@ -3,14 +3,18 @@
   border: solid #1F313F 2px;
   font-size: 18px;
   padding: 20px;
+  box-shadow: 5px, 5px, 5px, gray;
 }
 
-.contact-link {
+a.contact-link {
   color:  #1F313F;
   text-decoration: none;
+  font-style: bold;
+  font-size: 28px;
+  padding-bottom: 0px;
 }
 
-.contact-link:hover {
+a.contact-link:hover {
   background-color: #1F313F;
   color: #FDD24E;
   padding: 10px;
@@ -28,5 +32,5 @@
   background-color: #1F313F;
   color: #FDD24E;
   padding: 5px;
-  margin: -6px;
+  margin: -9px;
 }

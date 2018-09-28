@@ -3,10 +3,8 @@ import './styles/ContactForm.css';
 import { Link } from 'react-router-dom';
 
 export default class EditContact extends React.Component {
-  // create an onClick function that renders the version of the ContactForm for editing
   onClick(e) {
     e.preventDefault();
-    // setState here using prevState
   }
   render() {
     return (

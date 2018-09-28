@@ -4,7 +4,7 @@ import './styles/SignUp.css';
 
 export default function SignUp() {
   return (
-    <div>
+    <div className="signup-div">
       <h2>Try Contactualize Now</h2>
       <form className='signup-form'>
           <div>
@@ -23,9 +23,13 @@ export default function SignUp() {
             <label htmlFor="password">Password</label>
             <input className='signup-field' type="password" name='password' id='password' />
           </div>
-          <button className="sign-up-button" type='submit'>Sign Up</button>
-          <p>Already have an account?</p>
-          <button className="login-button" type='submit'>Log In</button>
+          <div className="signup-button">
+            <button className="landingpage-button" type='submit'>Sign Up</button>
+          </div> 
+          <div>
+            <p>Already have an account?</p>
+            <button className="landingpage-button" type='submit'>Log In</button>
+          </div>  
       </form>
     </div>
   );

@@ -13,9 +13,9 @@ export default function Contact(props) {
         <div className='copy-container'>
           <div className='contact'>
           {/* <EditContact contactID={props.id}/> */}
-            <h2><Link className="contact-link" to="/contacts/{props.person}">{props.person}</Link></h2>
+            <h3><Link className="contact-link" to="/contacts/{props.person}">{props.person}</Link></h3>
             <p>{props.notes}</p>
-            <h2><Link className="edit-contact-link" to={`/edit-contact/${props.id}`}><i class="far fa-edit"></i> Edit</Link></h2>
+            <div><Link className="edit-contact-link" to={`/edit-contact/${props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
             <DeleteContact className="delete-contact-link" contactID={props.id}/>
           </div>
         </div>

@@ -1,21 +1,46 @@
-/* form {
-  text-align: center;
-} */
 
 fieldset {
-  background-color: ghostwhite;
+  background-color: floralwhite;
   margin: 10px;
 }
 
-/* textarea {
-  width: 100%;
-  max-width: 500px;
-} */
+.signup-div {
+  margin: 30px;
+  border: solid #1F313F 2px;
+}
 
 .signup-field {
-  width: 500px;
+  width: 80%;
+  margin-left: 15px;
 }
 
 .sign-up-button {
   margin: auto 0;
 }
+
+.signup-form {
+  margin: 0 auto;
+  width: 80%;
+}
+
+button.landingpage-button {
+  background-color: transparent;
+  width: 30%;
+  margin: 0px;
+  text-align: center;
+  font-size: 28px;
+  border: solid #1F313F 2px;
+  color: #1F313F;
+  cursor: pointer;
+  display: block;
+}
+
+button.landingpage-button:hover {
+  color: #FDD24E;
+  background-color: #1F313F;
+}
+
+.sign-up-button {
+  width: 50%;
+}
+

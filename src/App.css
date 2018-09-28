@@ -21,7 +21,8 @@ header {
 }
 
 main {
-  text-align: center;
+  /* text-align: center; */
+  padding: 30px;
 }
 
 .copy-section {
