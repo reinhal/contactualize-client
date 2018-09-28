@@ -7,7 +7,7 @@ import './styles/LandingPage.css';
 
 export default function LandingPage(props) {
   return (
-    <div>
+    <div className="landing-page">
       <main role="main">
         <InfoSection />
         <SignUp />

@@ -1,6 +1,6 @@
 .copy-container {
   background-color: floralwhite;
-  border: solid #1F313F 5px;
+  border: solid #1F313F 2px;
   font-size: 18px;
   padding: 20px;
 }
@@ -20,7 +20,7 @@
   color: #1F313F;
   font-size: 14px;
   float: left;
-  padding: -5px;
+  padding-bottom: 0px;
   text-decoration: none;
 }
 
