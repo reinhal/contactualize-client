@@ -57,27 +57,7 @@ export default class ContactForm extends React.Component {
       .then(data => console.log(data))
       .catch(err => console.error('oops!'));
   }
-  //   return fetch(`${API_BASE_URL}/contacts`, {
-  //     method: 'POST',
-  //     body: JSON.stringify(newContactData),
-  //     headers: {
-  //       'Content-type': 'application/json; charset=UTF-8'
-  //     }
-  //   })
-  //   .then(res => {
-  //     if (!res.ok) {
-  //       return Promise.reject(res.statusText);
-  //     }
-  //     return res.json();
-  //   })
-  //   .catch(err => {
-  //     this.setState({
-  //       error: 'Could not create new contact.',
-  //       loading: false
-  //     })
-  //   })
-  // }
-
+  
   onSubmit(e) {
     e.preventDefault();
     const contactData = {
