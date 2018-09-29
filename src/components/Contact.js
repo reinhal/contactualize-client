@@ -5,14 +5,12 @@ import {Link} from 'react-router-dom';
 import './styles/Contact.css';
 
   
-export default function Contact(props) { 
-  console.log(props);
+export default function Contact(props) {
   return (
     <div>
       <section>
         <div className='copy-container'>
           <div className='contact'>
-          {/* <EditContact contactID={props.id}/> */}
             <h3><Link className="contact-link" to="/contacts/{props.person}">{props.person}</Link></h3>
             <p>{props.notes}</p>
             <div><Link className="edit-contact-link" to={`/edit-contact/${props.id}`}><i className="far fa-edit"></i> Edit</Link></div>

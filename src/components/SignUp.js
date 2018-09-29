@@ -8,27 +8,24 @@ export default function SignUp() {
       <h2>Try Contactualize Now</h2>
       <form className='signup-form'>
           <div>
-            <label htmlFor="first-name">First name</label>
+            <label className='signup-label' htmlFor="first-name">First name</label>
             <input className='signup-field' defaultValue='enter a first name' type="text" name='first-name' id='first-name' />
           </div>
           <div>
-            <label htmlFor="last-name">Last name</label>
+            <label className='signup-label' htmlFor="last-name">Last name</label>
             <input className='signup-field' type="text" name='last-name' id='last-name' defaultValue='enter a last name' />
           </div>
           <div>
-            <label htmlFor="username">Email</label>
+            <label className='signup-label' htmlFor="username">Email</label>
             <input className='signup-field' type="text" name='username' id='username' defaultValue='enter an email' />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
-            <input className='signup-field' type="password" name='password' id='password' />
+            <label className='signup-label' htmlFor="password">Password</label>
+            <input className='signup-password' type="password" name='password' id='password' />
           </div>
+          <button className="landingpage-signup-button" type='submit'>Sign Up</button>
           <div className="signup-button">
-            <button className="landingpage-button" type='submit'>Sign Up</button>
-          </div> 
-          <div>
-            <p>Already have an account?</p>
-            <button className="landingpage-button" type='submit'>Log In</button>
+            <p className="lp-text">Already have an account?</p><button className="landingpage-button" type='submit'>Log In</button>
           </div>  
       </form>
     </div>

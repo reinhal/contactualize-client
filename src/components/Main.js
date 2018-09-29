@@ -37,7 +37,7 @@ export default function Main() {
         />
         <Route 
          path='/edit-contact/:id' 
-        component={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" /> }
+        render={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" type="PUT" {...props.match}/> }
         />
         <Route 
         exact path='/edit-interaction' 

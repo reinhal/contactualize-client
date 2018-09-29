@@ -9,26 +9,33 @@ fieldset {
   border: solid #1F313F 2px;
 }
 
+.signup-label {
+  font-size: 18px;
+  padding-bottom: 0px;
+}
+
 .signup-field {
-  width: 80%;
-  margin-left: 15px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 5px;
 }
 
 .sign-up-button {
-  margin: auto 0;
+  margin: 15px;
 }
 
 .signup-form {
   margin: 0 auto;
   width: 80%;
+  padding-bottom: 15px;
 }
 
 button.landingpage-button {
   background-color: transparent;
-  width: 30%;
-  margin: 0px;
-  text-align: center;
-  font-size: 28px;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 18px;
   border: solid #1F313F 2px;
   color: #1F313F;
   cursor: pointer;
@@ -40,7 +47,32 @@ button.landingpage-button:hover {
   background-color: #1F313F;
 }
 
-.sign-up-button {
-  width: 50%;
+button.landingpage-signup-button {
+  background-color: transparent;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: solid #1F313F 2px;
+  color: #1F313F;
+  cursor: pointer;
+  display: block;
 }
 
+button.landingpage-signup-button:hover {
+  color: #FDD24E;
+  background-color: #1F313F;
+}
+
+.sign-up-button {
+  display: inline;
+}
+
+.lp-text {
+  float: left;
+}
+
+.signup-password {
+  margin-bottom: 15px;
+  padding: 3px;
+}

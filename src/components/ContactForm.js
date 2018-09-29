@@ -36,8 +36,12 @@ export default class ContactForm extends React.Component {
 
   componentDidMount() {
     ///check for ID, make GET then setState
+    console.log(this.props.params);
+    if (this.props.params !== null) {
+      soFetch(`${API_BASE_URL}/contacts/${this.props.params}`)
+        .then(data => console.log(data))
+    }
   }
-
   createContact(contactData) {
     console.log(contactData);
     let contactUrl = `${API_BASE_URL}/contacts`;
@@ -69,7 +73,8 @@ export default class ContactForm extends React.Component {
 
   onInputChange(e) {
     this.setState({
-      [e.target.person]: e.target.value
+      [e.target.person]: e.target.value,
+      [e.target.notes]: e.target.value
     });
   }
 
@@ -81,8 +86,7 @@ export default class ContactForm extends React.Component {
   }
 
   render() {
-    console.log("render");
-    //check for id 
+    console.log(this.props);
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="contact-form">
@@ -99,7 +103,7 @@ export default class ContactForm extends React.Component {
               type="text" 
               name="name" 
               defaultValue="enter a name "
-              value={this.state.person}
+              // value={this.state.person}
               onChange={this.onInputChange}
             required />
           </div>
