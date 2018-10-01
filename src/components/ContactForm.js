@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {API_BASE_URL} from '../config';
 import './styles/ContactForm.css';
-
-
 
 /**
  * Stop trying to make `fetch` happen, W3C; it's not going to happen.
@@ -35,13 +32,14 @@ export default class ContactForm extends React.Component {
   }
 
   componentDidMount() {
-    ///check for ID, make GET then setState
     console.log(this.props.params);
     if (this.props.params !== null) {
-      soFetch(`${API_BASE_URL}/contacts/${this.props.params}`)
+      soFetch(`${API_BASE_URL}/contacts/${this.props.params.id}`)
         .then(data => console.log(data))
+      
     }
   }
+  
   createContact(contactData) {
     console.log(contactData);
     let contactUrl = `${API_BASE_URL}/contacts`;
@@ -102,8 +100,8 @@ export default class ContactForm extends React.Component {
               className="newName" 
               type="text" 
               name="name" 
-              defaultValue="enter a name "
-              // value={this.state.person}
+              // defaultValue="enter a name "
+              defaultValue={this.props.person}
               onChange={this.onInputChange}
             required />
           </div>

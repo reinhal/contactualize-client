@@ -21,22 +21,14 @@ header {
 }
 
 main {
-  /* text-align: center; */
-  padding: 30px;
+  margin-top: 0px;
+  padding-bottom: 30px;
 }
 
 .copy-section {
   max-width: 1000px;
   margin: 0 auto;
 }
-
-
-
-/* 
-fieldset {
-  max-width: 1000px;
-  margin: 0 auto;
-} */
 
 @media (max-width: 320px) {
   h2 {

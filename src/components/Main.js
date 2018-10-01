@@ -2,11 +2,9 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './Home';
 import ContactForm from './ContactForm';
-import EditContactForm from './EditContactForm';
-import EditInteractionForm from './EditInteractionForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
-import AddInteractionForm from './AddInteractionForm';
+import InteractionForm from './InteractionForm';
 import InteractionList from './InteractionList'; 
 
 export default function Main() {
@@ -21,7 +19,7 @@ export default function Main() {
         component={Home}
         />
         <Route exact path='/new-contact' 
-        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" /> }
+        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" /> }
         />
         <Route 
         exact path='/contact-list' 
@@ -29,19 +27,19 @@ export default function Main() {
         />
         <Route 
         exact path='/record-interaction' 
-        component={AddInteractionForm}
+        component={(props) => <InteractionForm interactionLegend="Record a New Interaction" interactionButton="Create" type="POST" />}
         />
         <Route 
         exact path='/interactions' 
         component={(props) => <InteractionList {...props}/>}
         />
         <Route 
-         path='/edit-contact/:id' 
+        path='/edit-contact/:id' 
         render={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" type="PUT" {...props.match}/> }
         />
         <Route 
-        exact path='/edit-interaction' 
-        component={(props) => <AddInteractionForm interactionLegend="Update Interaction" interactionButton="Update" /> }
+        path='/edit-interaction/:id' 
+        component={(props) => <InteractionForm interactionLegend="Update Interaction" interactionButton="Update" type="PUT" {...props.match}/> }
         />
       </Switch>
     </div>
