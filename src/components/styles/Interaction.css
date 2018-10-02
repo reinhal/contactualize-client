@@ -3,6 +3,7 @@
   border: solid #1F313F 2px;
   font-size: 18px;
   padding: 20px;
+  max-width: 400px;
 }
 
 a.interaction-link {

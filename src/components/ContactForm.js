@@ -33,18 +33,18 @@ export default class ContactForm extends React.Component {
 
   componentDidMount() {
     console.log(this.props.params);
-    if (this.props.params !== null) {
+    if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/contacts/${this.props.params.id}`)
-        .then(data => console.log(data))
-      
+        .then(data => this.setState({ person: data.person, notes: data.notes}));
     }
   }
-  
+
   createContact(contactData) {
     console.log(contactData);
     let contactUrl = `${API_BASE_URL}/contacts`;
-    if (this.reqMethod === 'PUT' && this.props.contactID) {
-      contactUrl += '/' + this.props.contactID;
+    if (this.reqMethod === 'PUT' && this.props.params.id) {
+      contactUrl += '/' + this.props.params.id;
+      console.log(this.state);
     }
 
     const opts = {
@@ -80,11 +80,16 @@ export default class ContactForm extends React.Component {
     this.setState({
       person: this.state.person,
       notes: this.state.notes
-    })
+    });
+    this.props.history.push('/home');
   }
 
-  render() {
-    console.log(this.props);
+  //props that is passed to the function by a parent component 
+  //that can be called to tell the parent the success message, 
+  //and have a state, when render is called change its state
+
+  render(props) {
+    const defaultValues = this.state;
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="contact-form">
@@ -100,14 +105,13 @@ export default class ContactForm extends React.Component {
               className="newName" 
               type="text" 
               name="name" 
-              // defaultValue="enter a name "
-              defaultValue={this.props.person}
+              defaultValue={defaultValues ? defaultValues.person: ''}
               onChange={this.onInputChange}
             required />
           </div>
           <div>
             <label htmlFor="notes">Notes*</label>
-            <textarea id="notes" name="notes" rows="15" required></textarea>
+            <textarea id="notes" name="notes" rows="15" defaultValue={defaultValues ? defaultValues.notes: ''}required></textarea>
           </div>
         </fieldset>
         <div className="button-div">
@@ -117,6 +121,8 @@ export default class ContactForm extends React.Component {
     );
   }
 }
+
+//new url and success message
 
 ContactForm.defaultProps = {
   contactLegend: 'New Contact Information',

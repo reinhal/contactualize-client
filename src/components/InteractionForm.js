@@ -1,5 +1,6 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
+import Contact from './Contact';
 import './styles/InteractionForm.css';
 
 /**
@@ -17,6 +18,8 @@ function soFetch(path, fetchOpts = { method: 'get' }, params = null) {
 }
 
 export default class InteractionForm extends React.Component {
+
+
   constructor(props) {
     super(props);
 
@@ -33,18 +36,17 @@ export default class InteractionForm extends React.Component {
 
   componentDidMount() {
     console.log(this.props.params);
-    if (this.props.params !== null) {
+    if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
-        .then(data => console.log(data))
-      
+        .then(data => this.setState({ title: data.title, text: data.text}));
     }
   }
 
   createInteraction(interactionData) {
     console.log(interactionData);
     let interactionUrl = `${API_BASE_URL}/interactions`;
-    if (this.reqMethod === 'PUT' && this.props.interactionID) {
-      interactionUrl += '/' + this.props.interactionID;
+    if (this.reqMethod === 'PUT' && this.props.params.id) {
+      interactionUrl += '/' + this.props.params.id;
     }
 
     const opts = {
@@ -80,11 +82,12 @@ export default class InteractionForm extends React.Component {
     this.setState({
       title: this.state.title,
       text: this.state.text
-    })
+    });
+    this.props.history.push('/home');
   }
 
-  render() {
-    console.log(this.props);
+  render(props) {
+    const defaultValues = this.state;
     return (
       <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="interaction-form">
@@ -100,13 +103,13 @@ export default class InteractionForm extends React.Component {
               className="newTitle" 
               type="text" 
               name="title" 
-              defaultValue="enter a title for this interaction"
+              defaultValue={defaultValues ? defaultValues.title: ''}
               onChange={this.onInputChange}
             />
           </div>
           <div>
             <label htmlFor="text">Text*</label>
-            <textarea id="text" name="text" rows="10"></textarea>
+            <textarea id="text" name="text" rows="10" defaultValue={defaultValues ? defaultValues.text: ''}></textarea>
           </div>
           {/* add a dropdown menu here for all current contacts, 
           display their name but add their ID as part of the interactions props */}

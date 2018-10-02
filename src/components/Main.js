@@ -7,7 +7,9 @@ import ContactList from './ContactList';
 import InteractionForm from './InteractionForm';
 import InteractionList from './InteractionList'; 
 
-export default function Main() {
+export default function Main(props) {
+  // currentContact = props.currentContact;
+  // currentInteraction = props.currentInteraction;
   return (
     <div>
       <Switch>
@@ -35,11 +37,11 @@ export default function Main() {
         />
         <Route 
         path='/edit-contact/:id' 
-        render={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" type="PUT" {...props.match}/> }
+        render={(props) => <ContactForm contactLegend="Update Contact Information" contactButton="Update" type="PUT" {...props.match} history={props.history}/> }
         />
         <Route 
         path='/edit-interaction/:id' 
-        component={(props) => <InteractionForm interactionLegend="Update Interaction" interactionButton="Update" type="PUT" {...props.match}/> }
+        component={(props) => <InteractionForm interactionLegend="Update Interaction" interactionButton="Update" type="PUT" {...props.match} history={props.history}/> }
         />
       </Switch>
     </div>
