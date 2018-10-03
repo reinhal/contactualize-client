@@ -6,6 +6,10 @@
   max-width: 400px;
 }
 
+.copy-container:hover {
+  background-color: white;
+}
+
 a.interaction-link {
   color:  #1F313F;
   text-decoration: none;

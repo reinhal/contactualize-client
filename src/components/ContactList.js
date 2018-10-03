@@ -9,7 +9,6 @@ import './styles/ContactList.css';
 export default class ContactList extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       contacts: null,
       currentContact: null
@@ -47,6 +46,7 @@ export default class ContactList extends React.Component {
         })
       );
   }
+
   render() {
     let main;
     if(this.state.error) {
@@ -62,14 +62,16 @@ export default class ContactList extends React.Component {
           <li className="contact-item" key={index}>
             <Contact 
               index={index}
-              {...contact} 
+              {...contact}
             />
           </li>
         ));
         main = <ul>{contacts}</ul>;
     }
     return (
-      <Fragment>{main}</Fragment>
+      <Fragment>
+        {main}
+      </Fragment>
     );
   }
 }

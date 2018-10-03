@@ -44,7 +44,6 @@ export default class ContactForm extends React.Component {
     let contactUrl = `${API_BASE_URL}/contacts`;
     if (this.reqMethod === 'PUT' && this.props.params.id) {
       contactUrl += '/' + this.props.params.id;
-      console.log(this.state);
     }
 
     const opts = {
@@ -115,7 +114,7 @@ export default class ContactForm extends React.Component {
           </div>
         </fieldset>
         <div className="button-div">
-          <button className="contact-button" type="submit" onClick={this.handlePerson}>{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
+          <button className="contact-button" type="submit" onClick={this.handlePerson}>{this.reqMethod === 'POST' ? 'Create' : 'Update'}</button>
         </div>
       </form>
     );

@@ -8,28 +8,25 @@ import InteractionForm from './InteractionForm';
 import InteractionList from './InteractionList'; 
 
 export default function Main(props) {
-  // currentContact = props.currentContact;
-  // currentInteraction = props.currentInteraction;
   return (
     <div>
       <Switch>
         <Route exact path='/' 
-        component={ () => <LandingPage message={'hello'}/>}
+        component={ () => <LandingPage />}
         />
-        <Route 
-        exact path='/home' 
-        component={Home}
+        <Route exact path='/home' 
+        component={(props) => <Home /> }
         />
         <Route exact path='/new-contact' 
-        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" /> }
+        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} /> }
         />
         <Route 
         exact path='/contact-list' 
-        component={(props) => <ContactList {...props}/>}
+        component={(props) => <ContactList {...props} />}
         />
         <Route 
         exact path='/record-interaction' 
-        component={(props) => <InteractionForm interactionLegend="Record a New Interaction" interactionButton="Create" type="POST" />}
+        component={(props) => <InteractionForm interactionLegend="Record a New Interaction" interactionButton="Create" type="POST" {...props.match}/>}
         />
         <Route 
         exact path='/interactions' 

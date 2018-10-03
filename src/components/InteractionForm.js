@@ -1,6 +1,5 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
-import Contact from './Contact';
 import './styles/InteractionForm.css';
 
 /**
@@ -18,8 +17,6 @@ function soFetch(path, fetchOpts = { method: 'get' }, params = null) {
 }
 
 export default class InteractionForm extends React.Component {
-
-
   constructor(props) {
     super(props);
 
@@ -105,7 +102,7 @@ export default class InteractionForm extends React.Component {
               name="title" 
               defaultValue={defaultValues ? defaultValues.title: ''}
               onChange={this.onInputChange}
-            />
+            required />
           </div>
           <div>
             <label htmlFor="text">Text*</label>
@@ -124,5 +121,6 @@ export default class InteractionForm extends React.Component {
 
 InteractionForm.defaultProps = {
   interactionLegend: "Record a New Interaction",
-  interactionButton: "Create"
+  interactionButton: "Create", 
+  type: 'POST'
 }
