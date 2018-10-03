@@ -1,0 +1,12 @@
+.messageTxt {
+  border: 5px solid green;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  color: #355263;
+  background-color: floralwhite;
+}
+
+.fa-times {
+  float: right;
+}
