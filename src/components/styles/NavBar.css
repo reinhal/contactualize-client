@@ -35,6 +35,13 @@ li {
   font-size: 18px;
 }
 
+a.nav-link:active {
+  background-color: #1F313F;
+  color: #FDD24E;
+  padding: 10px;
+  font-size: 18px;
+}
+
 .fa-bars {
   color:  floralwhite;
 }

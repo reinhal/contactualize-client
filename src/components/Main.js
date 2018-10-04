@@ -18,7 +18,7 @@ export default function Main(props) {
         component={(props) => <Home /> }
         />
         <Route exact path='/new-contact' 
-        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} /> }
+        component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }
         />
         <Route 
         exact path='/contact-list' 
@@ -26,7 +26,7 @@ export default function Main(props) {
         />
         <Route 
         exact path='/record-interaction' 
-        component={(props) => <InteractionForm interactionLegend="Record a New Interaction" interactionButton="Create" type="POST" {...props.match}/>}
+        component={(props) => <InteractionForm interactionLegend="Record a New Interaction" interactionButton="Create" type="POST" {...props.match} history={props.history}/>}
         />
         <Route 
         exact path='/interactions' 

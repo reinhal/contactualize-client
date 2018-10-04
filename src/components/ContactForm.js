@@ -70,8 +70,7 @@ export default class ContactForm extends React.Component {
 
   onInputChange(e) {
     this.setState({
-      [e.target.person]: e.target.value,
-      [e.target.notes]: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
@@ -80,7 +79,7 @@ export default class ContactForm extends React.Component {
       person: this.state.person,
       notes: this.state.notes
     });
-    this.props.history.push('/home');
+    // this.props.history.push('/home');
   }
 
   //props that is passed to the function by a parent component 
@@ -88,7 +87,7 @@ export default class ContactForm extends React.Component {
   //and have a state, when render is called change its state
 
   render(props) {
-    const defaultValues = this.state;
+    const current = this.state;
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="contact-form">
@@ -104,13 +103,19 @@ export default class ContactForm extends React.Component {
               className="newName" 
               type="text" 
               name="name" 
-              defaultValue={defaultValues ? defaultValues.person: ''}
+              value={current ? current.person: ''}
               onChange={this.onInputChange}
             required />
           </div>
           <div>
             <label htmlFor="notes">Notes*</label>
-            <textarea id="notes" name="notes" rows="15" defaultValue={defaultValues ? defaultValues.notes: ''}required></textarea>
+            <textarea 
+              id="notes" 
+              name="notes" 
+              rows="15" 
+              value={current ? current.notes: ''} 
+              onChange={this.onInputChange} 
+            ></textarea>
           </div>
         </fieldset>
         <div className="button-div">

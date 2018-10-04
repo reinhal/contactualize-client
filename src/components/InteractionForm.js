@@ -24,6 +24,7 @@ export default class InteractionForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.handleInteraction = this.handleInteraction.bind(this);
+    this.createInteraction = this.createInteraction.bind(this);
 
     this.state = {
       title: '',
@@ -56,7 +57,8 @@ export default class InteractionForm extends React.Component {
 
     return soFetch(`${interactionUrl}`, opts)
       .then(data => console.log(data))
-      .catch(err => console.error('oops!'));
+      .then(() =>  this.props.history.push('/home'))
+      .catch(err => console.error('oops!', err));
   }
   
   onSubmit(e) {
@@ -80,7 +82,6 @@ export default class InteractionForm extends React.Component {
       title: this.state.title,
       text: this.state.text
     });
-    this.props.history.push('/home');
   }
 
   render(props) {
