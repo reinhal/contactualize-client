@@ -1,6 +1,6 @@
 import React,{ Fragment } from 'react';
-
 import {API_BASE_URL} from '../config';
+import { soFetch } from '../utils/index';
 import Contact from './Contact';
 import {connect} from 'react-redux';
 
@@ -9,12 +9,28 @@ import './styles/ContactList.css';
 export default class ContactList extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       contacts: null,
       currentContact: null
     };
+
+    this.deleteContact = this.deleteContact.bind(this);
+  
   }
 
+  deleteContact(id) {
+    return soFetch(`${API_BASE_URL}/contacts/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() =>
+      this.setState({
+        contacts: this.state.contacts.filter(c => c.id !== id)
+      })
+    )
+    .catch(err => console.error(err));
+  }
+ 
   componentDidMount() {
     this.loadContact();
   }
@@ -47,7 +63,7 @@ export default class ContactList extends React.Component {
       );
   }
 
-  render() {
+  render(props) {
     let main;
     if(this.state.error) {
       main = (
@@ -60,7 +76,8 @@ export default class ContactList extends React.Component {
     } else if (Array.isArray(this.state.contacts)){
         const contacts = this.state.contacts.map((contact, index) => (
           <li className="contact-item" key={index}>
-            <Contact 
+            <Contact
+              deleteContact={this.deleteContact}
               index={index}
               {...contact}
             />

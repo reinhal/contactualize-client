@@ -40,3 +40,19 @@ a.contact-link:hover {
   padding: 5px;
   margin: -9px;
 }
+
+.delete-item {
+  background-color: transparent;
+  font-size: 14px;
+  border: none;
+  color: #1F313F;
+  float: right;
+  cursor: pointer;
+}
+
+.delete-item:hover {
+  background-color: #1F313F;
+  color: #FDD24E;
+  padding: 5px;
+  margin: -6px;
+}

@@ -56,13 +56,14 @@ export default class ContactForm extends React.Component {
 
     return soFetch(`${contactUrl}`, opts)
       .then(data => console.log(data))
+      .then(() =>  this.props.history.push('/home'))
       .catch(err => console.error('oops!'));
   }
   
   onSubmit(e) {
     e.preventDefault();
     const contactData = {
-      person: e.currentTarget.name.value,
+      person: e.currentTarget.person.value,
       notes: e.currentTarget.notes.value
     };
     this.createContact(contactData);
@@ -79,7 +80,6 @@ export default class ContactForm extends React.Component {
       person: this.state.person,
       notes: this.state.notes
     });
-    // this.props.history.push('/home');
   }
 
   //props that is passed to the function by a parent component 
@@ -102,7 +102,7 @@ export default class ContactForm extends React.Component {
               id="person" 
               className="newName" 
               type="text" 
-              name="name" 
+              name="person" 
               value={current ? current.person: ''}
               onChange={this.onInputChange}
             required />
