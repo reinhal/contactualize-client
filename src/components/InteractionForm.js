@@ -1,20 +1,8 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
-import './styles/InteractionForm.css';
+import { soFetch } from '../utils/index';
 
-/**
- * Stop trying to make `fetch` happen, W3C; it's not going to happen.
- * @param {String} path 
- * @param {Object} [fetchOpts={ method: 'get' }] 
- * @param {Object} [params=null]
- */
-function soFetch(path, fetchOpts = { method: 'get' }, params = null) {
-  let url = new URL(path);
-  if (params !== null) Object.values(params).forEach(([k, v]) => url.searchParams.append(k, v));
-  return fetch(url, fetchOpts)
-    .then((res) => res.json())
-    .catch((ex) => console.error('Not so fetch :(', ex));
-}
+import './styles/InteractionForm.css';
 
 export default class InteractionForm extends React.Component {
   constructor(props) {
