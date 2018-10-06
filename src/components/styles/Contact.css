@@ -1,27 +1,49 @@
+
+
 .copy-container {
   background-color: floralwhite;
   border: solid #1F313F 2px;
-  font-size: 18px;
+  border-radius: 15px;
   padding: 20px;
-  box-shadow: 3px 3px 10px #355263;
   max-width: 400px;
 }
 
 .copy-container:hover {
   background-color: white;
+  box-shadow: 3px 3px 10px #355263;
+  border: none;
 }
 
+h3 {
+  float: left;
+  margin-right: 20px;
+  font-style: bold;
+}
+
+h3:hover {
+  margin-right: 0px;
+}
+
+.contact {
+  font-size: 14px;
+}
+
+.contact-notes {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
 
 a.contact-link {
   color:  #1F313F;
   text-decoration: none;
   font-style: bold;
-  font-size: 28px;
+  font-size: 18px;
   padding-bottom: 0px;
 }
 
 a.contact-link:hover {
   background-color: #1F313F;
+  border-radius: 15px;
   color: #FDD24E;
   padding: 10px;
 }
@@ -35,10 +57,10 @@ a.contact-link:hover {
 }
 
 .edit-contact-link:hover {
-  background-color: #1F313F;
-  color: #FDD24E;
+  background-color: red;
+  border-radius: 15px;
   padding: 5px;
-  margin: -9px;
+  margin: -10px;
 }
 
 .delete-item {
@@ -51,8 +73,8 @@ a.contact-link:hover {
 }
 
 .delete-item:hover {
-  background-color: #1F313F;
-  color: #FDD24E;
+  background-color: red;
+  border-radius: 15px;
   padding: 5px;
   margin: -6px;
 }

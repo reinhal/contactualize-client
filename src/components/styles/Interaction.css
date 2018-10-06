@@ -1,25 +1,38 @@
 .copy-container {
   background-color: floralwhite;
   border: solid #1F313F 2px;
-  font-size: 18px;
+  font-size: 15px;
   padding: 20px;
   max-width: 400px;
 }
 
 .copy-container:hover {
   background-color: white;
+  box-shadow: 3px 3px 10px #355263;
+  border: none;
+}
+
+.interaction {
+  font-size: 14px;
+}
+
+.interaction-text {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 a.interaction-link {
   color:  #1F313F;
+  border-radius: 15px;
   text-decoration: none;
   font-style: bold;
-  font-size: 28px;
+  font-size: 18px;
   padding-bottom: 0px;
 }
 
 a.interaction-link:hover {
   background-color: #1F313F;
+  border-radius: 15px;
   color: #FDD24E;
   padding: 10px;
 }
@@ -33,8 +46,8 @@ a.interaction-link:hover {
 }
 
 .edit-interaction-link:hover {
-  background-color: #1F313F;
-  color: #FDD24E;
+  background-color: red;
+  border-radius: 15px;
   padding: 5px;
   margin: -10px;
 }
