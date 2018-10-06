@@ -12,7 +12,6 @@ export default class Contact extends React.Component {
       notes: ''
     };
     this.handleDelete = this.handleDelete.bind(this);
-
   }
 
   handleDelete(e) {

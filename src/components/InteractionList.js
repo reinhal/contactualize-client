@@ -1,8 +1,9 @@
 import React,{Fragment} from 'react';
-
 import {API_BASE_URL} from '../config';
-import {connect} from 'react-redux';
+import { soFetch } from '../utils/index';
 import Interaction from './Interaction';
+import {connect} from 'react-redux';
+
 import './styles/InteractionList.css';
 
 export default class InteractionList extends React.Component {
@@ -12,6 +13,20 @@ export default class InteractionList extends React.Component {
     this.state = {
       interactions: null
     };
+
+    this.deleteInteraction = this.deleteInteraction.bind(this);
+  }
+
+  deleteInteraction(id) {
+    return soFetch(`${API_BASE_URL}/interactions/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() =>
+      this.setState({
+        interactions: this.state.interactions.filter(c => c.id !== id)
+      })
+    )
+    .catch(err => console.error(err));
   }
 
   componentDidMount() {
@@ -58,7 +73,8 @@ export default class InteractionList extends React.Component {
     } else if (Array.isArray(this.state.interactions)) {
       const interactions = this.state.interactions.map((interaction, index) => (
         <li className="interaction=item" key={index}>
-          <Interaction 
+          <Interaction
+            deleteInteraction={this.deleteInteraction}
             index={index}
             {...interaction}
           />

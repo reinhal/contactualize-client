@@ -22,7 +22,7 @@ export default class Main extends React.Component {
           component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }
           />
           <Route 
-          exact path='/contact-list' 
+          exact path='/contacts' 
           component={(props) => <ContactList {...props.match} />}
           />
           <Route 
@@ -31,7 +31,7 @@ export default class Main extends React.Component {
           />
           <Route 
           exact path='/interactions' 
-          component={(props) => <InteractionList {...props}/>}
+          component={(props) => <InteractionList {...props.match}/>}
           />
           <Route 
           path='/edit-contact/:id' 

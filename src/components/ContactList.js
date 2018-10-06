@@ -86,9 +86,7 @@ export default class ContactList extends React.Component {
         main = <ul>{contacts}</ul>;
     }
     return (
-      <Fragment>
-        {main}
-      </Fragment>
+      <Fragment>{main}</Fragment>
     );
   }
 }
