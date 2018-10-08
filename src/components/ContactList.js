@@ -48,12 +48,10 @@ export default class ContactList extends React.Component {
         return res.json();
       })
       .then(contacts => {
-        setTimeout(() => (
-          this.setState({
-            contacts: contacts,
-            loading: false
-          })
-        ), 5000);
+        this.setState({
+          contacts: contacts,
+          loading: false
+        })
       })
       .catch(err =>
         this.setState({

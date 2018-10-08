@@ -1,13 +1,23 @@
 import React from 'react';
 import {API_BASE_URL} from '../config';
 import ContactList from './ContactList';
+import ContactForm from './ContactForm';
 import InteractionList from './InteractionList';
 import {Link} from 'react-router-dom';
 
 import './styles/DashboardWindow.css';
 
 export default class DashboardWindow extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      error: null, 
+      loading: false
+    };
+  }
+
+  render(props) {
     return (
       <div>
         <main role="main">

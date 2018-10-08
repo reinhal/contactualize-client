@@ -1,4 +1,5 @@
 import React from 'react';
+import Feedback from './Feedback';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
 
@@ -43,8 +44,13 @@ export default class ContactForm extends React.Component {
     };
 
     return soFetch(`${contactUrl}`, opts)
-      .then(data => console.log(data))
+      // .then(() => 
+      //   this.setState({
+      //     person: this.state.person, 
+      //     notes: this.state.notes
+      //   }))
       .then(() =>  this.props.history.push('/home'))
+      //is this REACT style for POSTING, or will this change when I refactor with Redux
       .catch(err => console.error('oops!'));
   }
   
@@ -68,13 +74,14 @@ export default class ContactForm extends React.Component {
       person: this.state.person,
       notes: this.state.notes
     });
+    return <div><Feedback /></div>
   }
 
   //props that is passed to the function by a parent component 
   //that can be called to tell the parent the success message, 
   //and have a state, when render is called change its state
 
-  render(props) {
+  render() {
     const current = this.state;
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>

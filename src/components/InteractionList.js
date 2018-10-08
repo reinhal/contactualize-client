@@ -46,12 +46,10 @@ export default class InteractionList extends React.Component {
         return res.json();
       })
       .then(interactions => {
-        setTimeout(() => (
-          this.setState({
-            interactions: interactions,
-            loading: false
-          })
-        ), 5000);
+        this.setState({
+          interactions: interactions,
+          loading: false
+        })
       })
       .catch(err => 
         this.setState({

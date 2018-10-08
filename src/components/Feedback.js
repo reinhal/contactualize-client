@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Feedback';
+import './styles/Feedback.css';
 
 export default class Feedback extends React.Component {
   constructor(props) {
@@ -18,4 +18,8 @@ export default class Feedback extends React.Component {
       </div>
     );
   }
+}
+
+Feedback.defaultProps = {
+  newType: "contact"
 }
