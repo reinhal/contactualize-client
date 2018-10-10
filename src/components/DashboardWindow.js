@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {API_BASE_URL} from '../config';
 import ContactList from './ContactList';
 import ContactForm from './ContactForm';
@@ -19,38 +19,40 @@ export default class DashboardWindow extends React.Component {
 
   render(props) {
     return (
-      <div>
-        <main role="main">
-          <div className="row">
+      <Fragment>
+        <div>
+          <main role="main">
+            <div className="row">
+              <div className="col-6">
+                <div className="contact-info-box">
+                  <h2>Manage Contacts</h2>
+                  <ul>
+                    <div>
+                      <li><Link className="dashboard-link" to="/new-contact">New Contact</Link></li>
+                    </div>
+                    <div>
+                      <li><ContactList /></li>
+                    </div>     
+                  </ul>
+                </div>    
+              </div>
             <div className="col-6">
-              <div className="info-box">
-                <h2>Manage Contacts</h2>
-                <ul>
-                  <div>
-                    <li><Link className="dashboard-link" to="/new-contact">New Contact</Link></li>
-                  </div>
-                  <div>
-                    <li><ContactList /></li>
-                  </div>     
-                </ul>
-              </div>    
+                <div className="interaction-info-box">
+                  <h2>Recent Interactions</h2>
+                  <ul>
+                    <div>
+                      <li><Link className="dashboard-link" to="/record-interaction">New Interaction</Link></li>
+                    </div>
+                    <div>
+                      <li><InteractionList /></li>
+                    </div>
+                  </ul>
+                </div>    
+              </div>
             </div>
-          <div className="col-6">
-              <div className="info-box">
-                <h2>Recent Interactions</h2>
-                <ul>
-                  <div>
-                    <li><Link className="dashboard-link" to="/record-interaction">New Interaction</Link></li>
-                  </div>
-                  <div>
-                    <li><InteractionList /></li>
-                  </div>
-                </ul>
-              </div>    
-            </div>
-          </div>
-        </main>
-      </div>
+          </main>
+        </div>
+      </Fragment>
     );
   }
 }

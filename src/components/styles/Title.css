@@ -8,11 +8,12 @@ h1 {
   margin-bottom: -20px;
   font-family: 'Quicksand', sans-serif;
   font-size: 4em;
-  color: floralwhite;
+  color: #1F313F;
 }
 
 h2 {
   text-align: center;
+  color: gray;
   margin: 0;
   padding-bottom: 30px;
   font-family: 'Quicksand', sans-serif;

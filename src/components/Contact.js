@@ -20,6 +20,7 @@ export default class Contact extends React.Component {
   }
 
   render(props) {
+    console.log(this.props);
     return (
       <div>
         <section>
@@ -31,7 +32,7 @@ export default class Contact extends React.Component {
               <p>{this.props.notes}</p>
             </div>
             <div className="contact">
-              <p>3 interactions</p>
+              <p> {this.props.interactions.length} interactions</p>
             </div>
             <div><Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
             <div>

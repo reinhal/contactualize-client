@@ -3,10 +3,8 @@
 }
 
 body {
-  background-color: #355263;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  color: #1F313F;
   font-family: 'Antic Slab', serif;
   color:#D5D5D3;
   line-height: 1.5;
@@ -46,6 +44,6 @@ main {
 
   .fa-bars {
     display: inline;
-    color: black;
+    color: #1F313F;
   }
 }

@@ -1,15 +1,14 @@
 
 
 .copy-container {
-  background-color: floralwhite;
+  background-color: white;
   border: solid #1F313F 2px;
-  border-radius: 15px;
   padding: 20px;
   max-width: 400px;
 }
 
 .copy-container:hover {
-  background-color: white;
+  background-color: #cddce5;
   box-shadow: 3px 3px 10px #355263;
   border: none;
 }
@@ -35,16 +34,15 @@ h3:hover {
 
 a.contact-link {
   color:  #1F313F;
+  border: solid #1F313F 1px;
   text-decoration: none;
   font-style: bold;
   font-size: 18px;
-  padding-bottom: 0px;
+  padding: 4px;
 }
 
 a.contact-link:hover {
   background-color: white;
-  border: solid #1F313F 2px;
-  border-radius: 15px;
   padding: 10px;
 }
 
@@ -57,7 +55,7 @@ a.contact-link:hover {
 }
 
 .edit-contact-link:hover {
-  background-color: white;
+  background-color: whitesmoke;
   color: red;
   font-size: 16px;
   padding: -10px;
@@ -74,7 +72,7 @@ a.contact-link:hover {
 }
 
 .delete-item:hover {
-  background-color: white;
+  background-color: whitesmoke;
   color: red;
   font-size: 16px;
   padding: -10px;

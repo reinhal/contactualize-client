@@ -19,25 +19,25 @@ li {
 }
 
 .nav-link {
-  color: #FEFEFE;
+  color: #1F313F;
   font-size: 14px;  
 }
 
 .nav-link:visited {
-  color: floralwhite;
+  color: #355263;
   font-size: 16px;  
 }
 
 .nav-link:hover {
   background-color: #1F313F;
-  color: #FDD24E;
+  color: white;
   padding: 10px;
   font-size: 18px;
 }
 
 a.nav-link:active {
   background-color: #1F313F;
-  color: #FDD24E;
+  color: grey;
   padding: 10px;
   font-size: 18px;
 }
@@ -57,6 +57,6 @@ a.nav-link:active {
 
   .fa-bars {
     display: inline;
-    color: black;
+    color: #1F313F;
   }
 }

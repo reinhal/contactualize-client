@@ -1,6 +1,6 @@
 #create-interaction {
-  /* background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%); */
-  background-color: floralwhite;
+  background-color: whitesmoke;
+  background-image: url('https://image.ibb.co/hdwy3p/user3.png');
   border: solid #1F313F 5px;
   margin: 0 auto;
   width: 80%;
@@ -35,7 +35,7 @@ label {
 input, textarea {
   width: 100%;
   max-width: 100%;
-  background-color: floralwhite;
+  background-color: white;
   border: solid #1F313F 2px;
   font-size: 18px;
   padding: 15px;
@@ -46,7 +46,7 @@ input, textarea {
 }
 
 .interaction-button {
-  background-color: transparent;
+  background-color: white;
   width: 80%;
   margin: 20px;
   text-align: center;
@@ -57,6 +57,5 @@ input, textarea {
 }
 
 .interaction-button:hover {
-  color: #FDD24E;
-  background-color: #1F313F;
+  background-color: transparent;
 }

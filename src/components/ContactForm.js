@@ -50,7 +50,6 @@ export default class ContactForm extends React.Component {
       //     notes: this.state.notes
       //   }))
       .then(() =>  this.props.history.push('/home'))
-      //is this REACT style for POSTING, or will this change when I refactor with Redux
       .catch(err => console.error('oops!'));
   }
   

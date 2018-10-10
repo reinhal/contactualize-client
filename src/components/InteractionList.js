@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React, { Fragment } from 'react';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
 import Interaction from './Interaction';

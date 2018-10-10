@@ -1,9 +1,29 @@
-.info-box {
+.contact-info-box {
   height: 800px;
   color: #1F313F;
+  border: 1px solid #1F313F;
   text-align: center;
   padding-top: 30px;
-  background-color: floralwhite;
+  background-color: white;
+  background-image: url('https://image.ibb.co/gQTqjU/png_rt.png');
+  background-position: center right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  overflow: scroll;
+}
+
+.interaction-info-box {
+  height: 800px;
+  color: #1F313F;
+  border: 1px solid #1F313F;
+  text-align: center;
+  padding-top: 30px;
+  background-color: white;
+  background-image: url('https://image.ibb.co/kHwCEU/png_lt.png');
+  background-position: center left;
+  background-size: contain;
+  background-repeat: no-repeat;
   margin-top: 10px;
   overflow: scroll;
 }
