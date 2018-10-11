@@ -28,10 +28,19 @@
   overflow: scroll;
 }
 
+.dashboard-link {
+  color:  #1F313F;
+  border: solid #1F313F 1px;
+  text-decoration: none;
+  font-style: bold;
+  font-size: 18px;
+  padding: 4px;
+}
+
 .dashboard-link:hover {
-  color: #FDD24E;
-  background-color: #1F313F;
-  padding: 5px;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 10px #355263;
+  border: none;
 }
 
 .row {

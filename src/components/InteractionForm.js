@@ -15,6 +15,7 @@ export default class InteractionForm extends React.Component {
     this.createInteraction = this.createInteraction.bind(this);
 
     this.state = {
+      person: '',
       title: '',
       text: ''
     }
@@ -60,15 +61,15 @@ export default class InteractionForm extends React.Component {
 
   onInputChange(e) {
     this.setState({
-      [e.target.title]: e.target.value,
-      [e.target.notes]: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
   handleInteraction(e) {
     this.setState({
       title: this.state.title,
-      text: this.state.text
+      text: this.state.text,
+      person: this.state.person
     });
   }
 
@@ -97,8 +98,17 @@ export default class InteractionForm extends React.Component {
             <label htmlFor="text">Text*</label>
             <textarea id="text" name="text" rows="10" defaultValue={defaultValues ? defaultValues.text: ''}></textarea>
           </div>
-          {/* add a dropdown menu here for all current contacts, 
-          display their name but add their ID as part of the interactions props */}
+          <div>
+            <label htmlFor="contact-int">Contact*</label>
+            <input 
+              id="contact-int" 
+              className="contactInt" 
+              type="text" 
+              name="contact-int" 
+              defaultValue="enter name of person"
+              // onChange={this.onInputChange}
+            required />
+          </div>
         </fieldset>
         <div className="button-div">
           <button className="interaction-button" type="submit" onClick={this.handleInteraction}>{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>

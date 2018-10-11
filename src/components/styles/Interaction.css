@@ -1,5 +1,5 @@
 .copy-container {
-  background-color: white;
+  background-color: transparent;
   border: solid #1F313F 2px;
   font-size: 15px;
   padding: 20px;
@@ -7,7 +7,7 @@
 }
 
 .copy-container:hover {
-  background-color: #cddce5;
+  background-color: whitesmoke;
   box-shadow: 3px 3px 10px #355263;
   border: none;
 }

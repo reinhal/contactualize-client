@@ -44,11 +44,6 @@ export default class ContactForm extends React.Component {
     };
 
     return soFetch(`${contactUrl}`, opts)
-      // .then(() => 
-      //   this.setState({
-      //     person: this.state.person, 
-      //     notes: this.state.notes
-      //   }))
       .then(() =>  this.props.history.push('/home'))
       .catch(err => console.error('oops!'));
   }
@@ -73,7 +68,6 @@ export default class ContactForm extends React.Component {
       person: this.state.person,
       notes: this.state.notes
     });
-    return <div><Feedback /></div>
   }
 
   //props that is passed to the function by a parent component 

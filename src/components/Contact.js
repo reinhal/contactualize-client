@@ -8,15 +8,34 @@ export default class Contact extends React.Component {
     super(props);
 
     this.state = {
+      interactions: [],
       person: '',
       notes: ''
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleContactDetail = this.handleContactDetail.bind(this);
+    this.interactionNumber = this.interactionNumber.bind(this);
   }
 
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteContact(this.props.id);
+  }
+
+  handleContactDetail(e) {
+    this.setState({
+      interactions: this.state.interactions,
+      person: this.state.person, 
+      notes: this.state.notes
+    })
+  }
+ 
+  interactionNumber() {
+    if (this.props.interactions.length === 1) {
+      return  <div className="contact"><p> {this.props.interactions.length} interaction</p></div>
+    } else {
+      return  <div className="contact"><p> {this.props.interactions.length} interactions</p></div>
+    }
   }
 
   render(props) {
@@ -26,14 +45,13 @@ export default class Contact extends React.Component {
         <section>
           <div className='copy-container'>
             <div className='contact'>
-              <h3><Link className="contact-link" to="/contacts/{this.props.person}">{this.props.person}</Link></h3>
+              <h3><Link onClick={this.handleContactDetail} className="contact-link" to={`/contacts/${this.props.id}`}>{this.props.person}</Link></h3>
             </div>
             <div className="contact-notes">
               <p>{this.props.notes}</p>
             </div>
-            <div className="contact">
-              <p> {this.props.interactions.length} interactions</p>
-            </div>
+             {this.interactionNumber}
+              {/* add a if statement for more than one interaction */}
             <div><Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
             <div>
               <button  

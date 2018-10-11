@@ -1,0 +1,16 @@
+.contact-detail {
+  background-color: white;
+  border: solid #1F313F 2px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 50%;
+} 
+
+.contact-detail-h2 {
+  color: #355263;
+  padding-bottom: 0px;
+}
+
+.contact-detail-p {
+  padding-bottom: 15px;
+}
