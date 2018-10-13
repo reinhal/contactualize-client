@@ -45,7 +45,7 @@ export default class ContactDetail extends React.Component {
   }
 
   render(props) {
-    console.log(this.state);
+    console.log(this.props);
     return (
       <div className="contact-detail">
         <h2 className="contact-detail-h2">{this.props.person}Contact Name</h2>

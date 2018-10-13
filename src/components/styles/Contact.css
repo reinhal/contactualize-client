@@ -7,12 +7,6 @@
   max-width: 400px;
 }
 
-.copy-container:hover {
-  background-color: whitesmoke;
-  box-shadow: 3px 3px 10px #355263;
-  border: none;
-}
-
 h3 {
   float: left;
   margin-right: 20px;
@@ -42,8 +36,9 @@ a.contact-link {
 }
 
 a.contact-link:hover {
-  background-color: white;
-  padding: 10px;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 10px #355263;
+  border: none;
 }
 
 .edit-contact-link {

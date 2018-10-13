@@ -7,7 +7,7 @@ export default class Interaction extends React.Component {
     super(props);
 
     this.state = {
-      person: [],
+      person: '',
       title: '',
       text: ''
     };
@@ -33,7 +33,7 @@ export default class Interaction extends React.Component {
                 <p>{this.props.text}</p>
               </div>
               <div className="interaction">
-                <p>{this.props.person.person}</p>
+                <p>{this.props.person && this.props.person.person}</p>
               </div>
               <div><Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
               <div>

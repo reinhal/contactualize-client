@@ -15,7 +15,7 @@ export default class InteractionForm extends React.Component {
     this.createInteraction = this.createInteraction.bind(this);
 
     this.state = {
-      person: '',
+      person_id: '',
       title: '',
       text: ''
     }
@@ -25,10 +25,36 @@ export default class InteractionForm extends React.Component {
     console.log(this.props.params);
     if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
-        .then(data => this.setState({ title: data.title, text: data.text}));
+        .then(data => this.setState({ person: data.person_id, title: data.title, text: data.text}));
     }
   }
 
+  loadContact() {
+    this.setState({
+      error: null,
+      loading: true
+    });
+    return fetch(`${API_BASE_URL}/contacts`)
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.statusText);
+        }
+        return res.json();
+      })
+      .then(contacts => {
+        this.setState({
+          contacts: contacts,
+          loading: false
+        })
+      })
+      .catch(err =>
+        this.setState({
+          error: 'Could not load contacts',
+          loading: false
+        })
+      );
+  }
+ 
   createInteraction(interactionData) {
     console.log(interactionData);
     let interactionUrl = `${API_BASE_URL}/interactions`;
@@ -53,6 +79,7 @@ export default class InteractionForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const interactionData = {
+      person_id: e.currentTarget.person.value,
       title: e.currentTarget.title.value,
       text: e.currentTarget.text.value
     };
@@ -67,14 +94,18 @@ export default class InteractionForm extends React.Component {
 
   handleInteraction(e) {
     this.setState({
+      person_id: this.state.person,
       title: this.state.title,
-      text: this.state.text,
-      person: this.state.person
+      text: this.state.text
     });
   }
 
-  render(props) {
+  render(props, index) {
     const defaultValues = this.state;
+    const contactData = this.state.contacts;
+    const contactList = contactData.map((contact) => 
+      <option value={contactData.person}>{contactData.person}</option>
+    );
     return (
       <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="interaction-form">
@@ -83,6 +114,14 @@ export default class InteractionForm extends React.Component {
             ? 'Add Interaction'
             : 'Update Interaction'}
           </legend>
+          <div>
+            <select name="contact-list">
+              {contactList}
+              {/* {this.state.contacts.map(contact => 
+                <option key={index} value={this.state.person}>{this.state.person}</option>)} */}
+              {/* // arrow function with callback, this returns the option tag */}
+            </select>
+          </div>
           <div>
             <label htmlFor="title">Title*</label>
             <input 
@@ -97,17 +136,6 @@ export default class InteractionForm extends React.Component {
           <div>
             <label htmlFor="text">Text*</label>
             <textarea id="text" name="text" rows="10" defaultValue={defaultValues ? defaultValues.text: ''}></textarea>
-          </div>
-          <div>
-            <label htmlFor="contact-int">Contact*</label>
-            <input 
-              id="contact-int" 
-              className="contactInt" 
-              type="text" 
-              name="contact-int" 
-              defaultValue="enter name of person"
-              // onChange={this.onInputChange}
-            required />
           </div>
         </fieldset>
         <div className="button-div">
