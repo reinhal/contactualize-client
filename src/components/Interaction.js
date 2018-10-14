@@ -35,7 +35,7 @@ export default class Interaction extends React.Component {
               </div>
               <div className="interaction">
                 {/* <p>{this.props.person && this.props.person.person}</p> */}
-                <p>{this.findContact}</p>
+                <p>Contact Name{this.findContact}</p>
               </div>
               <div><Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
               <div>

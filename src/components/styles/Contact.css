@@ -1,8 +1,8 @@
-
-
 .copy-container {
   background-color: transparent;
+  text-align: center;
   border: solid  #F2B134 3px;
+  font-size: 15px;
   padding: 20px;
   max-width: 400px;
 }
@@ -24,13 +24,12 @@ h3 {
 
 .contact-person {
   color:  #112F41;
-  margin-top: 0px;
   font-style: bold;
   font-size: 18px;
   padding: 4px;
 }
 
-.interaction-text {
+.interaction-quantity {
   margin: 0px;
 }
 
