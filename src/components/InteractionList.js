@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
 import Interaction from './Interaction';
-import {connect} from 'react-redux';
 
 import './styles/InteractionList.css';
 
@@ -87,12 +86,12 @@ export default class InteractionList extends React.Component {
   }
 
   findContact() {
-    this.state = {
+    this.setState = {
       contacts: null
     }
     this.state.contacts.map((contact) => {
       if (contact._id === this.props.person_id) {
-        console.log(contact.person);
+        return contact.person;
       }
     })
   }

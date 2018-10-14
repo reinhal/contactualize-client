@@ -13,10 +13,6 @@ h3 {
   font-style: bold;
 }
 
-h3:hover {
-  margin-right: 0px;
-}
-
 .contact {
   font-size: 14px;
 }
@@ -28,17 +24,21 @@ h3:hover {
 
 .contact-person {
   color:  #112F41;
-  text-decoration: none;
+  margin-top: 0px;
   font-style: bold;
   font-size: 18px;
   padding: 4px;
+}
+
+.interaction-text {
+  margin: 0px;
 }
 
 .interaction-detail {
   color:  #112F41;
   border: solid #53327F 2px;
   background-color: transparent;
-  width: 150px;
+  width: 80%;
 }
 
 .interaction-detail:hover {

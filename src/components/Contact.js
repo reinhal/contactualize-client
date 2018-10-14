@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
-import {API_BASE_URL} from '../config';
 import {Link} from 'react-router-dom';
-// import ContactDetail from 'ContactDetail';
+
 import './styles/Contact.css';
 
   
@@ -26,7 +25,7 @@ export default class Contact extends React.Component {
   interactionText() {
     let noun = 'interaction';
     if (this.props.interactions.length !== 1) {noun + 's'}
-    return  <div className="contact"><p> {this.props.interactions.length} {noun}</p></div>
+    return  <div className="contact"><p className="interaction-text"> {this.props.interactions.length} {noun}</p></div>
   }
 
   render(props) {

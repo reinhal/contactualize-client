@@ -1,11 +1,14 @@
 
 fieldset {
-  background-color: floralwhite;
+  background-color: whitesmoke;
   margin: 10px;
 }
 
 .signup-div {
-  margin: 30px;
+  background-color: whitesmoke;
+  background-image: url('https://image.ibb.co/hdwy3p/user3.png');
+  margin: 0 auto;
+  width: 50%;
   border: solid #112F41 2px;
 }
 
@@ -16,9 +19,14 @@ fieldset {
 
 .signup-field {
   width: 100%;
+  border: solid #112F41 2px;
   margin: 0 auto;
   font-size: 16px;
   padding: 5px;
+}
+
+.signup-password {
+  border: solid #112F41 2px;
 }
 
 .sign-up-button {
@@ -27,28 +35,29 @@ fieldset {
 
 .signup-form {
   margin: 0 auto;
-  width: 80%;
+  width: 50%;
   padding-bottom: 15px;
 }
 
 button.landingpage-button {
-  background-color: transparent;
+  background-color: white;
   width: 50%;
-  margin: 0 auto;
+  margin-right: 0px;
   font-size: 18px;
   border: solid #112F41 2px;
   color: #112F41;
   cursor: pointer;
   display: block;
+  justify-items: right;
 }
 
 button.landingpage-button:hover {
-  color: #FDD24E;
-  background-color: #112F41;
+  background-color: #4FB99F;
+  box-shadow: 3px 3px 10px #355263;
 }
 
 button.landingpage-signup-button {
-  background-color: transparent;
+  background-color: white;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 15px;
@@ -60,8 +69,8 @@ button.landingpage-signup-button {
 }
 
 button.landingpage-signup-button:hover {
-  color: #FDD24E;
-  background-color: #112F41;
+  background-color: #4FB99F;
+  box-shadow: 3px 3px 10px #355263;
 }
 
 .sign-up-button {
@@ -70,6 +79,7 @@ button.landingpage-signup-button:hover {
 
 .lp-text {
   float: left;
+  margin-top: 0px;
 }
 
 .signup-password {

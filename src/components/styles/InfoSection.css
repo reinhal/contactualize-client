@@ -6,8 +6,8 @@ section {
   color: #112F41;
 }
 
-p {
-  width: 75%;
+.info-section-text {
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -15,5 +15,5 @@ p {
   background-image: url('https://image.ibb.co/j8Shop/png4.png');
   background-position: center;
   background-size: contain;
-  /* background-repeat: repeat; */
+  background-repeat: no-repeat;
 }

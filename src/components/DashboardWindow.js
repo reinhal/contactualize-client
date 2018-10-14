@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
-import {API_BASE_URL} from '../config';
 import ContactList from './ContactList';
-import ContactForm from './ContactForm';
 import InteractionList from './InteractionList';
 import {Link} from 'react-router-dom';
 

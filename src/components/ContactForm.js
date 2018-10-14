@@ -1,5 +1,4 @@
 import React from 'react';
-import Feedback from './Feedback';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
 
@@ -99,7 +98,8 @@ export default class ContactForm extends React.Component {
             <label htmlFor="notes">Notes*</label>
             <textarea 
               id="notes" 
-              name="notes" 
+              name="notes"
+              className ="newNotes" 
               rows="15" 
               value={current ? current.notes: ''} 
               onChange={this.onInputChange} 

@@ -100,7 +100,7 @@ export default class InteractionForm extends React.Component {
   }
 
   render(props, index) {
-    console.log(this.props);
+    console.log(this.state);
     const defaultValues = this.state;
     return (
       <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
@@ -111,6 +111,7 @@ export default class InteractionForm extends React.Component {
             : 'Update Interaction'}
           </legend>
           <div>
+            <label htmlFor="Contact">Contact*</label>
             <select name="person_id">
               <option value='Anne'>Anne</option>
               <option value='Michael'>Michael</option>
