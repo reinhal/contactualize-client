@@ -4,7 +4,7 @@ import './styles/InfoSection.css';
 
 export default function InfoSection() {
   return (
-    <div>
+    <div className="info-section-container">
       <section>
         <h2>Keep in touch with family, friends and contacts.</h2>
         <p>[<em>placeholder for screenshot of Contactualize dashboard</em>]</p>

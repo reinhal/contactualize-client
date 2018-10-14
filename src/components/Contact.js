@@ -15,8 +15,7 @@ export default class Contact extends React.Component {
       notes: ''
     };
     this.handleDelete = this.handleDelete.bind(this);
-    // this.handleContactInteractions = this.handleContactInteractions.bind(this);
-    // this.interactionText = this.interactionText.bind(this);
+    this.interactionText = this.interactionText.bind(this);
   }
 
   handleDelete(e) {
@@ -24,16 +23,6 @@ export default class Contact extends React.Component {
     this.props.deleteContact(this.props.id);
   }
 
-  // handleContactInteractions(e) {
-  //   return fetch(`${API_BASE_URL}/interactions/${this.props.interactions.id}`)
-  //     .then(interaction => {
-  //       this.setState({
-  //         title: this.state.title,
-  //         text: this.state.text
-  //       })
-  //     })
-  // }
- 
   interactionText() {
     let noun = 'interaction';
     if (this.props.interactions.length !== 1) {noun + 's'}
@@ -48,14 +37,12 @@ export default class Contact extends React.Component {
           <section>
             <div className='copy-container'>
               <div className='contact'>
-                <h3><button onClick={this.handleContactInteractions} className="contact-link">{this.props.person}</button></h3>
-                {/* <h3><Link onClick={this.handleContactInteractions} className="contact-link" to={`/contacts/${this.props.id}`}>{this.props.person}</Link></h3> */}
+                <h3 className="contact-person">{this.props.person}</h3>
               </div>
               <div className="contact-notes">
                 <p>{this.props.notes}</p>
-              </div> 
-              {this.interactionText()}
-              {/* {this.handleContactInteractions()} */}
+              </div>
+              <div><button className="interaction-detail">{this.interactionText()}</button></div>
               <li>{this.props.interactions.title}</li>
               <div><Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
               <div>

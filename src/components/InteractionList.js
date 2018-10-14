@@ -15,6 +15,7 @@ export default class InteractionList extends React.Component {
     };
 
     this.deleteInteraction = this.deleteInteraction.bind(this);
+    this.findContact = this.findContact.bind(this);
   }
 
   deleteInteraction(id) {
@@ -58,6 +59,44 @@ export default class InteractionList extends React.Component {
         })
       );
   }
+
+  loadContact() {
+    this.setState({
+      error: null,
+      loading: true
+    });
+    return fetch(`${API_BASE_URL}/contacts`)
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.statusText);
+        }
+        return res.json();
+      })
+      .then(contacts => {
+        this.setState({
+          contacts: contacts,
+          loading: false
+        })
+      })
+      .catch(err =>
+        this.setState({
+          error: 'Could not load contacts',
+          loading: false
+        })
+      );
+  }
+
+  findContact() {
+    this.state = {
+      contacts: null
+    }
+    this.state.contacts.map((contact) => {
+      if (contact._id === this.props.person_id) {
+        console.log(contact.person);
+      }
+    })
+  }
+
   render() {
     let main;
     if(this.state.error) {
@@ -73,6 +112,7 @@ export default class InteractionList extends React.Component {
         <li className="interaction=item" key={index}>
           <Interaction
             deleteInteraction={this.deleteInteraction}
+            findContact={this.findContact}
             index={index}
             {...interaction}
           />

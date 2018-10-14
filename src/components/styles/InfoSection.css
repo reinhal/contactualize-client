@@ -3,10 +3,17 @@ section {
   min-height: 200px;
   padding: 30px 15px;
   background-color: transparent;
-  color: #1f313f;
+  color: #112F41;
 }
 
 p {
   width: 75%;
   margin: 0 auto;
+}
+
+.info-section-container {
+  background-image: url('https://image.ibb.co/j8Shop/png4.png');
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: repeat; */
 }

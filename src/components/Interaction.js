@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import {API_BASE_URL} from '../config';
 import {Link} from 'react-router-dom';
 import './styles/Interaction.css';
 
@@ -7,7 +8,7 @@ export default class Interaction extends React.Component {
     super(props);
 
     this.state = {
-      person: '',
+      person_id: '',
       title: '',
       text: ''
     };
@@ -21,19 +22,21 @@ export default class Interaction extends React.Component {
   }
 
   render(props) {
+    console.log(this.props);
     return (
       <Fragment>
         <div>
           <section>
-            <div className='copy-container'>
+            <div className='interaction-copy-container'>
               <div className='interaction'>
-                <h3><Link className="interaction-link" to="/contacts/{props.person}">{this.props.title}</Link></h3>
+                <h3 className="interaction-title">{this.props.title}</h3>
               </div>
               <div className="interaction-text">
                 <p>{this.props.text}</p>
               </div>
               <div className="interaction">
-                <p>{this.props.person && this.props.person.person}</p>
+                {/* <p>{this.props.person && this.props.person.person}</p> */}
+                <p>{this.findContact}</p>
               </div>
               <div><Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
               <div>

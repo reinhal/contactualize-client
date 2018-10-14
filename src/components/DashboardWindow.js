@@ -28,7 +28,7 @@ export default class DashboardWindow extends React.Component {
                   <h2>Manage Contacts</h2>
                   <ul>
                     <div>
-                      <li><Link className="dashboard-link" to="/new-contact">New Contact</Link></li>
+                      <li><Link className="contact-dashboard-link" to="/new-contact">New Contact</Link></li>
                     </div>
                     <div>
                       <li><ContactList /></li>
@@ -41,7 +41,7 @@ export default class DashboardWindow extends React.Component {
                   <h2>Recent Interactions</h2>
                   <ul>
                     <div>
-                      <li><Link className="dashboard-link" to="/record-interaction">New Interaction</Link></li>
+                      <li><Link className="interaction-dashboard-link" to="/record-interaction">New Interaction</Link></li>
                     </div>
                     <div>
                       <li><InteractionList /></li>

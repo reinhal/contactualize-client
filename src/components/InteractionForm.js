@@ -15,9 +15,8 @@ export default class InteractionForm extends React.Component {
     this.createInteraction = this.createInteraction.bind(this);
 
     this.state = {
-      person_id: '',
-      title: '',
-      text: ''
+      contact: {},
+      interaction: {}
     }
   }
 
@@ -25,7 +24,7 @@ export default class InteractionForm extends React.Component {
     console.log(this.props.params);
     if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
-        .then(data => this.setState({ person: data.person_id, title: data.title, text: data.text}));
+        .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
     }
   }
 
@@ -79,7 +78,7 @@ export default class InteractionForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const interactionData = {
-      person_id: e.currentTarget.person.value,
+      person_id: e.currentTarget.person_id.value,
       title: e.currentTarget.title.value,
       text: e.currentTarget.text.value
     };
@@ -94,18 +93,15 @@ export default class InteractionForm extends React.Component {
 
   handleInteraction(e) {
     this.setState({
-      person_id: this.state.person,
+      person_id: this.state.person_id,
       title: this.state.title,
       text: this.state.text
     });
   }
 
   render(props, index) {
+    console.log(this.props);
     const defaultValues = this.state;
-    const contactData = this.state.contacts;
-    const contactList = contactData.map((contact) => 
-      <option value={contactData.person}>{contactData.person}</option>
-    );
     return (
       <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="interaction-form">
@@ -115,10 +111,14 @@ export default class InteractionForm extends React.Component {
             : 'Update Interaction'}
           </legend>
           <div>
-            <select name="contact-list">
-              {contactList}
-              {/* {this.state.contacts.map(contact => 
-                <option key={index} value={this.state.person}>{this.state.person}</option>)} */}
+            <select name="person_id">
+              <option value='Anne'>Anne</option>
+              <option value='Michael'>Michael</option>
+              <option value='Frederik'>Frederik</option>
+              <option value='Louise'>Louise</option>
+              {/* {contactList} */}
+              {/* {this.props.contacts.map(contact => 
+                <option key={index} value={this.props.person}>{this.props.person}</option>)} */}
               {/* // arrow function with callback, this returns the option tag */}
             </select>
           </div>

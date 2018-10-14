@@ -6,7 +6,7 @@ fieldset {
 
 .signup-div {
   margin: 30px;
-  border: solid #1F313F 2px;
+  border: solid #112F41 2px;
 }
 
 .signup-label {
@@ -36,15 +36,15 @@ button.landingpage-button {
   width: 50%;
   margin: 0 auto;
   font-size: 18px;
-  border: solid #1F313F 2px;
-  color: #1F313F;
+  border: solid #112F41 2px;
+  color: #112F41;
   cursor: pointer;
   display: block;
 }
 
 button.landingpage-button:hover {
   color: #FDD24E;
-  background-color: #1F313F;
+  background-color: #112F41;
 }
 
 button.landingpage-signup-button {
@@ -53,15 +53,15 @@ button.landingpage-signup-button {
   margin: 0 auto;
   margin-bottom: 15px;
   font-size: 18px;
-  border: solid #1F313F 2px;
-  color: #1F313F;
+  border: solid #112F41 2px;
+  color: #112F41;
   cursor: pointer;
   display: block;
 }
 
 button.landingpage-signup-button:hover {
   color: #FDD24E;
-  background-color: #1F313F;
+  background-color: #112F41;
 }
 
 .sign-up-button {

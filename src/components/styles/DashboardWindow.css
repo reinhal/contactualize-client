@@ -1,7 +1,7 @@
 .contact-info-box {
   height: 800px;
-  color: #1F313F;
-  border: 1px solid #1F313F;
+  color: #112F41;
+  border: 2px solid #068587;
   text-align: center;
   padding-top: 30px;
   background-color: white;
@@ -15,8 +15,8 @@
 
 .interaction-info-box {
   height: 800px;
-  color: #1F313F;
-  border: 1px solid #1F313F;
+  color: #112F41;
+  border: 2px solid #068587;
   text-align: center;
   padding-top: 30px;
   background-color: white;
@@ -27,20 +27,38 @@
   margin-top: 10px;
   overflow: scroll;
 }
+a.contact-dashboard-link {
+  color:  #112F41;
+}
 
-.dashboard-link {
-  color:  #1F313F;
-  border: solid #1F313F 1px;
+.contact-dashboard-link {
+  border: solid #F2B134 2px;
   text-decoration: none;
   font-style: bold;
   font-size: 18px;
-  padding: 4px;
+  padding: 5px;
 }
 
-.dashboard-link:hover {
+a.interaction-dashboard-link {
+  color:  #112F41;
+}
+
+.interaction-dashboard-link {
+  border: solid #53327F 2px;
+  text-decoration: none;
+  font-style: bold;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.contact-dashboard-link:hover {
   background-color: whitesmoke;
-  box-shadow: 3px 3px 10px #355263;
-  border: none;
+  box-shadow: 3px 3px 10px #112F41;
+}
+
+.interaction-dashboard-link:hover {
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 10px #112F41;
 }
 
 .row {

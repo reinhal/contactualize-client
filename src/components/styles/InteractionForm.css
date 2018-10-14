@@ -1,7 +1,7 @@
 #create-interaction {
   background-color: whitesmoke;
   background-image: url('https://image.ibb.co/hdwy3p/user3.png');
-  border: solid #1F313F 5px;
+  border: solid #112F41 5px;
   margin: 0 auto;
   width: 80%;
   margin-top: 25px;
@@ -10,7 +10,7 @@
 
 .interaction-form {
   background-color: transparent;
-  color:#1F313F;
+  color:#112F41;
   font-size: 17px;
   border: none;
   padding: 25px;
@@ -19,7 +19,7 @@
 
 legend {
   font-size: 36px;
-  color:#1F313F;
+  color:#112F41;
   text-align: center;
 }
 
@@ -36,7 +36,7 @@ input, textarea {
   width: 100%;
   max-width: 100%;
   background-color: white;
-  border: solid #1F313F 2px;
+  border: solid #112F41 2px;
   font-size: 18px;
   padding: 15px;
 }
@@ -51,8 +51,8 @@ input, textarea {
   margin: 20px;
   text-align: center;
   font-size: 48px;
-  border: solid #1F313F 2px;
-  color: #1F313F;
+  border: solid #112F41 2px;
+  color: #112F41;
   cursor: pointer;
 }
 
