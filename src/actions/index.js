@@ -12,3 +12,5 @@ export const addInteraction = (person_id, title, text) => ({
     title,
     text
 });
+
+//finished adding interaction: handles updating the state

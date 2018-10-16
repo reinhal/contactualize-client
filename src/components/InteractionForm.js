@@ -14,46 +14,28 @@ export default class InteractionForm extends React.Component {
     this.handleInteraction = this.handleInteraction.bind(this);
     this.createInteraction = this.createInteraction.bind(this);
 
+
     this.state = {
-      contact: {},
-      interaction: {}
+      contacts: [],
+      interactions: []
     }
   }
 
   componentDidMount() {
-    console.log(this.props.params);
     if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
-        .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
+      .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
     }
+    return fetch(`${API_BASE_URL}/contacts`)
+      .then((res) => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          contacts: data,
+        });
+      });
   }
 
-  loadContact() {
-    this.setState({
-      error: null,
-      loading: true
-    });
-    return fetch(`${API_BASE_URL}/contacts`)
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.statusText);
-        }
-        return res.json();
-      })
-      .then(contacts => {
-        this.setState({
-          contacts: contacts,
-          loading: false
-        })
-      })
-      .catch(err =>
-        this.setState({
-          error: 'Could not load contacts',
-          loading: false
-        })
-      );
-  }
- 
   createInteraction(interactionData) {
     console.log(interactionData);
     let interactionUrl = `${API_BASE_URL}/interactions`;
@@ -99,50 +81,46 @@ export default class InteractionForm extends React.Component {
     });
   }
 
-  render(props, index) {
-    console.log(this.state);
+  render() {
+     let contacts = this.state.contacts;
+     let optionItems = contacts.map((contact) => 
+       <option value={contact.id}>{contact.person}</option>
+     );
     const defaultValues = this.state;
-    return (
-      <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
-        <fieldset className="interaction-form">
-          <legend>
-          {this.reqMethod === 'POST'
-            ? 'Add Interaction'
-            : 'Update Interaction'}
-          </legend>
-          <div>
-            <label htmlFor="Contact">Contact*</label>
-            <select name="person_id">
-              <option value='Anne'>Anne</option>
-              <option value='Michael'>Michael</option>
-              <option value='Frederik'>Frederik</option>
-              <option value='Louise'>Louise</option>
-              {/* {contactList} */}
-              {/* {this.props.contacts.map(contact => 
-                <option key={index} value={this.props.person}>{this.props.person}</option>)} */}
-              {/* // arrow function with callback, this returns the option tag */}
-            </select>
+      return (
+        <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
+          <fieldset className="interaction-form">
+            <legend>
+            {this.reqMethod === 'POST'
+              ? 'Add Interaction'
+              : 'Update Interaction'}
+            </legend>
+            <div>
+              <label htmlFor="Contact">Contact*</label>
+              <select name="person_id">
+                {optionItems}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="title">Title*</label>
+              <input 
+                id="title" 
+                className="newTitle" 
+                type="text" 
+                name="title" 
+                defaultValue={defaultValues ? defaultValues.title: ''}
+                onChange={this.onInputChange}
+              required />
+            </div>
+            <div>
+              <label htmlFor="text">Text*</label>
+              <textarea id="text" name="text" rows="10" defaultValue={defaultValues ? defaultValues.text: ''}></textarea>
+            </div>
+          </fieldset>
+          <div className="button-div">
+            <button className="interaction-button" type="submit" onClick={this.handleInteraction}>{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
           </div>
-          <div>
-            <label htmlFor="title">Title*</label>
-            <input 
-              id="title" 
-              className="newTitle" 
-              type="text" 
-              name="title" 
-              defaultValue={defaultValues ? defaultValues.title: ''}
-              onChange={this.onInputChange}
-            required />
-          </div>
-          <div>
-            <label htmlFor="text">Text*</label>
-            <textarea id="text" name="text" rows="10" defaultValue={defaultValues ? defaultValues.text: ''}></textarea>
-          </div>
-        </fieldset>
-        <div className="button-div">
-          <button className="interaction-button" type="submit" onClick={this.handleInteraction}>{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
-        </div>
-      </form>
+        </form>
     );
   }
 }
