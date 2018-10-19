@@ -4,7 +4,8 @@
   border: solid #53327F 3px;
   font-size: 15px;
   padding: 20px;
-  max-width: 400px;
+  width: 400px;
+  height: 175px;
 }
 
 h3 {

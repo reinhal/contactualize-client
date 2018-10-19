@@ -30,6 +30,7 @@ export default class InteractionList extends React.Component {
   }
 
   componentDidMount() {
+    this.loadContact();
     this.loadInteraction();
   }
 
@@ -61,8 +62,8 @@ export default class InteractionList extends React.Component {
 
   loadContact() {
     this.setState({
-      error: null,
-      loading: true
+      contactError: null,
+      contactLoading: true
     });
     return fetch(`${API_BASE_URL}/contacts`)
       .then(res => {
@@ -74,39 +75,39 @@ export default class InteractionList extends React.Component {
       .then(contacts => {
         this.setState({
           contacts: contacts,
-          loading: false
+          contactLoading: false
         })
       })
       .catch(err =>
         this.setState({
-          error: 'Could not load contacts',
-          loading: false
+          contactError: 'Could not load contacts',
+          contactLoading: false
         })
       );
   }
 
-  findContact() {
-    this.setState = {
-      contacts: null
-    }
-    this.state.contacts.map((contact) => {
-      if (contact._id === this.props.person_id) {
-        return contact.person;
+  findContact(contacts, person_id) {
+    console.log(contacts);
+    let interactionContact;
+    this.state.contacts.forEach((contact) => {
+      if (contact._id === person_id) {
+        interactionContact = contact.person;
       }
-    })
+    });
+    console.log(interactionContact);
   }
 
   render() {
     let main;
-    if(this.state.error) {
+    if(this.state.error || this.state.contactError) {
       main = (
         <div className="message message-error">{this.state.error}</div>
       );
-    } else if (this.state.loading) {
+    } else if (this.state.loading || this.state.contactLoading) {
       main = (
         <div className="message message-default">Loading interactions...</div>
       );
-    } else if (Array.isArray(this.state.interactions)) {
+    } else if (Array.isArray(this.state.interactions) && Array.isArray(this.state.contacts)) {
       const interactions = this.state.interactions.map((interaction, index) => (
         <li className="interaction=item" key={index}>
           <Interaction

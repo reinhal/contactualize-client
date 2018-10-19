@@ -1,3 +1,5 @@
+// import {ADD_CONTACT, UPDATE_CONTACT, DELETE_CONTACT, ADD_INTERACTION, UPDATE_INTERACTION, DELETE_INTERACTION, INTERACTION_ADDED }
+
 
 const initialState = {
   contacts: [
@@ -48,6 +50,6 @@ const initialState = {
   ]
 };
 
-export const contactualizeReducer = (state=initialState) => {
+export const contactualizeReducer = (state=initialState, action) => {
   return state;
 };

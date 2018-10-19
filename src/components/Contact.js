@@ -24,7 +24,7 @@ export default class Contact extends React.Component {
 
   interactionText() {
     let noun = 'interaction';
-    if (this.props.interactions.length !== 1) {noun + 's'}
+    if (this.props.interactions.length !== 1) {noun += 's'}
     return  <div className="contact"><p className="interaction-quantity"> {this.props.interactions.length} {noun}</p></div>
   }
 
