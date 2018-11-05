@@ -9,15 +9,15 @@ export default function SignUp() {
       <form className='signup-form'>
           <div>
             <label className='signup-label' htmlFor="first-name">First name</label>
-            <input className='signup-field' defaultValue='enter a first name' type="text" name='first-name' id='first-name' />
+            <input className='signup-field' type="text" name='first-name' id='first-name' />
           </div>
           <div>
             <label className='signup-label' htmlFor="last-name">Last name</label>
-            <input className='signup-field' type="text" name='last-name' id='last-name' defaultValue='enter a last name' />
+            <input className='signup-field' type="text" name='last-name' id='last-name' />
           </div>
           <div>
             <label className='signup-label' htmlFor="username">Email</label>
-            <input className='signup-field' type="text" name='username' id='username' defaultValue='enter an email' />
+            <input className='signup-field' type="text" name='username' id='username' />
           </div>
           <div>
             <label className='signup-label' htmlFor="password">Password</label>

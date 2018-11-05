@@ -2,20 +2,18 @@ export const ADD_CONTACT = 'ADD_CONTACT';
 export const addContact = (person, notes) => ({
     type: ADD_CONTACT,
     person, 
-    notes, 
-    contactID
+    notes
 });
 
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
-export const UpdateContact = (person, notes) => ({
+export const updateContact = (person, notes) => ({
     type: UPDATE_CONTACT,
     person, 
-    notes,
-    contactID
+    notes
 });
 
 export const DELETE_CONTACT = 'DELETE_CONTACT';
-export const DeleteContact = (id) => ({
+export const deleteContact = (id) => ({
     type: DELETE_CONTACT,
     id
 });

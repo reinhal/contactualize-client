@@ -1,10 +1,15 @@
 import React from 'react';
+import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
+import { connect } from 'react-redux';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
-
+import {required, nonEmpty, email} from '../validators';
+import {addContact, updateContact} from '../actions';
 import './styles/ContactForm.css';
 
-export default class ContactForm extends React.Component {
+//adding redux here: how do I move between the method and the actions
+
+class ContactForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -121,3 +126,9 @@ ContactForm.defaultProps = {
   contactButton: 'Create', 
   type: 'POST'
 };
+
+const mapStateToProps = state => ({
+  contacts: state.contacts
+});
+
+export default connect(mapStateToProps)(ContactForm);

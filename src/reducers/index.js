@@ -51,10 +51,8 @@ const initialState = {
 
 export const contactualizeReducer = (state=initialState, action) => {
   if (action.type === actions.ADD_CONTACT) {
-    let contacts = state.contacts.map((contact, contactID) => {
-      if (_id !== action.contactID) {
+    let contacts = state.contacts.map((contact) => {
         return contact;
-      }
     })
     return Object.assign({}, state, {
         contacts: [...state.contacts, {
@@ -64,23 +62,5 @@ export const contactualizeReducer = (state=initialState, action) => {
         }]  
     });
   }
-  else if (action.type === actions.UPDATE_CONTACT) {
-    let contacts = state.contacts.map((contact, contactID) => {
-      if (_id !== action.contactID) {
-        return contact;
-      }
-    })
-    return Object.assign({}, state, {
-        contacts: [...state.contacts, {
-            person: action.person,
-            notes: action.notes
-
-        }]  
-    });
-  }
-    return Object.assign({}, state, {
-        contacts
-    });
-
   return state;
 };
