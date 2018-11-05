@@ -1,5 +1,4 @@
-// import {ADD_CONTACT, UPDATE_CONTACT, DELETE_CONTACT, ADD_INTERACTION, UPDATE_INTERACTION, DELETE_INTERACTION, INTERACTION_ADDED }
-
+import * as actions from '../actions';
 
 const initialState = {
   contacts: [
@@ -51,5 +50,37 @@ const initialState = {
 };
 
 export const contactualizeReducer = (state=initialState, action) => {
+  if (action.type === actions.ADD_CONTACT) {
+    let contacts = state.contacts.map((contact, contactID) => {
+      if (_id !== action.contactID) {
+        return contact;
+      }
+    })
+    return Object.assign({}, state, {
+        contacts: [...state.contacts, {
+            person: action.person,
+            notes: action.notes
+
+        }]  
+    });
+  }
+  else if (action.type === actions.UPDATE_CONTACT) {
+    let contacts = state.contacts.map((contact, contactID) => {
+      if (_id !== action.contactID) {
+        return contact;
+      }
+    })
+    return Object.assign({}, state, {
+        contacts: [...state.contacts, {
+            person: action.person,
+            notes: action.notes
+
+        }]  
+    });
+  }
+    return Object.assign({}, state, {
+        contacts
+    });
+
   return state;
 };

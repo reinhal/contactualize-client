@@ -4,7 +4,6 @@ import Home from './Home';
 import ContactForm from './ContactForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
-import ContactDetail from './ContactDetail';
 import InteractionForm from './InteractionForm';
 import InteractionList from './InteractionList'; 
 
@@ -21,10 +20,6 @@ export default class Main extends React.Component {
           />
           <Route exact path='/new-contact' 
           component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }
-          />
-          <Route 
-          path='/contacts/:id' 
-          component={(props) => <ContactDetail {...props.match} />}
           />
           <Route 
           exact path='/contacts' 

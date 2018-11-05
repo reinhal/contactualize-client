@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React, { Fragment } from 'react';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
 import Contact from './Contact';
@@ -60,7 +60,7 @@ export default class ContactList extends React.Component {
       );
   }
 
-  render(props) {
+  render() {
     let main;
     if(this.state.error) {
       main = (

@@ -63,6 +63,3 @@ Contact.defaultProps = {
   person: '',
   notes: ''
 };
-
-// router: do conditionals based on what is in url bar: if the route in the url matches 
-// a known component it will render that component
