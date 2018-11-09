@@ -8,6 +8,7 @@ import {addContact, updateContact} from '../actions';
 import './styles/ContactForm.css';
 
 //adding redux here: how do I move between the method and the actions
+//when do I hook up to mLab
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -32,25 +33,25 @@ class ContactForm extends React.Component {
     }
   }
 
-  createContact(contactData) {
-    console.log(contactData);
-    let contactUrl = `${API_BASE_URL}/contacts`;
-    if (this.reqMethod === 'PUT' && this.props.params.id) {
-      contactUrl += '/' + this.props.params.id;
-    }
+  // createContact(contactData) {
+  //   console.log(contactData);
+  //   let contactUrl = `${API_BASE_URL}/contacts`;
+  //   if (this.reqMethod === 'PUT' && this.props.params.id) {
+  //     contactUrl += '/' + this.props.params.id;
+  //   }
 
-    const opts = {
-      method: this.reqMethod, 
-      body: JSON.stringify(contactData),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
-    };
+  //   const opts = {
+  //     method: this.reqMethod, 
+  //     body: JSON.stringify(contactData),
+  //     headers: {
+  //       'Content-type': 'application/json; charset=UTF-8'
+  //     }
+  //   };
 
-    return soFetch(`${contactUrl}`, opts)
-      .then(() =>  this.props.history.push('/home'))
-      .catch(err => console.error('oops!'));
-  }
+  //   return soFetch(`${contactUrl}`, opts)
+  //     .then(() =>  this.props.history.push('/home'))
+  //     .catch(err => console.error('oops!'));
+  // }
   
   onSubmit(e) {
     e.preventDefault();
@@ -58,7 +59,12 @@ class ContactForm extends React.Component {
       person: e.currentTarget.person.value,
       notes: e.currentTarget.notes.value
     };
-    this.createContact(contactData);
+    let action;
+    if (this.reqMethod === 'PUT') {
+      action = updateContact;
+    } else { action = addContact}
+    this.props.dispatch(action(contactData))
+    .then(() => this.props.history.push('/home'))
   }
 
   onInputChange(e) {
@@ -118,8 +124,8 @@ class ContactForm extends React.Component {
     );
   }
 }
-
-//new url and success message
+// condition that asks the right question: POST or PUT dispatch the action in response
+// new url and success message
 
 ContactForm.defaultProps = {
   contactLegend: 'New Contact Information',

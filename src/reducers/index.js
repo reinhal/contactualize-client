@@ -50,7 +50,7 @@ const initialState = {
 };
 
 export const contactualizeReducer = (state=initialState, action) => {
-  if (action.type === actions.ADD_CONTACT) {
+  if (action.type === actions.ADD_CONTACT_REQUEST) {
     let contacts = state.contacts.map((contact) => {
         return contact;
     })
@@ -61,6 +61,12 @@ export const contactualizeReducer = (state=initialState, action) => {
 
         }]  
     });
+    return Object.assign({}, state, {
+      contacts
+    });
   }
+  // keep it at if
   return state;
 };
+
+// stays simple: changes to objects
