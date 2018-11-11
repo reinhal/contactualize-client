@@ -31,7 +31,7 @@ class ContactForm extends React.Component {
         .then(data => this.setState({ person: data.person, notes: data.notes}));
     }
   }
-  
+
   onSubmit(e) {
     e.preventDefault();
     const contactData = {
@@ -44,7 +44,7 @@ class ContactForm extends React.Component {
       reqAction = updateContact;
     } else { reqAction = addContact}
     this.props.dispatch(reqAction(contactData))
-    .then(() => this.props.history.push('/home'))
+    this.props.history.push('/home');
   }
 
   onInputChange(e) {

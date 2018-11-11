@@ -23,7 +23,7 @@ export default class Main extends React.Component {
           />
           <Route 
           exact path='/contacts' 
-          component={(props) => <ContactList {...props.match} />}
+          component={(props) => <ContactList {...props.match} history={props.history} />}
           />
           <Route 
           exact path='/record-interaction' 

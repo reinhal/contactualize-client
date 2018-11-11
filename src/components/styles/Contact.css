@@ -34,14 +34,14 @@ h3 {
   margin: 0px;
 }
 
-.interaction-detail {
+.interaction-detail-button {
   color:  #112F41;
   border: solid #53327F 2px;
   background-color: transparent;
   width: 80%;
 }
 
-.interaction-detail:hover {
+.interaction-detail-button:hover {
   background-color: whitesmoke;
   box-shadow: 3px 3px 10px #355263;
 }
