@@ -7,7 +7,6 @@ import {required, nonEmpty, email} from '../validators';
 import {addContact, updateContact} from '../actions';
 import './styles/ContactForm.css';
 
-//adding redux here: how do I move between the method and the actions
 //when do I hook up to mLab
 
 class ContactForm extends React.Component {
@@ -32,38 +31,19 @@ class ContactForm extends React.Component {
         .then(data => this.setState({ person: data.person, notes: data.notes}));
     }
   }
-
-  // createContact(contactData) {
-  //   console.log(contactData);
-  //   let contactUrl = `${API_BASE_URL}/contacts`;
-  //   if (this.reqMethod === 'PUT' && this.props.params.id) {
-  //     contactUrl += '/' + this.props.params.id;
-  //   }
-
-  //   const opts = {
-  //     method: this.reqMethod, 
-  //     body: JSON.stringify(contactData),
-  //     headers: {
-  //       'Content-type': 'application/json; charset=UTF-8'
-  //     }
-  //   };
-
-  //   return soFetch(`${contactUrl}`, opts)
-  //     .then(() =>  this.props.history.push('/home'))
-  //     .catch(err => console.error('oops!'));
-  // }
   
   onSubmit(e) {
     e.preventDefault();
     const contactData = {
       person: e.currentTarget.person.value,
-      notes: e.currentTarget.notes.value
+      notes: e.currentTarget.notes.value, 
+      id: this.props.params.id
     };
-    let action;
+    let reqAction;
     if (this.reqMethod === 'PUT') {
-      action = updateContact;
-    } else { action = addContact}
-    this.props.dispatch(action(contactData))
+      reqAction = updateContact;
+    } else { reqAction = addContact}
+    this.props.dispatch(reqAction(contactData))
     .then(() => this.props.history.push('/home'))
   }
 
@@ -124,8 +104,6 @@ class ContactForm extends React.Component {
     );
   }
 }
-// condition that asks the right question: POST or PUT dispatch the action in response
-// new url and success message
 
 ContactForm.defaultProps = {
   contactLegend: 'New Contact Information',

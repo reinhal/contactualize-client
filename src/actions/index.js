@@ -81,10 +81,11 @@ export const addContact = (contactData) => dispatch => {
 // ---------------  Updating Contacts --------------------------- //
 
 export const UPDATE_CONTACT_REQUEST = 'UPDATE_CONTACT_REQUEST';
-export const updateContactRequest = (person, notes) => ({
+export const updateContactRequest = (person, notes, id) => ({
     type: UPDATE_CONTACT_REQUEST,
     person, 
-    notes
+    notes, 
+    id
 });
 
 export const UPDATE_CONTACT_SUCCESS = 'UPDATE_CONTACT_SUCCESS';
@@ -103,7 +104,7 @@ export const updateContactError = (person, notes) => ({
 
 export const updateContact = (contactData) => dispatch => {
     dispatch(updateContactRequest());
-    fetch(`${API_BASE_URL}/contacts/:id`, {
+    fetch(`${API_BASE_URL}/contacts/${contactData.id}`, {
         method: 'PUT',
         body: JSON.stringify(contactData),
         headers: {
@@ -217,11 +218,11 @@ export const addInteractionError = (person_id, title, text) => ({
     text
 });
 
-export const addInteraction = () => dispatch => {
+export const addInteraction = (interactionData) => dispatch => {
     dispatch(addInteractionRequest());
     fetch(`${API_BASE_URL}/interactions`, {
         method: 'POST',
-        body: JSON.stringify(),
+        body: JSON.stringify(interactionData),
         headers: {
         'Content-type': 'application/json; charset=UTF-8'
       }
@@ -241,11 +242,12 @@ export const addInteraction = () => dispatch => {
 // ---------------  Updating Interactions --------------------------- //
 
 export const UPDATE_INTERACTION_REQUEST = 'UPDATE_INTERACTION_REQUEST';
-export const updateInteractionRequest = (person_id, title, text) => ({
+export const updateInteractionRequest = (person_id, title, text, id) => ({
     type: UPDATE_INTERACTION_REQUEST,
     person_id,
     title,
-    text
+    text, 
+    id
 });
 
 export const UPDATE_INTERACTION_SUCCESS = 'UPDATE_INTERACTION_SUCCESS';
@@ -266,7 +268,7 @@ export const updateInteractionError = (person_id, title, text) => ({
 
 export const updateInteraction = (interactionData) => dispatch => {
     dispatch(updateInteractionRequest());
-    fetch(`${API_BASE_URL}/interactions/:id`, {
+    fetch(`${API_BASE_URL}/interactions/${interactionData.id}`, {
         method: 'PUT',
         body: JSON.stringify(interactionData),
         headers: {

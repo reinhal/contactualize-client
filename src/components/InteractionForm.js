@@ -1,10 +1,15 @@
 import React from 'react';
+import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
+import { connect } from 'react-redux';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
+import {required, nonEmpty, email} from '../validators';
+import {addInteraction, updateInteraction} from '../actions';
+import './styles/InteractionForm.css';
 
 import './styles/InteractionForm.css';
 
-export default class InteractionForm extends React.Component {
+class InteractionForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,16 +17,16 @@ export default class InteractionForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.handleInteraction = this.handleInteraction.bind(this);
-    this.createInteraction = this.createInteraction.bind(this);
-
 
     this.state = {
       contacts: [],
-      interactions: []
+      title: '',
+      text: ''
     }
   }
 
   componentDidMount() {
+    console.log('checking it here:', this.props.params);
     if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
       .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
@@ -35,36 +40,22 @@ export default class InteractionForm extends React.Component {
         });
       });
   }
-
-  createInteraction(interactionData) {
-    console.log(interactionData);
-    let interactionUrl = `${API_BASE_URL}/interactions`;
-    if (this.reqMethod === 'PUT' && this.props.params.id) {
-      interactionUrl += '/' + this.props.params.id;
-    }
-
-    const opts = {
-      method: this.reqMethod, 
-      body: JSON.stringify(interactionData),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
-    };
-
-    return soFetch(`${interactionUrl}`, opts)
-      .then(data => console.log(data))
-      .then(() =>  this.props.history.push('/home'))
-      .catch(err => console.error('oops!', err));
-  }
   
   onSubmit(e) {
     e.preventDefault();
+    console.log('Interaction ID', this.state)
     const interactionData = {
       person_id: e.currentTarget.person_id.value,
       title: e.currentTarget.title.value,
-      text: e.currentTarget.text.value
+      text: e.currentTarget.text.value,
+      id: this.props.params.id
     };
-    this.createInteraction(interactionData);
+    let reqAction;
+    if (this.reqMethod === 'PUT') {
+      reqAction = updateInteraction;
+    } else { reqAction = addInteraction}
+    this.props.dispatch(reqAction(interactionData))
+    .then(() => this.props.history.push('/home'))
   }
 
   onInputChange(e) {
@@ -130,3 +121,8 @@ InteractionForm.defaultProps = {
   interactionButton: "Create", 
   type: 'POST'
 }
+const mapStateToProps = state => ({
+  interactions: state.interactions
+});
+
+export default connect(mapStateToProps)(InteractionForm);
