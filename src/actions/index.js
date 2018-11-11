@@ -143,9 +143,9 @@ export const deleteContactError = (id) => ({
     id
 });
 
-export const deleteContact = () => dispatch => {
-    dispatch(deleteContactRequest());
-    fetch(`${API_BASE_URL}/contacts/:id`, {method: 'DELETE'})
+export const deleteContact = (id) => dispatch => {
+    dispatch(deleteContactRequest(id));
+    fetch(`${API_BASE_URL}/contacts/${id}`, {method: 'DELETE'})
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -307,9 +307,9 @@ export const deleteInteractionError = (id) => ({
     id
 });
 
-export const deleteInteraction = () => dispatch => {
-    dispatch(deleteInteractionRequest());
-    fetch(`${API_BASE_URL}/interactions/:id`, {method: 'DELETE'})
+export const deleteInteraction = (id) => dispatch => {
+    dispatch(deleteInteractionRequest(id));
+    fetch(`${API_BASE_URL}/interactions/${id}`, {method: 'DELETE'})
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -321,12 +321,3 @@ export const deleteInteraction = () => dispatch => {
         })
         .catch(error => deleteInteractionError(error));
 }
-
-//finished adding interaction: handles updating the state
-// the async
-// export const INTERACTION_ADDED = 'INTERACTION_ADDED';
-// export const interactionAdded = (interaction) => ({
-//     type: INTERACTION_ADDED,
-//     interaction
-// });
-//person_id to find the contact and then push into that contact interactions array

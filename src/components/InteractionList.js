@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 import {API_BASE_URL} from '../config';
-import { soFetch } from '../utils/index';
+import { connect } from 'react-redux';
+import {deleteInteraction} from '../actions';
 import Interaction from './Interaction';
 
 import './styles/InteractionList.css';
 
-export default class InteractionList extends React.Component {
+class InteractionList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,15 +19,7 @@ export default class InteractionList extends React.Component {
   }
 
   deleteInteraction(id) {
-    return soFetch(`${API_BASE_URL}/interactions/${id}`, {
-      method: 'DELETE'
-    })
-    .then(() =>
-      this.setState({
-        interactions: this.state.interactions.filter(c => c.id !== id)
-      })
-    )
-    .catch(err => console.error(err));
+    this.props.dispatch(deleteInteraction(id))
   }
 
   componentDidMount() {
@@ -94,7 +87,7 @@ export default class InteractionList extends React.Component {
         interactionContact = contact.person;
       }
     });
-    console.log(interactionContact);
+    return interactionContact;
   }
 
   render() {
@@ -130,3 +123,9 @@ Interaction.defaultProps = {
   title: '',
   text: ''
 };
+
+const mapStateToProps = state => ({
+  interactions: state.interactions
+});
+
+export default connect(mapStateToProps)(InteractionList);

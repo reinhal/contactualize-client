@@ -43,7 +43,6 @@ class InteractionForm extends React.Component {
   
   onSubmit(e) {
     e.preventDefault();
-    console.log('Interaction ID', this.state)
     const interactionData = {
       person_id: e.currentTarget.person_id.value,
       title: e.currentTarget.title.value,

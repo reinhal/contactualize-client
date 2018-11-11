@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 import {API_BASE_URL} from '../config';
-import { soFetch } from '../utils/index';
+import { connect } from 'react-redux';
+import {deleteContact} from '../actions';
 import Contact from './Contact';
 
 import './styles/ContactList.css';
 
-export default class ContactList extends React.Component {
+class ContactList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -15,19 +16,10 @@ export default class ContactList extends React.Component {
     };
 
     this.deleteContact = this.deleteContact.bind(this);
-  
   }
 
   deleteContact(id) {
-    return soFetch(`${API_BASE_URL}/contacts/${id}`, {
-      method: 'DELETE'
-    })
-    .then(() =>
-      this.setState({
-        contacts: this.state.contacts.filter(c => c.id !== id)
-      })
-    )
-    .catch(err => console.error(err));
+    this.props.dispatch(deleteContact(id))
   }
  
   componentDidMount() {
@@ -94,3 +86,9 @@ ContactList.defaultProps = {
   name: '',
   notes: ''
 };
+
+const mapStateToProps = state => ({
+  contacts: state.contacts
+});
+
+export default connect(mapStateToProps)(ContactList);
