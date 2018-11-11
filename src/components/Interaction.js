@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import './styles/Interaction.css';
 
-export default class Interaction extends React.Component {
+class Interaction extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       person_id: '',
+      person: '',
       title: '',
       text: ''
     };
@@ -22,7 +24,7 @@ export default class Interaction extends React.Component {
 
   render(props) {
     console.log(this.props);
-    let contact = this.props.findContact(() => this.props.person_id);
+    // let contact = this.props.findContact(this.props.contacts, this.props.person_id);
     return (
       <Fragment>
         <div>
@@ -35,7 +37,8 @@ export default class Interaction extends React.Component {
                 <p>{this.props.text}</p>
               </div>
               <div className="interaction">
-                <p>{`${contact}`}</p>
+                <p>Contact Name</p>
+                <p>{this.props.person}</p>
               </div>
               <div><Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
               <div>
@@ -54,6 +57,13 @@ export default class Interaction extends React.Component {
 };
 
 Interaction.defaultProps = {
+  person: '',
   title: '',
   text: ''
 };
+
+const mapStateToProps = state => ({
+  interactions: state.interactions
+});
+
+export default connect(mapStateToProps)(Interaction);

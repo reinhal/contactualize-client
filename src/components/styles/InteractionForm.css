@@ -57,5 +57,6 @@ select, input, textarea {
 }
 
 .interaction-button:hover {
-  background-color: transparent;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 10px #112F41;
 }

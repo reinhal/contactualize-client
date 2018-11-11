@@ -27,29 +27,44 @@ const initialState = {
   interactions: [
     {
       "person_id": "000000000000000000000001",
+      "person": "Anne",
       "_id": "111111111111111111111111",
       "title": "Coffee Date",
       "text": "Discussed plans for a trip"
     },  {
       "person_id": "000000000000000000000002",
+      "person": "Michael",
       "_id": "111111111111111111111112",
       "title": "Phone Call",
       "text": "Went through ideas for the new website."
     },  {
       "person_id": "000000000000000000000003",
+      "person": "Frederik",
       "_id": "111111111111111111111113",
       "title": "Email",
       "text": "Followed up on last week's meeing."
     }, {
       "person_id": "000000000000000000000004",
+      "person": "Louise",
       "_id": "111111111111111111111114",
       "title": "Dinner Meeting",
       "text": "Asked about the surgery from the day before."
     }
-  ]
+  ]  
 };
 
 export const contactualizeReducer = (state=initialState, action) => {
+  if (action.type === actions.FETCH_CONTACT_REQUEST) {
+    return Object.assign({}, state, {
+          error: null,
+          loading: true
+        });
+  }
+  if (action.type === actions.FETCH_CONTACT_SUCCESS) {
+    return Object.assign({}, state, {
+        contacts: [...action.contacts]
+    })
+  }
   if (action.type === actions.ADD_CONTACT_REQUEST) {
     let contacts = state.contacts.map((contact) => {
         return contact;
@@ -58,7 +73,6 @@ export const contactualizeReducer = (state=initialState, action) => {
         contacts: [...state.contacts, {
             person: action.person,
             notes: action.notes
-
         }]  
     });
   }
@@ -74,6 +88,18 @@ export const contactualizeReducer = (state=initialState, action) => {
         }]  
     });
   }
+  if (action.type === actions.FETCH_INTERACTION_REQUEST) {
+    return Object.assign({}, state, {
+          error: null,
+          loading: true
+        });
+  }
+  if (action.type === actions.FETCH_INTERACTION_SUCCESS) {
+    console.log('action', action);
+    return Object.assign({}, state, {
+        interactions: [...action.interactions]
+    })
+  }
   if (action.type === actions.ADD_INTERACTION_REQUEST) {
     let interactions = state.interactions.map((interaction) => {
         return interaction;
@@ -82,7 +108,6 @@ export const contactualizeReducer = (state=initialState, action) => {
         interactions: [...state.interactions, {
             title: action.title,
             text: action.text
-
         }]  
     });
   }

@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react';
+import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import './styles/Contact.css';
 
   
-export default class Contact extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,6 +14,7 @@ export default class Contact extends React.Component {
       person: '',
       notes: ''
     };
+
     this.handleDelete = this.handleDelete.bind(this);
     this.interactionText = this.interactionText.bind(this);
   }
@@ -63,3 +65,9 @@ Contact.defaultProps = {
   person: '',
   notes: ''
 };
+
+const mapStateToProps = state => ({
+  contacts: state.contacts
+});
+
+export default connect(mapStateToProps)(Contact);

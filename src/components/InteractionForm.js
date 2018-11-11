@@ -42,9 +42,14 @@ class InteractionForm extends React.Component {
   }
   
   onSubmit(e) {
+    let contacts = this.state.contacts;
+    let contactPerson = contacts.map((contact) => 
+       contact.person
+     );
     e.preventDefault();
     const interactionData = {
       person_id: e.currentTarget.person_id.value,
+      person: {contactPerson},
       title: e.currentTarget.title.value,
       text: e.currentTarget.text.value,
       id: this.props.params.id
@@ -66,6 +71,7 @@ class InteractionForm extends React.Component {
   handleInteraction(e) {
     this.setState({
       person_id: this.state.person_id,
+      person: this.state.person,
       title: this.state.title,
       text: this.state.text
     });

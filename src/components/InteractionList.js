@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import {API_BASE_URL} from '../config';
 import { connect } from 'react-redux';
-import {deleteInteraction} from '../actions';
+import store from '../store';
+import {deleteInteraction, fetchInteraction, fetchContact} from '../actions';
 import Interaction from './Interaction';
 
 import './styles/InteractionList.css';
@@ -11,11 +11,12 @@ class InteractionList extends React.Component {
     super(props);
 
     this.state = {
+      contacts: null,
       interactions: null
     };
 
     this.deleteInteraction = this.deleteInteraction.bind(this);
-    this.findContact = this.findContact.bind(this);
+    // this.findContact = this.findContact.bind(this);
   }
 
   deleteInteraction(id) {
@@ -23,89 +24,37 @@ class InteractionList extends React.Component {
   }
 
   componentDidMount() {
-    this.loadContact();
-    this.loadInteraction();
+    this.props.dispatch(fetchInteraction())
+    // store.dispatch(fetchContact());
   }
 
-  loadInteraction() {
-    this.setState({
-      error: null, 
-      loading: true
-    });
-    return fetch(`${API_BASE_URL}/interactions`)
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.statusText);
-        }
-        return res.json();
-      })
-      .then(interactions => {
-        this.setState({
-          interactions: interactions,
-          loading: false
-        })
-      })
-      .catch(err => 
-        this.setState({
-          error: 'Could not load interactions',
-          loading: false
-        })
-      );
-  }
-
-  loadContact() {
-    this.setState({
-      contactError: null,
-      contactLoading: true
-    });
-    return fetch(`${API_BASE_URL}/contacts`)
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.statusText);
-        }
-        return res.json();
-      })
-      .then(contacts => {
-        this.setState({
-          contacts: contacts,
-          contactLoading: false
-        })
-      })
-      .catch(err =>
-        this.setState({
-          contactError: 'Could not load contacts',
-          contactLoading: false
-        })
-      );
-  }
-
-  findContact(contacts, person_id) {
-    console.log(contacts);
-    let interactionContact;
-    this.state.contacts.forEach((contact) => {
-      if (contact._id === person_id) {
-        interactionContact = contact.person;
-      }
-    });
-    return interactionContact;
-  }
+  // findContact(contacts, person_id) {
+  //   console.log(contacts);
+  //   let interactionContact;
+  //   this.state.contacts.forEach((contact) => {
+  //     if (contact._id === person_id) {
+  //       interactionContact = contact.person;
+  //     }
+  //   });
+  //   return interactionContact;
+  // }
 
   render() {
     let main;
-    if(this.state.error || this.state.contactError) {
+    if(this.state.error) {
       main = (
         <div className="message message-error">{this.state.error}</div>
       );
-    } else if (this.state.loading || this.state.contactLoading) {
+    } else if (this.state.loading) {
       main = (
         <div className="message message-default">Loading interactions...</div>
       );
-    } else if (Array.isArray(this.state.interactions) && Array.isArray(this.state.contacts)) {
-      const interactions = this.state.interactions.map((interaction, index) => (
+    } else if (Array.isArray(this.props.interactions)){
+      const interactions = this.props.interactions.map((interaction, index) => (
         <li className="interaction=item" key={index}>
           <Interaction
             deleteInteraction={this.deleteInteraction}
-            findContact={this.findContact}
+            // findContact={this.findContact}
             index={index}
             {...interaction}
           />

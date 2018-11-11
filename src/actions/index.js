@@ -4,35 +4,32 @@ import {API_BASE_URL} from '../config';
 // ---------------  Getting Contacts --------------------------- //
 
 export const FETCH_CONTACT_REQUEST = 'FETCH_CONTACT_REQUEST';
-export const fetchContactRequest = contact => ({
-    type: FETCH_CONTACT_REQUEST,
-    contact
+export const fetchContactRequest = () => ({
+    type: FETCH_CONTACT_REQUEST
 });
 
 export const FETCH_CONTACT_SUCCESS = 'FETCH_CONTACT_SUCCESS';
-export const fetchContactSuccess = contact => ({
+export const fetchContactSuccess = contacts => ({
     type: FETCH_CONTACT_SUCCESS,
-    contact
+    contacts
 });
 
 export const FETCH_CONTACT_ERROR = 'FETCH_CONTACT_ERROR';
-export const fetchContactError = contact => ({
+export const fetchContactError = contacts => ({
     type: FETCH_CONTACT_ERROR,
-    contact
+    contacts
 });
 
 export const fetchContact = () => dispatch => {
     dispatch(fetchContactRequest());
-    fetch(`${API_BASE_URL}/contacts`)
+    return fetch(`${API_BASE_URL}/contacts`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
             return res.json();
         })
-        .then(contact => {
-            dispatch(fetchContactSuccess(contact));
-        })
+        .then(contacts => dispatch(fetchContactSuccess(contacts)))
         .catch(error => fetchContactError(error));
 }
 
@@ -74,7 +71,7 @@ export const addContact = (contactData) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => dispatch(addContactSuccess()))
+        .then(contact => dispatch(addContactSuccess(contact)))
         .catch(error => addContactError(error));
 }
 
@@ -117,9 +114,7 @@ export const updateContact = (contactData) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => {
-            dispatch(updateContactSuccess(contactData));
-        })
+        .then(contactData => dispatch(updateContactSuccess(contactData)))
         .catch(error => updateContactError(error));
 }
 
@@ -152,68 +147,66 @@ export const deleteContact = (id) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => {
-            dispatch(deleteContactSuccess());
-        })
+        .then(contact => dispatch(deleteContactSuccess(contact)))
         .catch(error => deleteContactError(error));
 }
 // ---------------  Getting Interactions --------------------------- //
 
 export const FETCH_INTERACTION_REQUEST = 'FETCH_INTERACTION_REQUEST';
-export const fetchInteractionRequest = interaction => ({
-    type: FETCH_INTERACTION_REQUEST,
-    interaction
+export const fetchInteractionRequest = () => ({
+    type: FETCH_INTERACTION_REQUEST
 });
 
 export const FETCH_INTERACTION_SUCCESS = 'FETCH_INTERACTION_SUCCESS';
-export const fetchInteractionSuccess = interaction => ({
+export const fetchInteractionSuccess = interactions => ({
     type: FETCH_INTERACTION_SUCCESS,
-    interaction
+    interactions
 });
 
 export const FETCH_INTERACTION_ERROR = 'FETCH_INTERACTION_ERROR';
-export const fetchInteractionError = interaction => ({
+export const fetchInteractionError = interactions => ({
     type: FETCH_INTERACTION_ERROR,
-    interaction
+    interactions
 });
 
 export const fetchInteraction = () => dispatch => {
     dispatch(fetchInteractionRequest());
-    fetch(`${API_BASE_URL}/interactions`)
+    return fetch(`${API_BASE_URL}/interactions`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
             return res.json();
         })
-        .then(contact => {
-            dispatch(fetchInteractionSuccess(contact));
-        })
+        .then(interactions => dispatch(fetchInteractionSuccess(interactions)))
         .catch(error => fetchInteractionError(error));
 }
 
 // ---------------  Creating Interactions --------------------------- //
 
 export const ADD_INTERACTION_REQUEST = 'ADD_INTERACTION_REQUEST';
-export const addInteractionRequest = (person_id, title, text) => ({
+export const addInteractionRequest = (person_id, person, title, text) => ({
     type: ADD_INTERACTION_REQUEST,
     person_id,
+    person,
     title,
     text
 });
 
 export const ADD_INTERACTION_SUCCESS = 'ADD_INTERACTION_SUCCESS';
-export const addInteractionSuccess = (person_id, title, text) => ({
+export const addInteractionSuccess = (person_id, person, title, text) => ({
     type: ADD_INTERACTION_SUCCESS,
     person_id,
+    person,
     title,
     text
 });
 
 export const ADD_INTERACTION_ERROR = 'ADD_INTERACTION_ERROR';
-export const addInteractionError = (person_id, title, text) => ({
+export const addInteractionError = (person_id, person, title, text) => ({
     type: ADD_INTERACTION_ERROR,
     person_id,
+    person,
     title,
     text
 });
@@ -233,9 +226,7 @@ export const addInteraction = (interactionData) => dispatch => {
             }
             return res.json();
         })
-        .then(interaction => {
-            dispatch(addInteractionSuccess());
-        })
+        .then(interaction => dispatch(addInteractionSuccess(interaction)))
         .catch(error => addInteractionError(error));
 }
 
@@ -281,9 +272,7 @@ export const updateInteraction = (interactionData) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => {
-            dispatch(updateInteractionSuccess(interactionData));
-        })
+        .then(interactionData => dispatch(updateInteractionSuccess(interactionData)))
         .catch(error => updateInteractionError(error));
 }
 
@@ -316,8 +305,6 @@ export const deleteInteraction = (id) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => {
-            dispatch(deleteInteractionSuccess());
-        })
+        .then(interaction => dispatch(deleteInteractionSuccess(interaction)))
         .catch(error => deleteInteractionError(error));
 }
