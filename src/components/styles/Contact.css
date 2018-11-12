@@ -1,11 +1,10 @@
 .copy-container {
   background-color: transparent;
-  text-align: center;
   border: solid  #F2B134 3px;
+  text-align: center;
   font-size: 15px;
   padding: 20px;
-  width: 400px;
-  height: 200px;
+  width: 500px;
 }
 
 h3 {
@@ -25,7 +24,7 @@ h3 {
 
 .contact-person {
   color:  #112F41;
-  font-style: bold;
+  font-weight: bold;
   font-size: 18px;
   padding: 4px;
 }
@@ -38,6 +37,7 @@ h3 {
   color:  #112F41;
   border: solid #53327F 2px;
   background-color: transparent;
+  margin: 10px;
   width: 80%;
 }
 
@@ -50,8 +50,6 @@ h3 {
   color: #4FB99F;
   font-size: 14px;
   float: left;
-  padding-top: 30px;
-  padding-bottom: 0px;
   text-decoration: none;
 }
 
@@ -62,12 +60,11 @@ h3 {
   margin: -5px;
 }
 
-.delete-item {
+.delete-contact {
   background-color: transparent;
   font-size: 14px;
   border: none;
   color: #4FB99F;
-  padding-top: 30px;
   text-decoration: none;
   float: right;
   cursor: pointer;
@@ -78,4 +75,19 @@ h3 {
   font-size: 16px;
   padding: -10px;
   margin: -5px;
+}
+
+.interactionTitle {
+  font-weight: bold;
+}
+
+ol.interaction-items {
+  display: none;
+  padding: 5px;
+}
+
+li.interaction-list-item {
+  list-style-type: decimal;
+  display: inline-block;
+  color: #53327F;
 }

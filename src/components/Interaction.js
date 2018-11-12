@@ -34,7 +34,7 @@ class Interaction extends React.Component {
               <p>{this.props.text}</p>
               <Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
               <button 
-                    className ="delete-item" 
+                    className ="delete-interaction" 
                     type="submit" 
                     data-a11y-dialog-hide aria-label="Delete this interaction."
                     onClick={this.handleDeleteInteraction}><i className="far fa-trash-alt"></i> 

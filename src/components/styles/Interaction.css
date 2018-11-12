@@ -38,12 +38,27 @@ h3 {
   background-color: transparent;
   font-size: 14px;
   float: left;
-  padding-top: 30px;
-  padding-bottom: 0px;
   text-decoration: none;
 }
 
 .edit-interaction-link:hover {
+  color: red;
+  font-size: 16px;
+  padding: -10px;
+  margin: -5px;
+}
+
+.delete-interaction {
+  background-color: transparent;
+  font-size: 14px;
+  border: none;
+  color: #4FB99F;
+  text-decoration: none;
+  float: right;
+  cursor: pointer;
+}
+
+.delete-interaction:hover {
   color: red;
   font-size: 16px;
   padding: -10px;

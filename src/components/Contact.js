@@ -26,19 +26,6 @@ class Contact extends React.Component {
     this.props.dispatch(fetchContact())
   }
 
-  // displayInteractions(e) {
-  //   var hideButton = {
-  //     display: "none"
-  //   }
-  //   e.preventDefault();
-  //   return <div>
-  //       <button style={hideButton} onClick={this.displayInteractions} className="interaction-detail-button">{this.interactionText()}</button>
-  //     </div>
-  //     const interactions = this.props.contacts.interactions.map((interaction, index) => (
-  //       <li className="interaction-item" key={index}>{...interaction}</li>
-  //     ));
-  // }
-
   interactionText() {
     let noun = 'interaction';
     if (this.props.interactions.length !== 1) {noun += 's'}
@@ -47,26 +34,31 @@ class Contact extends React.Component {
 
   render(props) {
     console.log(this.props);
+    let interactions = this.props.interactions;
+    let interactionItems = interactions.map((interaction) => 
+      <li className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
+    );
     return (
       <Fragment>
-        <div>
+        <div className="contact-border">
           <section>
             <div className='copy-container'>
               <div className='contact'>
-                <h3 className="contact-person">{this.props.person}</h3>
+                <p><span className="contact-person">{this.props.person}:</span> {this.props.notes}</p>
               </div>
-              <div className="contact-notes">
-                <p>{this.props.notes}</p>
-              </div>
-              <div><button className="interaction-detail-button">{this.interactionText()}</button></div>
-              <div className="interaction-detail"></div>
-              <div><Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
               <div>
+                <button className="interaction-detail-button">{this.interactionText()}</button>
+                <ol className="interaction-items">{interactionItems}</ol>
+              </div>
+              <div>
+                <Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
                 <button  
                   type='submit' 
-                  className ="delete-item"
+                  className ="delete-contact"
                   data-a11y-dialog-hide aria-label="Delete this contact."
-                  onClick={this.handleDelete}><i className="far fa-trash-alt" ></i> Delete</button>
+                  onClick={this.handleDelete}><i className="far fa-trash-alt" ></i> 
+                  Delete
+                </button>
               </div>
             </div>
           </section>
