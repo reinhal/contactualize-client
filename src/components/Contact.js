@@ -56,8 +56,7 @@ class Contact extends React.Component {
                   type='submit' 
                   className ="delete-contact"
                   data-a11y-dialog-hide aria-label="Delete this contact."
-                  onClick={this.handleDelete}><i className="far fa-trash-alt" ></i> 
-                  Delete
+                  onClick={this.handleDelete}><i className="far fa-trash-alt" ></i> Delete
                 </button>
               </div>
             </div>

@@ -53,7 +53,7 @@ h3 {
   font-size: 14px;
   border: none;
   color: #4FB99F;
-  text-decoration: none;
+  font-family: 'Antic Slab', serif;
   float: right;
   cursor: pointer;
 }

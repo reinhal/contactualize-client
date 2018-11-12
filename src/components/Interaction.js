@@ -37,8 +37,7 @@ class Interaction extends React.Component {
                     className ="delete-interaction" 
                     type="submit" 
                     data-a11y-dialog-hide aria-label="Delete this interaction."
-                    onClick={this.handleDeleteInteraction}><i className="far fa-trash-alt"></i> 
-                    Delete  
+                    onClick={this.handleDeleteInteraction}><i className="far fa-trash-alt"></i> Delete  
               </button>
             </div>
           </section>
