@@ -27,27 +27,19 @@ class Interaction extends React.Component {
     // let contact = this.props.findContact(this.props.contacts, this.props.person_id);
     return (
       <Fragment>
-        <div>
-          <section>
-            <div className='interaction-copy-container'>
-              <div className='interaction'>
-                <h3 className="interaction-title">{this.props.title}</h3>
-              </div>
-              <div className="interaction-text">
-                <p>{this.props.text}</p>
-              </div>
-              <div className="interaction">
-                <p>Contact Name</p>
-                <p>{this.props.person}</p>
-              </div>
-              <div><Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link></div>
-              <div>
-                <button 
-                  className ="delete-item" 
-                  type="submit" 
-                  data-a11y-dialog-hide aria-label="Delete this interaction."
-                  onClick={this.handleDeleteInteraction}><i className="far fa-trash-alt"></i> Delete</button>
-              </div>
+        <div className='interaction-border'>
+          <section className='interaction-copy-container'>
+            <div>
+              <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with</span> Contact Name</h3>
+              <p>{this.props.text}</p>
+              <Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
+              <button 
+                    className ="delete-item" 
+                    type="submit" 
+                    data-a11y-dialog-hide aria-label="Delete this interaction."
+                    onClick={this.handleDeleteInteraction}><i className="far fa-trash-alt"></i> 
+                    Delete  
+              </button>
             </div>
           </section>
         </div>

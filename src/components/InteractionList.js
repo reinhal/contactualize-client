@@ -51,7 +51,7 @@ class InteractionList extends React.Component {
       );
     } else if (Array.isArray(this.props.interactions)){
       const interactions = this.props.interactions.map((interaction, index) => (
-        <li className="interaction=item" key={index}>
+        <li className="interaction-item" key={index}>
           <Interaction
             deleteInteraction={this.deleteInteraction}
             // findContact={this.findContact}

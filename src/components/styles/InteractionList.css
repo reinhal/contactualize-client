@@ -1,5 +1,10 @@
 section {
-  min-height: 200px;
+  /* min-height: 200px; */
   padding: 30px 15px;
   background-color: ghostwhite;
+}
+
+li.interaction-item {
+  display: inline-flex;
+  padding: 15px;
 }

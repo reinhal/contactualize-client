@@ -1,11 +1,13 @@
-.interaction-copy-container {
+section.interaction-copy-container {
   background-color: transparent;
   text-align: center;
-  border: solid #53327F 3px;
   font-size: 15px;
-  padding: 20px;
-  width: 400px;
-  height: 175px;
+  padding: 5px;
+  width: 300px;
+}
+
+.interaction-border {
+  border: solid #53327F 3px;
 }
 
 h3 {
@@ -27,7 +29,8 @@ h3 {
   color:  #112F41;
   font-style: bold;
   font-size: 18px;
-  padding: 4px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .edit-interaction-link {
@@ -35,6 +38,7 @@ h3 {
   background-color: transparent;
   font-size: 14px;
   float: left;
+  padding-top: 30px;
   padding-bottom: 0px;
   text-decoration: none;
 }
@@ -44,4 +48,9 @@ h3 {
   font-size: 16px;
   padding: -10px;
   margin: -5px;
+}
+
+.spanText {
+  font-weight: normal;
+  font-size: 14px;
 }
