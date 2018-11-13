@@ -1,31 +1,30 @@
+.dashboard-window {
+  background-image: url('https://image.ibb.co/dgp3tV/group2.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .contact-info-box {
-  height: 800px;
   color: #112F41;
-  border: 2px solid #068587;
   text-align: center;
   padding-top: 30px;
-  background-color: white;
-  background-image: url('https://image.ibb.co/gQTqjU/png_rt.png');
+  background-color: transparent;
   background-position: center right;
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 10px;
-  overflow: scroll;
 }
 
 .interaction-info-box {
-  height: 800px;
   color: #112F41;
-  border: 2px solid #068587;
   text-align: center;
   padding-top: 30px;
-  background-color: white;
-  background-image: url('https://image.ibb.co/bB1YmL/user-lt.png');
+  background-color: tranparent;
   background-position: center left;
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 10px;
-  overflow: scroll;
 }
 a.contact-dashboard-link {
   color:  #112F41;

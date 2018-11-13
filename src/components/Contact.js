@@ -18,6 +18,7 @@ class Contact extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.interactionText = this.interactionText.bind(this);
+    this.displayInteractions = this.displayInteractions.bind(this);
   }
 
   handleDelete(e) {
@@ -30,6 +31,10 @@ class Contact extends React.Component {
     let noun = 'interaction';
     if (this.props.interactions.length !== 1) {noun += 's'}
     return  <div className="contact"><p className="interaction-quantity"> {this.props.interactions.length} {noun}</p></div>
+  }
+
+  displayInteractions() {
+    
   }
 
   render(props) {

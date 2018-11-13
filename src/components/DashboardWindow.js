@@ -18,7 +18,7 @@ export default class DashboardWindow extends React.Component {
   render(props) {
     return (
       <Fragment>
-        <div>
+        <div className="dashboard-window">
           <main role="main">
             <div className="row">
               <div className="col-6">

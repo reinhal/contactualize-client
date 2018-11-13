@@ -83,7 +83,7 @@ h3 {
 }
 
 ol.interaction-items {
-  display: none;
+  /* display: none; */
   padding: 5px;
 }
 

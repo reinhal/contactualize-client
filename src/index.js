@@ -6,6 +6,8 @@ import App from './App';
 import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
+console.log('store', store.getState());
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
