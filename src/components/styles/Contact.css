@@ -71,7 +71,7 @@ h3 {
   cursor: pointer;
 }
 
-.delete-item:hover {
+.delete-contact:hover {
   color: red;
   font-size: 16px;
   padding: -10px;

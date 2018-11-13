@@ -8,6 +8,7 @@ section.interaction-copy-container {
 
 .interaction-border {
   border: solid #53327F 3px;
+  padding: 0px 10px;
 }
 
 h3 {
