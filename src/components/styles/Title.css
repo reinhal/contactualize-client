@@ -1,11 +1,13 @@
 .title-bkgrnd {
-  background:transparent;
+  background-color: white;
+  background-image: url('https://image.ibb.co/bWT920/teamwork1.png');
   border-bottom: 2px solid #068587;
 }
 
 
 h1 {
   text-align: center;
+  margin-top: 0px;
   margin-bottom: -20px;
   font-family: 'Quicksand', sans-serif;
   font-size: 4em;
