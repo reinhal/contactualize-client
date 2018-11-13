@@ -4,12 +4,18 @@ fieldset {
   margin: 10px;
 }
 
+.sign-up-title {
+  padding: 0;
+}
+
 .signup-div {
   background-color: whitesmoke;
   background-image: url('https://image.ibb.co/hdwy3p/user3.png');
   margin: 0 auto;
   width: 50%;
   border: solid #112F41 2px;
+  padding: 30px;
+  padding-bottom: 45px;
 }
 
 .signup-label {
@@ -29,14 +35,13 @@ fieldset {
   border: solid #112F41 2px;
 }
 
-.sign-up-button {
-  margin: 15px;
+.signup-button {
+  display: inline;
 }
 
 .signup-form {
   margin: 0 auto;
   width: 50%;
-  padding-bottom: 15px;
 }
 
 button.landingpage-button {
@@ -48,7 +53,7 @@ button.landingpage-button {
   color: #112F41;
   cursor: pointer;
   display: block;
-  justify-items: right;
+  float: right;
 }
 
 button.landingpage-button:hover {
@@ -71,10 +76,6 @@ button.landingpage-signup-button {
 button.landingpage-signup-button:hover {
   background-color: #4FB99F;
   box-shadow: 3px 3px 10px #355263;
-}
-
-.sign-up-button {
-  display: inline;
 }
 
 .lp-text {

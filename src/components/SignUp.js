@@ -5,7 +5,7 @@ import './styles/SignUp.css';
 export default function SignUp() {
   return (
     <div className="signup-div">
-      <h2>Try Contactualize Now</h2>
+      <h2 className="sign-up-title">Try Contactualize Now</h2>
       <form className='signup-form'>
           <div>
             <label className='signup-label' htmlFor="first-name">First name</label>
