@@ -57,10 +57,12 @@ class Contact extends React.Component {
     console.log(this.props);
     let interactions = this.props.interactions;
     let interactionItems = () => {
-      if(interactions.length > 1){
-        interactions.map((interaction) => 
-        <li key={interaction.index} className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
-      )};
+      if(Array.isArray(interactions)) {
+        if(interactions.length >= 1){
+          return interactions.map((interaction) => 
+          <li className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
+        )};
+      }
     }
     return (
       <Fragment>
@@ -72,7 +74,7 @@ class Contact extends React.Component {
               </div>
               <div>
                 <button className="interaction-detail-button" onClick={this.displayInteractions}>{this.interactionText()}</button>
-                <ol className={this.state.displayed ? "interaction-items" : ""}>{interactionItems}</ol>
+              <ol className={this.state.displayed ? "interaction-items" : ""}>{interactionItems()}</ol>
               </div>
               <div>
                 <Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
