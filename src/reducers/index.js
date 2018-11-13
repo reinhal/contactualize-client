@@ -50,7 +50,7 @@ const initialState = {
 };
 
 export const contactualizeReducer = (state=initialState, action) => {
-  if (action.type === actions.FETCH_CONTACT_REQUEST) {
+  if (action.type === actions.FETCH_CONTACT_REQUEST || action.type === actions.DELETE_CONTACT_REQUEST) {
     return Object.assign({}, state, {
           error: null,
           loading: true
@@ -74,11 +74,10 @@ export const contactualizeReducer = (state=initialState, action) => {
   }
   if (action.type === actions.DELETE_CONTACT_SUCCESS) {
     return Object.assign({}, state, {
-      contacts: [...state.contacts, {
-        person: action.person,
-        notes: action.notes
-      }]
-    })
+      contacts: [...state.contacts.filter(
+        contact => contact.id !== action.id
+      )]
+    });
   }
   if (action.type === actions.UPDATE_CONTACT_REQUEST) {
     let contacts = state.contacts.map((contact) => {

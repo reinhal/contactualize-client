@@ -147,7 +147,7 @@ export const deleteContact = (id) => dispatch => {
             }
             return res.json();
         })
-        .then(() => dispatch(fetchContactRequest()))
+        .then(() => dispatch(deleteContactSuccess(id)))
         .catch(error => deleteContactError(error));
 }
 // ---------------  Getting Interactions --------------------------- //
