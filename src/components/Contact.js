@@ -13,7 +13,8 @@ class Contact extends React.Component {
     this.state = {
       interactions: [],
       person: '',
-      notes: ''
+      notes: '', 
+      displayed: true
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -34,7 +35,15 @@ class Contact extends React.Component {
   }
 
   displayInteractions() {
-    
+    if (!this.state.displayed){
+      this.setState({
+        displayed: true
+      })
+    } else {
+      this.setState({
+        displayed: false
+      })
+    }
   }
 
   render(props) {
@@ -52,8 +61,8 @@ class Contact extends React.Component {
                 <p><span className="contact-person">{this.props.person}:</span> {this.props.notes}</p>
               </div>
               <div>
-                <button className="interaction-detail-button">{this.interactionText()}</button>
-                <ol className="interaction-items">{interactionItems}</ol>
+                <button className="interaction-detail-button" onClick={this.displayInteractions}>{this.interactionText()}</button>
+                <ol className={this.state.displayed ? "interaction-items" : ""}>{interactionItems}</ol>
               </div>
               <div>
                 <Link className="edit-contact-link" to={`/edit-contact/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
