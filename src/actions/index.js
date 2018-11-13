@@ -56,7 +56,7 @@ export const addContactError = (person, notes) => ({
     notes
 });
 
-export const addContact = (contactData) => dispatch => {
+export const addContact = (contactData, cb) => dispatch => {
     dispatch(addContactRequest());
     fetch(`${API_BASE_URL}/contacts`, {
         method: 'POST',
@@ -71,7 +71,7 @@ export const addContact = (contactData) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => dispatch(addContactSuccess(contact)))
+        .then(contact => cb(contact))
         .catch(error => addContactError(error));
 }
 
@@ -99,7 +99,7 @@ export const updateContactError = (person, notes) => ({
     notes
 });
 
-export const updateContact = (contactData) => dispatch => {
+export const updateContact = (contactData, cb) => dispatch => {
     dispatch(updateContactRequest());
     fetch(`${API_BASE_URL}/contacts/${contactData.id}`, {
         method: 'PUT',
@@ -114,7 +114,7 @@ export const updateContact = (contactData) => dispatch => {
             }
             return res.json();
         })
-        .then(contactData => dispatch(updateContactSuccess(contactData)))
+        .then(contactData => cb(contactData))
         .catch(error => updateContactError(error));
 }
 
@@ -147,7 +147,7 @@ export const deleteContact = (id) => dispatch => {
             }
             return res.json();
         })
-        .then(contact => dispatch(deleteContactSuccess(contact)))
+        .then(() => dispatch(fetchContactRequest()))
         .catch(error => deleteContactError(error));
 }
 // ---------------  Getting Interactions --------------------------- //
@@ -211,7 +211,7 @@ export const addInteractionError = (person_id, person, title, text) => ({
     text
 });
 
-export const addInteraction = (interactionData) => dispatch => {
+export const addInteraction = (interactionData,cb) => dispatch => {
     dispatch(addInteractionRequest());
     fetch(`${API_BASE_URL}/interactions`, {
         method: 'POST',
@@ -226,7 +226,7 @@ export const addInteraction = (interactionData) => dispatch => {
             }
             return res.json();
         })
-        .then(interaction => dispatch(addInteractionSuccess(interaction)))
+        .then(interaction => cb(interaction))
         .catch(error => addInteractionError(error));
 }
 
@@ -257,7 +257,7 @@ export const updateInteractionError = (person_id, title, text) => ({
     text
 });
 
-export const updateInteraction = (interactionData) => dispatch => {
+export const updateInteraction = (interactionData, cb) => dispatch => {
     dispatch(updateInteractionRequest());
     fetch(`${API_BASE_URL}/interactions/${interactionData.id}`, {
         method: 'PUT',
@@ -272,7 +272,7 @@ export const updateInteraction = (interactionData) => dispatch => {
             }
             return res.json();
         })
-        .then(interactionData => dispatch(updateInteractionSuccess(interactionData)))
+        .then(interactionData => cb(interactionData))
         .catch(error => updateInteractionError(error));
 }
 
@@ -305,6 +305,6 @@ export const deleteInteraction = (id) => dispatch => {
             }
             return res.json();
         })
-        .then(interaction => dispatch(deleteInteractionSuccess(interaction)))
+        .then(interaction => dispatch(deleteInteractionSuccess(id)))
         .catch(error => deleteInteractionError(error));
 }

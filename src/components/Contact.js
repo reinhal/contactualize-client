@@ -30,8 +30,15 @@ class Contact extends React.Component {
 
   interactionText() {
     let noun = 'interaction';
-    if (this.props.interactions.length !== 1) {noun += 's'}
-    return  <div className="contact"><p className="interaction-quantity"> {this.props.interactions.length} {noun}</p></div>
+    if (this.props.interactions === undefined) {
+      noun += 's'
+      return  <div className="contact"><p className="interaction-quantity"> 0 {noun}</p></div>
+    } else if (this.props.interactions.length !== 1) {
+      noun += 's'
+      return  <div className="contact"><p className="interaction-quantity"> {this.props.interactions.length} {noun}</p></div>
+    } else {
+      return <div className="contact"><p className="interaction-quantity"> {this.props.interactions.length} {noun}</p></div>
+    }
   }
 
   displayInteractions() {
@@ -46,12 +53,15 @@ class Contact extends React.Component {
     }
   }
 
-  render(props) {
+  render(key) {
     console.log(this.props);
     let interactions = this.props.interactions;
-    let interactionItems = interactions.map((interaction) => 
-      <li className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
-    );
+    let interactionItems = () => {
+      if(interactions.length > 1){
+        interactions.map((interaction) => 
+        <li key={interaction.index} className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
+      )};
+    }
     return (
       <Fragment>
         <div className="contact-border">

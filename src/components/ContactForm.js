@@ -43,8 +43,9 @@ class ContactForm extends React.Component {
     if (this.reqMethod === 'PUT') {
       reqAction = updateContact;
     } else { reqAction = addContact}
-    this.props.dispatch(reqAction(contactData))
-    this.props.history.push('/home');
+    this.props.dispatch(reqAction(contactData,(contact) => {
+      this.props.history.push('/home');
+    }));
   }
 
   onInputChange(e) {

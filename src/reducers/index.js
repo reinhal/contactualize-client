@@ -27,25 +27,21 @@ const initialState = {
   interactions: [
     {
       "person_id": "000000000000000000000001",
-      "person": "Anne",
       "_id": "111111111111111111111111",
       "title": "Coffee Date",
       "text": "Discussed plans for a trip"
     },  {
       "person_id": "000000000000000000000002",
-      "person": "Michael",
       "_id": "111111111111111111111112",
       "title": "Phone Call",
       "text": "Went through ideas for the new website."
     },  {
       "person_id": "000000000000000000000003",
-      "person": "Frederik",
       "_id": "111111111111111111111113",
       "title": "Email",
       "text": "Followed up on last week's meeing."
     }, {
       "person_id": "000000000000000000000004",
-      "person": "Louise",
       "_id": "111111111111111111111114",
       "title": "Dinner Meeting",
       "text": "Asked about the surgery from the day before."
@@ -70,11 +66,19 @@ export const contactualizeReducer = (state=initialState, action) => {
         return contact;
     })
     return Object.assign({}, state, {
-        contacts: [...state.contacts, {
-            person: action.person,
-            notes: action.notes
-        }]  
+      contacts: [...state.contacts, {
+          person: action.person,
+          notes: action.notes
+      }]  
     });
+  }
+  if (action.type === actions.DELETE_CONTACT_SUCCESS) {
+    return Object.assign({}, state, {
+      contacts: [...state.contacts, {
+        person: action.person,
+        notes: action.notes
+      }]
+    })
   }
   if (action.type === actions.UPDATE_CONTACT_REQUEST) {
     let contacts = state.contacts.map((contact) => {
@@ -95,7 +99,6 @@ export const contactualizeReducer = (state=initialState, action) => {
         });
   }
   if (action.type === actions.FETCH_INTERACTION_SUCCESS) {
-    console.log('action', action);
     return Object.assign({}, state, {
         interactions: [...action.interactions]
     })
@@ -122,7 +125,9 @@ export const contactualizeReducer = (state=initialState, action) => {
         }]  
     });
   }
+  
   return state;
 };
 
 // stays simple: changes to objects
+// filter through the store by id

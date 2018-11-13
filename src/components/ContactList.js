@@ -36,10 +36,10 @@ class ContactList extends React.Component {
       );
     } else if (Array.isArray(this.props.contacts)){
         const contacts = this.props.contacts.map((contact, index) => (
-          <li className="contact-item" key={index}>
+          <li className="contact-item" key={this.props.contacts.index}>
             <Contact
               deleteContact={this.deleteContact}
-              index={index}
+              key={this.props.index}
               {...contact}
             />
           </li>

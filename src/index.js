@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 console.log('store', store.getState());
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider key={this.index} store={store}>
     <App />
   </Provider>, 
   document.getElementById('root')
