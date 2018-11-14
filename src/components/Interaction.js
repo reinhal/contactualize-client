@@ -58,3 +58,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Interaction);
+
+//want to know who the interaction is with, how does the interaction have already looked up the person it belonged to? 
+// maybe some population

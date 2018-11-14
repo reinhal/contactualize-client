@@ -39,7 +39,6 @@ class ContactList extends React.Component {
           <li className="contact-item" key={this.props.contacts.index}>
             <Contact
               deleteContact={this.deleteContact}
-              key={this.props.index}
               {...contact}
             />
           </li>
@@ -51,8 +50,6 @@ class ContactList extends React.Component {
     );
   }
 }
-// one part of state is all contacts, as soon as someone "picks", then the state updates
-// re-renders
 
 ContactList.defaultProps = {
   name: '',

@@ -25,7 +25,6 @@ class Contact extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteContact(this.props.id)
-    this.props.dispatch(fetchContact())
   }
 
   interactionText() {
@@ -54,7 +53,6 @@ class Contact extends React.Component {
   }
 
   render(key) {
-    console.log(this.props);
     let interactions = this.props.interactions;
     let interactionItems = () => {
       if(Array.isArray(interactions)) {

@@ -145,10 +145,10 @@ export const deleteContact = (id) => dispatch => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
-            return res.json();
+            return res.statusText;
         })
         .then(() => dispatch(deleteContactSuccess(id)))
-        .catch(error => deleteContactError(error));
+        .catch(error => console.error(error));
 }
 // ---------------  Getting Interactions --------------------------- //
 
@@ -303,8 +303,8 @@ export const deleteInteraction = (id) => dispatch => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
-            return res.json();
+            return res.statusText;
         })
-        .then(interaction => dispatch(deleteInteractionSuccess(id)))
-        .catch(error => deleteInteractionError(error));
+        .then(() => dispatch(deleteInteractionSuccess(id)))
+        .catch(error => console.error(error));
 }

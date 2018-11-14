@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import store from '../store';
-import {deleteInteraction, fetchInteraction, fetchContact} from '../actions';
+import {deleteInteraction, fetchInteraction} from '../actions';
 import Interaction from './Interaction';
 
 import './styles/InteractionList.css';
@@ -25,7 +24,6 @@ class InteractionList extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchInteraction())
-    // store.dispatch(fetchContact());
   }
 
   // findContact(contacts, person_id) {
@@ -55,7 +53,6 @@ class InteractionList extends React.Component {
           <Interaction
             deleteInteraction={this.deleteInteraction}
             // findContact={this.findContact}
-            index={index}
             {...interaction}
           />
         </li>
