@@ -69,10 +69,10 @@ class InteractionForm extends React.Component {
     });
   }
 
-  render() {
+  render(index) {
     let contacts = this.state.contacts;
     let optionItems = contacts.map((contact) => 
-      <option value={contact.id}>{contact.person}</option>
+      <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>
     );
     const currentValue = this.state;
       return (

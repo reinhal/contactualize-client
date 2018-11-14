@@ -39,7 +39,7 @@ export default class Main extends React.Component {
           />
           <Route 
           path='/edit-interaction/:id' 
-          component={(props) => <InteractionForm interactionLegend="Update Interaction" interactionButton="Update" type="PUT" {...props.match} history={props.history}/> }
+          component={(props, index) => <InteractionForm key={index} interactionLegend="Update Interaction" interactionButton="Update" type="PUT" {...props.match} history={props.history}/> }
           />
         </Switch>
       </div>
