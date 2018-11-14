@@ -26,6 +26,7 @@ class InteractionList extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     let main;
     if(this.state.error) {
       main = (

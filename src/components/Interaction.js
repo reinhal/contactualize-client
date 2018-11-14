@@ -23,12 +23,19 @@ class Interaction extends React.Component {
   }
 
   render(props) {
+    let displayContactName = () => {
+      if (this.props.person_id !== undefined) {
+        return <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with </span>{this.props.person_id.person}</h3>
+      } else {
+        return <h3 className='interaction-title'>{this.props.title}</h3>
+      }
+    }
     return (
       <Fragment>
         <div className='interaction-border'>
           <section className='interaction-copy-container'>
             <div>
-              <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with </span>{this.props.person_id.person}</h3>
+              {displayContactName()}
               <p>{this.props.text}</p>
               <Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
               <button 

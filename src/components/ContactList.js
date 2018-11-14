@@ -36,8 +36,9 @@ class ContactList extends React.Component {
       );
     } else if (Array.isArray(this.props.contacts)){
         const contacts = this.props.contacts.map((contact, index) => (
-          <li className="contact-item" key={this.props.contacts.index}>
+          <li className="contact-item" key= {`contact-${index}`}>
             <Contact
+              key= {`contact-${index}`}
               deleteContact={this.deleteContact}
               {...contact}
             />

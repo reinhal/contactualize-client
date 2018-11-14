@@ -15,7 +15,7 @@ export default class DashboardWindow extends React.Component {
     };
   }
 
-  render(props) {
+  render(index) {
     return (
       <Fragment>
         <div className="dashboard-window">
@@ -29,7 +29,7 @@ export default class DashboardWindow extends React.Component {
                       <li><Link className="contact-dashboard-link" to="/new-contact">New Contact</Link></li>
                     </div>
                     <div>
-                      <li><ContactList /></li>
+                      <li><ContactList key={`contact-${index}`}/></li>
                     </div>     
                   </ul>
                 </div>    

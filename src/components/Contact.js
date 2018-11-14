@@ -51,13 +51,13 @@ class Contact extends React.Component {
     }
   }
 
-  render(key) {
+  render() {
     let interactions = this.props.interactions;
     let interactionItems = () => {
       if(Array.isArray(interactions)) {
         if(interactions.length >= 1){
           return interactions.map((interaction) => 
-          <li className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
+          <li key= {`interaction-${interaction.id}`} className="interaction-list-item"><span className="interactionTitle">{interaction.title}:</span> {interaction.text}</li>
         )};
       }
     }
