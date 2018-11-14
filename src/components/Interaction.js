@@ -23,8 +23,6 @@ class Interaction extends React.Component {
   }
 
   render(props) {
-    console.log(this.props);
-    // let contact = this.props.findContact(this.props.contacts, this.props.person_id);
     return (
       <Fragment>
         <div className='interaction-border'>
@@ -58,6 +56,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Interaction);
-
-//want to know who the interaction is with, how does the interaction have already looked up the person it belonged to? 
-// maybe some population

@@ -211,7 +211,7 @@ export const addInteractionError = (person_id, person, title, text) => ({
     text
 });
 
-export const addInteraction = (interactionData,cb) => dispatch => {
+export const addInteraction = (interactionData, cb) => dispatch => {
     dispatch(addInteractionRequest());
     fetch(`${API_BASE_URL}/interactions`, {
         method: 'POST',

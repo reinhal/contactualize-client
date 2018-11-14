@@ -1,9 +1,7 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import { connect } from 'react-redux';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
-import {required, nonEmpty, email} from '../validators';
 import {addInteraction, updateInteraction} from '../actions';
 import './styles/InteractionForm.css';
 
@@ -24,7 +22,6 @@ class InteractionForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log('checking it here:', this.props.params);
     if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
       .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));

@@ -6,10 +6,8 @@ import App from './App';
 import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
-console.log('store', store.getState());
-
 ReactDOM.render(
-  <Provider key={this.index} store={store}>
+  <Provider store={store}>
     <App />
   </Provider>, 
   document.getElementById('root')

@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import { connect } from 'react-redux';
-import {fetchContact} from '../actions';
 import {Link} from 'react-router-dom';
 
 import './styles/Contact.css';

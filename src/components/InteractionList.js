@@ -15,7 +15,6 @@ class InteractionList extends React.Component {
     };
 
     this.deleteInteraction = this.deleteInteraction.bind(this);
-    // this.findContact = this.findContact.bind(this);
   }
 
   deleteInteraction(id) {
@@ -25,17 +24,6 @@ class InteractionList extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchInteraction())
   }
-
-  // findContact(contacts, person_id) {
-  //   console.log(contacts);
-  //   let interactionContact;
-  //   this.state.contacts.forEach((contact) => {
-  //     if (contact._id === person_id) {
-  //       interactionContact = contact.person;
-  //     }
-  //   });
-  //   return interactionContact;
-  // }
 
   render() {
     let main;
@@ -52,7 +40,6 @@ class InteractionList extends React.Component {
         <li className="interaction-item" key={index}>
           <Interaction
             deleteInteraction={this.deleteInteraction}
-            // findContact={this.findContact}
             {...interaction}
           />
         </li>

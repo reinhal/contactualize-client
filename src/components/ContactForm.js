@@ -1,9 +1,7 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import { connect } from 'react-redux';
 import {API_BASE_URL} from '../config';
 import { soFetch } from '../utils/index';
-import {required, nonEmpty, email} from '../validators';
 import {addContact, updateContact} from '../actions';
 import './styles/ContactForm.css';
 
@@ -60,10 +58,6 @@ class ContactForm extends React.Component {
       notes: this.state.notes
     });
   }
-
-  //props that is passed to the function by a parent component 
-  //that can be called to tell the parent the success message, 
-  //and have a state, when render is called change its state
 
   render() {
     const current = this.state;
