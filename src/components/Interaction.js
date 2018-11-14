@@ -30,7 +30,7 @@ class Interaction extends React.Component {
         <div className='interaction-border'>
           <section className='interaction-copy-container'>
             <div>
-              <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with</span> Contact Name</h3>
+              <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with </span>{this.props.person_id.person}</h3>
               <p>{this.props.text}</p>
               <Link className="edit-interaction-link" to={`/edit-interaction/${this.props.id}`}><i className="far fa-edit"></i> Edit</Link>
               <button 
