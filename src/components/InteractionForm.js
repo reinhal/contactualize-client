@@ -21,6 +21,10 @@ class InteractionForm extends React.Component {
     }
   }
 
+  // componentDidMount() {
+  //   this.props.dispatch(fetchInteraction())
+  // }
+
   componentDidMount() {
     if (this.props.params !== undefined) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
@@ -69,7 +73,7 @@ class InteractionForm extends React.Component {
     });
   }
 
-  render(index) {
+  render() {
     let contacts = this.state.contacts;
     let optionItems = contacts.map((contact) => 
       <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>

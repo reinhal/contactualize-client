@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {API_BASE_URL} from '../config';
-import { soFetch } from '../utils/index';
-import {addContact, updateContact} from '../actions';
+import {fetchContact, addContact, updateContact} from '../actions';
 import './styles/ContactForm.css';
 
 //when do I hook up to mLab
@@ -23,11 +21,7 @@ class ContactForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.params);
-    if (this.props.params !== undefined) {
-      soFetch(`${API_BASE_URL}/contacts/${this.props.params.id}`)
-        .then(data => this.setState({ person: data.person, notes: data.notes}));
-    }
+    this.props.dispatch(fetchContact())
   }
 
   onSubmit(e) {

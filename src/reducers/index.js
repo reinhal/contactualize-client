@@ -65,9 +65,6 @@ export const contactualizeReducer = (state=initialState, action) => {
     })
   }
   if (action.type === actions.ADD_CONTACT_REQUEST) {
-    // let contacts = state.contacts.map((contact) => {
-    //     return contact;
-    // })
     return Object.assign({}, state, {
       contacts: [...state.contacts, {
           person: action.person,
@@ -84,9 +81,6 @@ export const contactualizeReducer = (state=initialState, action) => {
     });
   }
   if (action.type === actions.UPDATE_CONTACT_REQUEST) {
-    // let contacts = state.contacts.map((contact) => {
-    //     return contact;
-    // })
     return Object.assign({}, state, {
         contacts: [...state.contacts, {
             person: action.person,
@@ -101,9 +95,6 @@ export const contactualizeReducer = (state=initialState, action) => {
     })
   }
   if (action.type === actions.ADD_INTERACTION_REQUEST) {
-    // let interactions = state.interactions.map((interaction) => {
-    //     return interaction;
-    // })
     return Object.assign({}, state, {
         interactions: [...state.interactions, {
             title: action.title,
@@ -112,9 +103,6 @@ export const contactualizeReducer = (state=initialState, action) => {
     });
   }
   if (action.type === actions.UPDATE_INTERACTION_REQUEST) {
-    // let interactions = state.interactions.map((interaction) => {
-    //     return interaction;
-    // })
     return Object.assign({}, state, {
         interactions: [...state.interactions, {
             title: action.title,
