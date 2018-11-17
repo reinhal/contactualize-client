@@ -60,3 +60,22 @@ select, input, textarea {
   background-color: whitesmoke;
   box-shadow: 3px 3px 10px #112F41;
 }
+
+@media screen and (max-width: 500px) {
+  legend {
+    font-size: 24px;
+  }
+
+  label {
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  select, input, textarea {
+    padding: 3px;
+  }
+
+  .interaction-button {
+    font-size: 24px;
+  }
+}

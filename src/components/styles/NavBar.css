@@ -44,17 +44,12 @@ a:visited {
   color:  floralwhite;
 }
 
-@media (max-width: 320px) {
-  h2 {
-    font-size: 14px;
-  }
+@media (max-width: 500px) {
+ a { 
+   font-size: 12px;
+ }
 
-  ul {
-    display: none;
-  }
-
-  .fa-bars {
-    display: inline;
-    color: #112F41;
-  }
+ ul {
+   text-align: center;
+ }
 }

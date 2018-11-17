@@ -26,11 +26,9 @@ class InteractionForm extends React.Component {
   // }
 
   componentDidMount() {
-    if (this.props.params !== undefined) {
+    if (Object.keys(this.props.params).length === 0) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
       .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
-    } else {
-      soFetch(`${API_BASE_URL}/interactions/`)
     }
     return fetch(`${API_BASE_URL}/contacts`)
       .then((res) => res.json())

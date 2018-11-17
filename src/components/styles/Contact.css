@@ -3,7 +3,7 @@
   border: solid  #F2B134 3px;
   text-align: center;
   font-size: 15px;
-  padding: 20px;
+  padding: 20px 0px;
   width: 500px;
 }
 
@@ -49,6 +49,8 @@ h3 {
 .edit-contact-link {
   color: #4FB99F;
   font-size: 14px;
+  padding: -5px;
+  margin-left: 5px;
   float: left;
   text-decoration: none;
 }
@@ -81,13 +83,22 @@ h3 {
   font-weight: bold;
 }
 
+ol {
+  padding: 0px;
+}
+
 ol.interaction-items {
   display: none;
-  padding: 5px;
 }
 
 li.interaction-list-item {
   list-style-type: decimal;
   display: inline-block;
   color: #53327F;
+}
+
+@media screen and (max-width: 500px) {
+  .copy-container {
+    width: 300px;
+  }
 }

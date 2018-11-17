@@ -1,9 +1,8 @@
-section {
-  padding: 5px;
-  background-color:  white;
-  color: #112F41;
-}
-
 p {
   text-align: center;
+}
+
+li.contact-item {
+  display: inline-flex;
+  padding: 5px 15px;
 }

@@ -37,7 +37,7 @@ label {
   width: 100%;
   max-width: 100%;
   background-color: white;
-  border: solid #F2B134 2px;
+  border: solid #F2B134;
   font-size: 18px;
   padding: 15px;
 }
@@ -60,4 +60,19 @@ label {
 .contact-button:hover {
   background-color: whitesmoke;
   box-shadow: 3px 3px 10px #112F41;
+}
+
+@media screen and (max-width: 500px) {
+  legend {
+    font-size: 24px;
+  }
+
+  .newName, .newNotes {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .contact-button {
+    font-size: 24px;
+  }
 }

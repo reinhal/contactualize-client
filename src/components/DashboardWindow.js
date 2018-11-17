@@ -23,7 +23,7 @@ export default class DashboardWindow extends React.Component {
             <div className="row">
               <div className="col-6">
                 <div className="contact-info-box">
-                  <h2>Manage Contacts</h2>
+                  <h2 className="manage-contacts">Manage Contacts</h2>
                   <ul>
                     <div>
                       <li><Link className="contact-dashboard-link" to="/new-contact">New Contact</Link></li>

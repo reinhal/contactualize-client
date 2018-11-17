@@ -3,12 +3,12 @@ section.interaction-copy-container {
   text-align: center;
   font-size: 15px;
   padding: 5px;
-  width: 300px;
+  width: 500px;
 }
 
 .interaction-border {
   border: solid #53327F 3px;
-  padding: 0px 10px;
+  /* padding: 0px 10px; */
 }
 
 h3 {
@@ -70,4 +70,16 @@ h3 {
 .spanText {
   font-weight: normal;
   font-size: 14px;
+}
+
+@media screen and (max-width: 500px) {
+  section.interaction-copy-container {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  section.interaction-copy-container {
+    width: 100px;
+  }
 }
