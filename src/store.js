@@ -1,7 +1,11 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {contactualizeReducer} from './reducers/index.js';
-export default createStore(contactualizeReducer, applyMiddleware(thunk));
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export default createStore(contactualizeReducer, composeEnhancers(applyMiddleware(thunk)));
+
+
 
 // redux thunk for async
 // react is doing too many jobs, get it working with redux

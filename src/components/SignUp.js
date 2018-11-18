@@ -1,4 +1,8 @@
 import React from 'react';
+// import {Field, reduxForm, focus} from 'redux-form';
+// const passwordLength = length({min: 10, max: 72});
+// const matchesPassword = matches('password');
+
 
 import './styles/SignUp.css';
 

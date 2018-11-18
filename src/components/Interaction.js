@@ -24,7 +24,7 @@ class Interaction extends React.Component {
 
   render(props) {
     let displayContactName = () => {
-      if (this.props.person_id !== undefined) {
+      if (this.props.person_id !== null) {
         return <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with </span>{this.props.person_id.person}</h3>
       } else {
         return <h3 className='interaction-title'>{this.props.title}</h3>

@@ -21,12 +21,8 @@ class InteractionForm extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.props.dispatch(fetchInteraction())
-  // }
-
   componentDidMount() {
-    if (Object.keys(this.props.params).length === 0) {
+    if (Object.keys(this.props.params).length !== 0) {
       soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
       .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
     }
@@ -77,6 +73,7 @@ class InteractionForm extends React.Component {
       <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>
     );
     const currentValue = this.state;
+    console.log(this.state, 'STATE');
       return (
         <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
           <fieldset className="interaction-form">

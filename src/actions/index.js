@@ -100,6 +100,7 @@ export const updateContactError = (person, notes) => ({
 });
 
 export const updateContact = (contactData, cb) => dispatch => {
+    console.log(contactData, 'Contact Data');
     dispatch(updateContactRequest());
     fetch(`${API_BASE_URL}/contacts/${contactData.id}`, {
         method: 'PUT',

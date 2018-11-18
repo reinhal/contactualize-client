@@ -16,14 +16,14 @@ export default class Main extends React.Component {
           component={ () => <LandingPage />}
           />
           <Route exact path='/home' 
-          component={(props) => <Home /> }
+          component={() => <Home /> }
           />
           <Route exact path='/new-contact' 
           component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }
           />
           <Route 
           exact path='/contacts' 
-          component={(props, index) => <ContactList {...props.match} history={props.history}/>}
+          component={(props) => <ContactList {...props.match} history={props.history}/>}
           />
           <Route 
           exact path='/record-interaction' 
@@ -44,8 +44,6 @@ export default class Main extends React.Component {
         </Switch>
       </div>
     );
-  }
-  
+  }  
 }  
 
-//switch to Redux
