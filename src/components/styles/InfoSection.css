@@ -9,3 +9,12 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 500px) {
+  .info-section-title{
+    font-size: 18px;
+  }
+  .info-section-text {
+    width: 80%
+  }
+}

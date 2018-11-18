@@ -46,14 +46,13 @@ fieldset {
 
 button.landingpage-button {
   background-color: white;
-  width: 50%;
+  width: 100%;
   margin-right: 0px;
   font-size: 18px;
   border: solid #112F41 2px;
   color: #112F41;
   cursor: pointer;
   display: block;
-  float: right;
 }
 
 button.landingpage-button:hover {
@@ -65,7 +64,6 @@ button.landingpage-signup-button {
   background-color: white;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 15px;
   font-size: 18px;
   border: solid #112F41 2px;
   color: #112F41;
@@ -78,12 +76,23 @@ button.landingpage-signup-button:hover {
   box-shadow: 3px 3px 10px #355263;
 }
 
-.lp-text {
-  float: left;
-  margin-top: 0px;
-}
-
 .signup-password {
   margin-bottom: 15px;
   padding: 3px;
+}
+
+@media screen and (max-width: 500px) {
+  .sign-up-title {
+    font-size: 18px;
+  }
+
+  .signup-div {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .signup-form {
+    margin: 0 auto;
+    width: 80%;
+  }
 }
