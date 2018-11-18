@@ -22,7 +22,7 @@ export const fetchContactError = contacts => ({
 
 export const fetchContact = () => dispatch => {
     dispatch(fetchContactRequest());
-    return fetch(`${API_BASE_URL}/contacts`)
+    return fetch(`${API_BASE_URL}/auth/contacts`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -58,7 +58,7 @@ export const addContactError = (person, notes) => ({
 
 export const addContact = (contactData, cb) => dispatch => {
     dispatch(addContactRequest());
-    fetch(`${API_BASE_URL}/contacts`, {
+    fetch(`${API_BASE_URL}/protected/contacts`, {
         method: 'POST',
         body: JSON.stringify(contactData),
         headers: {
@@ -102,7 +102,7 @@ export const updateContactError = (person, notes) => ({
 export const updateContact = (contactData, cb) => dispatch => {
     console.log(contactData, 'Contact Data');
     dispatch(updateContactRequest());
-    fetch(`${API_BASE_URL}/contacts/${contactData.id}`, {
+    fetch(`${API_BASE_URL}/protected/contacts/${contactData.id}`, {
         method: 'PUT',
         body: JSON.stringify(contactData),
         headers: {
@@ -141,7 +141,7 @@ export const deleteContactError = (id) => ({
 
 export const deleteContact = (id) => dispatch => {
     dispatch(deleteContactRequest(id));
-    fetch(`${API_BASE_URL}/contacts/${id}`, {method: 'DELETE'})
+    fetch(`${API_BASE_URL}/protected/contacts/${id}`, {method: 'DELETE'})
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -172,7 +172,7 @@ export const fetchInteractionError = interactions => ({
 
 export const fetchInteraction = () => dispatch => {
     dispatch(fetchInteractionRequest());
-    return fetch(`${API_BASE_URL}/interactions`)
+    return fetch(`${API_BASE_URL}/protected/interactions`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -214,7 +214,7 @@ export const addInteractionError = (person_id, person, title, text) => ({
 
 export const addInteraction = (interactionData, cb) => dispatch => {
     dispatch(addInteractionRequest());
-    fetch(`${API_BASE_URL}/interactions`, {
+    fetch(`${API_BASE_URL}/protected/interactions`, {
         method: 'POST',
         body: JSON.stringify(interactionData),
         headers: {
@@ -260,7 +260,7 @@ export const updateInteractionError = (person_id, title, text) => ({
 
 export const updateInteraction = (interactionData, cb) => dispatch => {
     dispatch(updateInteractionRequest());
-    fetch(`${API_BASE_URL}/interactions/${interactionData.id}`, {
+    fetch(`${API_BASE_URL}/protected/interactions/${interactionData.id}`, {
         method: 'PUT',
         body: JSON.stringify(interactionData),
         headers: {
@@ -299,7 +299,7 @@ export const deleteInteractionError = (id) => ({
 
 export const deleteInteraction = (id) => dispatch => {
     dispatch(deleteInteractionRequest(id));
-    fetch(`${API_BASE_URL}/interactions/${id}`, {method: 'DELETE'})
+    fetch(`${API_BASE_URL}/protected/interactions/${id}`, {method: 'DELETE'})
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
