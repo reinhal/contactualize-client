@@ -51,7 +51,7 @@ button.landingpage-button {
   width: 50%;
   margin: 0 auto;
   font-size: 18px;
-  border: solid #112F41 2px;
+  border: solid #112F41 1px;
   border-radius: 20px;
   color: #112F41;
   cursor: pointer;
@@ -60,7 +60,10 @@ button.landingpage-button {
 
 button.landingpage-button:hover {
   background-color: #4FB99F;
+  padding: 3px;
+  margin-bottom: -1px;
   box-shadow: 3px 3px 10px #355263;
+  border: none;
 }
 
 button.landingpage-signup-button {
@@ -68,7 +71,7 @@ button.landingpage-signup-button {
   width: 50%;
   margin: 0 auto;
   font-size: 18px;
-  border: solid #112F41 2px;
+  border: solid #112F41 1px;
   border-radius: 20px;
   color: #112F41;
   cursor: pointer;
@@ -77,7 +80,10 @@ button.landingpage-signup-button {
 
 button.landingpage-signup-button:hover {
   background-color: #4FB99F;
+  padding: 3px;
+  margin-bottom: -1px;
   box-shadow: 3px 3px 10px #355263;
+  border: none;
 }
 
 #passwordConfirm {
