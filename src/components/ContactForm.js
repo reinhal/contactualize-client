@@ -70,7 +70,7 @@ class ContactForm extends React.Component {
               : 'Update Contact Information'}
           </legend>
           <div>
-            <label htmlFor="person">Name*</label>
+            <label className="contact-form-label" htmlFor="person">Name*</label>
             <input 
               id="person" 
               className="newName" 
@@ -81,7 +81,7 @@ class ContactForm extends React.Component {
             required />
           </div>
           <div>
-            <label htmlFor="notes">Notes*</label>
+            <label className="contact-form-label" htmlFor="notes">Notes*</label>
             <textarea 
               id="notes" 
               name="notes"

@@ -20,12 +20,13 @@ fieldset {
 
 .signup-label {
   font-size: 18px;
-  padding-bottom: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
-.signup-field {
+#firstName, #lastName, #username, #password, #passwordConfirm {
   width: 100%;
-  border: solid #112F41 2px;
+  border: solid #112F41 1px;
   margin: 0 auto;
   font-size: 16px;
   padding: 5px;
@@ -44,12 +45,14 @@ fieldset {
   width: 50%;
 }
 
+
 button.landingpage-button {
   background-color: white;
-  width: 100%;
-  margin-right: 0px;
+  width: 50%;
+  margin: 0 auto;
   font-size: 18px;
   border: solid #112F41 2px;
+  border-radius: 20px;
   color: #112F41;
   cursor: pointer;
   display: block;
@@ -62,10 +65,11 @@ button.landingpage-button:hover {
 
 button.landingpage-signup-button {
   background-color: white;
-  width: 100%;
+  width: 50%;
   margin: 0 auto;
   font-size: 18px;
   border: solid #112F41 2px;
+  border-radius: 20px;
   color: #112F41;
   cursor: pointer;
   display: block;
@@ -76,9 +80,8 @@ button.landingpage-signup-button:hover {
   box-shadow: 3px 3px 10px #355263;
 }
 
-.signup-password {
-  margin-bottom: 15px;
-  padding: 3px;
+#passwordConfirm {
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 500px) {

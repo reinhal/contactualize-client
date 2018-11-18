@@ -83,13 +83,13 @@ class InteractionForm extends React.Component {
               : 'Update Interaction'}
             </legend>
             <div>
-              <label htmlFor="Contact">Contact*</label>
+              <label className="interaction-form-label" htmlFor="Contact">Contact*</label>
               <select name="person_id">
                 {optionItems}
               </select>
             </div>
             <div>
-              <label htmlFor="title">Title*</label>
+              <label className="interaction-form-label" htmlFor="title">Title*</label>
               <input 
                 id="title"
                 name="title"
@@ -100,7 +100,7 @@ class InteractionForm extends React.Component {
               required />
             </div>
             <div>
-              <label htmlFor="text">Text*</label>
+              <label className="interaction-form-label" htmlFor="text">Text*</label>
               <textarea 
                 id="text" 
                 name="text"

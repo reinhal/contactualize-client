@@ -1,14 +1,29 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
+import {loadAuthToken} from './local-storage';
+import authReducer from './reducers/auth';
+import protectedDataReducer from './reducers/protected-data';
+import {setAuthToken, refreshAuthToken} from './actions/auth';
 import {contactualizeReducer} from './reducers/index.js';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export default createStore(contactualizeReducer, composeEnhancers(applyMiddleware(thunk)));
 
+const store = createStore(
+  combineReducers({
+    contactualizeReducer: contactualizeReducer,
+    form: formReducer,
+    auth: authReducer,
+    protectedData: protectedDataReducer
+  }),
+  composeEnhancers(applyMiddleware(thunk))
+);
 
+const authToken = loadAuthToken();
+if (authToken) {
+    const token = authToken;
+    store.dispatch(setAuthToken(token));
+    store.dispatch(refreshAuthToken());
+}
 
-// redux thunk for async
-// react is doing too many jobs, get it working with redux
-// thunk = a function return by a function 
-// the data will be in store, and read it properly to put it together
-// possible data in the mapStateToProps object
+export default store;

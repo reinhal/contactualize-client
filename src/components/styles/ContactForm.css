@@ -24,7 +24,7 @@ legend {
   text-align: center;
 }
 
-label {
+.contact-form-label {
   padding: 10px;
   margin-top: 5px;
   max-width: 100%;
