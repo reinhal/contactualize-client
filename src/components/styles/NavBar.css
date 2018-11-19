@@ -27,10 +27,21 @@ a {
   padding: 5px;
   margin: 5px;
 } 
-/* 
-a:visited {
-  color: white; 
-} */
+
+.logout-link {
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  color: white;
+  font-family: 'Antic Slab', serif;
+  cursor: pointer;
+  border: 1px solid whitesmoke;
+  padding: 7px;
+}
+
+.logout-link:hover {
+  background-color: #112F41;
+}
 
 .nav-link:hover {
   background-color: #112F41;

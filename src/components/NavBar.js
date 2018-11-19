@@ -15,14 +15,15 @@ export class NavBar extends React.Component{
     let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
+                <button className="logout-link" onClick={() => this.logOut()}>Log Out</button>
+            )
+            .then(this.props.history.push('/'))
         }
     return (
       <div>
         <nav role="naviagtion">
           <ul>
-            <li className="nav-link" >{logOutButton}</li>
+            <li>{logOutButton}</li>
             <li className="nav-link" ><NavLink to="/home">Home</NavLink></li>
             <li className="nav-link" ><NavLink to="/new-contact">+ Contact</NavLink></li>
             <li className="nav-link" ><NavLink to="/record-interaction">+ Interactions</NavLink></li>

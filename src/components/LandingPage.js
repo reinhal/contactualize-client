@@ -12,6 +12,7 @@ export function LandingPage(props) {
   if (props.loggedIn) {
     return <Redirect to="/home" />;
   }
+
   return (
     <div className="landing-page">
       <main role="main">
@@ -20,7 +21,7 @@ export function LandingPage(props) {
         <SignUp />
       </main>
     </div>
-  );
+  );   
 }
 
 const mapStateToProps = state => ({

@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-
+import {normalizeResponseErrors} from './utils';
 
 // ---------------  Getting Contacts --------------------------- //
 
@@ -20,9 +20,15 @@ export const fetchContactError = contacts => ({
     contacts
 });
 
-export const fetchContact = () => dispatch => {
+export const fetchContact = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
     dispatch(fetchContactRequest());
-    return fetch(`${API_BASE_URL}/auth/contacts`)
+    return fetch(`${API_BASE_URL}/contacts`, {
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -56,15 +62,18 @@ export const addContactError = (person, notes) => ({
     notes
 });
 
-export const addContact = (contactData, cb) => dispatch => {
+export const addContact = (contactData, cb) =>(dispatch, getState) => {
     dispatch(addContactRequest());
-    fetch(`${API_BASE_URL}/protected/contacts`, {
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/contacts`, {
         method: 'POST',
         body: JSON.stringify(contactData),
         headers: {
-        'Content-type': 'application/json; charset=UTF-8'
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${authToken}`
       }
     })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -99,16 +108,18 @@ export const updateContactError = (person, notes) => ({
     notes
 });
 
-export const updateContact = (contactData, cb) => dispatch => {
-    console.log(contactData, 'Contact Data');
+export const updateContact = (contactData, cb) => (dispatch, getState) => {
     dispatch(updateContactRequest());
-    fetch(`${API_BASE_URL}/protected/contacts/${contactData.id}`, {
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/contacts/${contactData.id}`, {
         method: 'PUT',
         body: JSON.stringify(contactData),
         headers: {
-        'Content-type': 'application/json; charset=UTF-8'
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${authToken}`
       }
     })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -139,9 +150,16 @@ export const deleteContactError = (id) => ({
     id
 });
 
-export const deleteContact = (id) => dispatch => {
+export const deleteContact = (id) => (dispatch, getState) => {
     dispatch(deleteContactRequest(id));
-    fetch(`${API_BASE_URL}/protected/contacts/${id}`, {method: 'DELETE'})
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/contacts/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -170,9 +188,15 @@ export const fetchInteractionError = interactions => ({
     interactions
 });
 
-export const fetchInteraction = () => dispatch => {
+export const fetchInteraction = () => (dispatch, getState) => {
     dispatch(fetchInteractionRequest());
-    return fetch(`${API_BASE_URL}/protected/interactions`)
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/interactions`, {
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -212,15 +236,18 @@ export const addInteractionError = (person_id, person, title, text) => ({
     text
 });
 
-export const addInteraction = (interactionData, cb) => dispatch => {
+export const addInteraction = (interactionData, cb) => (dispatch, getState) => {
     dispatch(addInteractionRequest());
-    fetch(`${API_BASE_URL}/protected/interactions`, {
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/interactions`, {
         method: 'POST',
         body: JSON.stringify(interactionData),
         headers: {
-        'Content-type': 'application/json; charset=UTF-8'
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${authToken}`
       }
     })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -258,15 +285,18 @@ export const updateInteractionError = (person_id, title, text) => ({
     text
 });
 
-export const updateInteraction = (interactionData, cb) => dispatch => {
+export const updateInteraction = (interactionData, cb) => (dispatch, getState) => {
     dispatch(updateInteractionRequest());
-    fetch(`${API_BASE_URL}/protected/interactions/${interactionData.id}`, {
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/interactions/${interactionData.id}`, {
         method: 'PUT',
         body: JSON.stringify(interactionData),
         headers: {
-        'Content-type': 'application/json; charset=UTF-8'
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${authToken}`
       }
     })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -297,9 +327,16 @@ export const deleteInteractionError = (id) => ({
     id
 });
 
-export const deleteInteraction = (id) => dispatch => {
+export const deleteInteraction = (id) => (dispatch, getState) => {
     dispatch(deleteInteractionRequest(id));
-    fetch(`${API_BASE_URL}/protected/interactions/${id}`, {method: 'DELETE'})
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/interactions/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);

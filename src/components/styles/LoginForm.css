@@ -1,30 +1,38 @@
-
 fieldset {
   background-color: whitesmoke;
   margin: 10px;
 }
 
-.sign-up-title {
+.login-modal {
+  background-color: transparent;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.login-title {
   padding: 0;
 }
 
-.signup-modal {
+.login-page {
+  margin: 150px;
+}
+
+.account-link {
+  color: #112F41;
+}
+
+
+div.login-div {
   background-color: whitesmoke;
   background-image: url('https://image.ibb.co/hdwy3p/user3.png');
   margin: 0 auto;
   width: 50%;
   border: solid #112F41 2px;
-  padding: 30px;
   padding-bottom: 45px;
 }
 
-.signup-label {
-  font-size: 18px;
-  padding: 0px;
-  margin: 0px;
-}
-
-#firstName, #lastName, #new-username, #new-password, #passwordConfirm {
+#username, #password {
   width: 100%;
   border: solid #112F41 1px;
   margin: 0 auto;
@@ -32,24 +40,13 @@ fieldset {
   padding: 5px;
 }
 
-.signup-password {
-  border: solid #112F41 2px;
-}
-
-.signup-button {
-  display: inline;
-}
-
-.signup-form {
+.login-form {
   margin: 0 auto;
   width: 50%;
 }
 
-.showSignUpForm {
-  display: block;
-}
 
-button.landingpage-button {
+button.login-button {
   background-color: white;
   width: 50%;
   margin: 0 auto;
@@ -61,7 +58,7 @@ button.landingpage-button {
   display: block;
 }
 
-button.landingpage-button:hover {
+button.login-button:hover {
   background-color: #4FB99F;
   padding: 3px;
   margin-bottom: -1px;
@@ -69,41 +66,21 @@ button.landingpage-button:hover {
   border: none;
 }
 
-button.landingpage-signup-button {
-  background-color: white;
-  width: 50%;
-  margin: 0 auto;
-  font-size: 18px;
-  border: solid #112F41 1px;
-  border-radius: 20px;
-  color: #112F41;
-  cursor: pointer;
-  display: block;
-}
-
-button.landingpage-signup-button:hover {
-  background-color: #4FB99F;
-  padding: 3px;
-  margin-bottom: -1px;
-  box-shadow: 3px 3px 10px #355263;
-  border: none;
-}
-
-#passwordConfirm {
+#password {
   margin-bottom: 20px;
 }
 
 @media screen and (max-width: 500px) {
-  .sign-up-title {
+  .login-title {
     font-size: 18px;
   }
 
-  .signup-div {
+  .login-div {
     width: 80%;
     padding: 10px;
   }
 
-  .signup-form {
+  .login-form {
     margin: 0 auto;
     width: 80%;
   }

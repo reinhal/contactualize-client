@@ -1,6 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './Home';
+import LoginForm from './LoginForm';
 import ContactForm from './ContactForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
@@ -13,10 +14,13 @@ export default class Main extends React.Component {
       <div>
         <Switch>
           <Route exact path='/' 
-          component={ () => <LandingPage />}
+          component={(props) => <LandingPage {...props.match}/>}
           />
           <Route exact path='/home' 
           component={() => <Home /> }
+          />
+          <Route exact path='/login' 
+          component={() => <LoginForm /> }
           />
           <Route exact path='/new-contact' 
           component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }
