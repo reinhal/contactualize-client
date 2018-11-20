@@ -100,7 +100,6 @@ export class SignUp extends React.Component {
               Register
             </button>
             <div className="signup-button">
-            <p className="lp-text">Already have an account?</p><button className="landingpage-button" ><Link className="account-link" to={'/login'}>Account</Link></button>
             </div>  
           </form>
         </div>

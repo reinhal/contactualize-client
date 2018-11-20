@@ -5,13 +5,13 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
-import {contactualizeReducer} from './reducers/index.js';
+import {contactReducer} from './reducers/index.js';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   combineReducers({
-    contactualizeReducer: contactualizeReducer,
+    contactReducer: contactReducer,
     form: formReducer,
     auth: authReducer,
     protectedData: protectedDataReducer

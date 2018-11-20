@@ -49,7 +49,7 @@ const initialState = {
   ]  
 };
 
-export const contactualizeReducer = (state=initialState, action) => {
+export const contactReducer = (state=initialState, action) => {
   if (action.type === actions.FETCH_CONTACT_REQUEST || 
       action.type === actions.DELETE_CONTACT_REQUEST ||
       action.type === actions.FETCH_INTERACTION_REQUEST ||
@@ -60,8 +60,9 @@ export const contactualizeReducer = (state=initialState, action) => {
         });
   }
   if (action.type === actions.FETCH_CONTACT_SUCCESS) {
+    // console.log(action);
     return Object.assign({}, state, {
-        contacts: [...action.contacts]
+        contacts: action.contacts
     })
   }
   if (action.type === actions.ADD_CONTACT_REQUEST) {
@@ -73,7 +74,7 @@ export const contactualizeReducer = (state=initialState, action) => {
     });
   }
   if (action.type === actions.DELETE_CONTACT_SUCCESS) {
-    console.log(action, 'action');
+    // console.log(action, 'action');
     return Object.assign({}, state, {
       contacts: [...state.contacts.filter(
         contact => contact.id !== action.id
@@ -90,6 +91,7 @@ export const contactualizeReducer = (state=initialState, action) => {
     });
   }
   if (action.type === actions.FETCH_INTERACTION_SUCCESS) {
+    // console.log(action.interactions);
     return Object.assign({}, state, {
         interactions: [...action.interactions]
     })

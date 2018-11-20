@@ -17,7 +17,6 @@ export class NavBar extends React.Component{
             logOutButton = (
                 <button className="logout-link" onClick={() => this.logOut()}>Log Out</button>
             )
-            .then(this.props.history.push('/'))
         }
     return (
       <div>

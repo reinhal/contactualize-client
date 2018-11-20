@@ -9,9 +9,9 @@ class ContactList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      contacts: null
-    };
+    // this.state = {
+    //   contacts: null
+    // };
 
     this.deleteContact = this.deleteContact.bind(this);
   }
@@ -25,12 +25,13 @@ class ContactList extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     let main;
-    if(this.state.error) {
+    if(this.props.error) {
       main = (
-        <div className="message message-error">{this.state.error}</div>
+        <div className="message message-error">{this.props.error}</div>
       );
-    } else if (this.state.loading) {
+    } else if (this.props.loading) {
       main = (
         <div className="message message-default">Loading contacts...</div>
       );
@@ -44,8 +45,9 @@ class ContactList extends React.Component {
             />
           </li>
         ));
+        console.log('contacts', contacts);
         main = <ul>{contacts}</ul>;
-    }
+    } 
     return (
       <Fragment>{main}</Fragment>
     );
@@ -54,11 +56,12 @@ class ContactList extends React.Component {
 
 ContactList.defaultProps = {
   name: '',
-  notes: ''
+  notes: '',
+  contacts: null
 };
 
 const mapStateToProps = state => ({
-  contacts: state.contacts
+  contacts: state.contactReducer.contacts
 });
 
 export default connect(mapStateToProps)(ContactList);

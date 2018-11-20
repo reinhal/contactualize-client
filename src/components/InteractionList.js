@@ -59,7 +59,7 @@ Interaction.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  interactions: state.interactions
+  interactions: state.contactReducer.interactions
 });
 
 export default connect(mapStateToProps)(InteractionList);

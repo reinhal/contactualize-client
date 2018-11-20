@@ -104,7 +104,7 @@ ContactForm.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  contacts: state.contacts
+  contacts: state.contactReducer.contacts
 });
 
 export default connect(mapStateToProps)(ContactForm);

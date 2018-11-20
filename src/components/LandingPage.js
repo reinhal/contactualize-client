@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import Title from './Title';
 import InfoSection from "./InfoSection";
-import SignUp from './SignUp';
+import LoginForm from './LoginForm';
 
 import './styles/LandingPage.css';
 
@@ -18,7 +18,8 @@ export function LandingPage(props) {
       <main role="main">
         <Title />
         <InfoSection />
-        <SignUp />
+        <LoginForm />
+        <p className="lp-text">Need an account?</p><Link className="account-link landingpage-button" to='/register'>New Account</Link>
       </main>
     </div>
   );   
