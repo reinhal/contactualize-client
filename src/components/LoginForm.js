@@ -25,7 +25,7 @@ export class LoginForm extends React.Component {
                 <div className="login-page">
                     <div className="login-div display">
                         <div className="login-modal">
-                            <h2 className="login-title">Log In</h2>
+                            <h2 className="login-title">Welcome Back!</h2>
                             <form
                                 className="login-form"
                                 onSubmit={this.props.handleSubmit(values =>
@@ -49,7 +49,7 @@ export class LoginForm extends React.Component {
                                     validate={[required, nonEmpty]}
                                 />
                                 <button className="login-button" disabled={this.props.pristine || this.props.submitting}>
-                                    Log in
+                                    Login
                                 </button>
                             </form>
                         </div>

@@ -19,7 +19,7 @@ export function LandingPage(props) {
         <Title />
         <InfoSection />
         <LoginForm />
-        <p className="lp-text">Need an account?</p><Link className="account-link landingpage-button" to='/register'>New Account</Link>
+        <p className="lp-text">Need an account? <Link className="account-link" to='/register'>Register</Link></p>
       </main>
     </div>
   );   

@@ -29,10 +29,12 @@ class ContactForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+    console.log(this.props);
     const contactData = {
       person: e.currentTarget.person.value,
       notes: e.currentTarget.notes.value, 
-      id: this.props.params.id
+      id: this.props.contacts.id,
+      userId: this.props.contacts.userId
     };
     let reqAction;
     if (this.reqMethod === 'PUT') {

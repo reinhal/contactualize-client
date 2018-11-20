@@ -13,6 +13,7 @@ class Contact extends React.Component {
       interactions: [],
       person: '',
       notes: '', 
+      userId: '',
       displayed: true
     };
 

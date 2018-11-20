@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Input from './Input';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
@@ -12,13 +11,6 @@ const matchesPassword = matches('password');
 export class SignUp extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = {
-      show: true
-    };
-
-    this.showSignUp = this.showSignUp.bind(this);
-    this.hideSignUp = this.hideSignUp.bind(this);
   }
 
   onSubmit(values) {
@@ -27,24 +19,6 @@ export class SignUp extends React.Component {
     return this.props
       .dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)));
-  }
-
-  hideSignUp = () => {
-    if(!this.state.show) {
-      this.setState({
-        show: false
-      });
-    } else {
-      this.setState({
-        show: true
-      })
-    }   
-  }
-
-  showSignUp = () => {
-    this.setState({
-      show: true
-    });
   }
 
   render() {
@@ -57,7 +31,7 @@ export class SignUp extends React.Component {
       );
     }
     return (
-      <div className={this.state.show ? "showSignUpForm" : ""}>
+      <div>
         <div className="signup-modal">
           <h2 className="sign-up-title">Try Contactualize Now</h2>
           <form
@@ -107,8 +81,6 @@ export class SignUp extends React.Component {
     );
   }
 }
-
-//<button className="landingpage-button" type='submit'>Account</button>
 
 export default reduxForm({
   form: 'registration',

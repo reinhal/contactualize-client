@@ -13,10 +13,10 @@ fieldset {
 .login-title {
   padding: 0;
 }
-
+/* 
 .login-page {
   margin: 150px;
-}
+} */
 
 .account-link {
   color: #112F41;
@@ -27,9 +27,8 @@ div.login-div {
   background-color: whitesmoke;
   background-image: url('https://image.ibb.co/hdwy3p/user3.png');
   margin: 0 auto;
-  width: 50%;
+  width: 80%;
   border: solid #112F41 2px;
-  padding-bottom: 45px;
 }
 
 #username, #password {

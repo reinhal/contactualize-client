@@ -42,15 +42,17 @@ export const fetchContact = () => (dispatch, getState) => {
 // ---------------  Creating Contacts --------------------------- //
 
 export const ADD_CONTACT_REQUEST = 'ADD_CONTACT_REQUEST';
-export const addContactRequest = (person, notes) => ({
+export const addContactRequest = (userId, person, notes) => ({
     type: ADD_CONTACT_REQUEST,
+    userId,
     person, 
     notes
 });
 
 export const ADD_CONTACT_SUCCESS = 'ADD_CONTACT_SUCCESS';
-export const addContactSuccess = (person, notes) => ({
+export const addContactSuccess = (userId, person, notes) => ({
     type: ADD_CONTACT_SUCCESS,
+    userId,
     person, 
     notes
 });

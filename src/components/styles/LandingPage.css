@@ -2,3 +2,12 @@
   background-color: transparent;
   color: #112F41;
 }
+
+.account-link {
+  text-decoration: underline;
+}
+
+.account-link:hover {
+  color: #068587;
+  font-weight: bold;
+}

@@ -60,21 +60,21 @@ export const contactReducer = (state=initialState, action) => {
         });
   }
   if (action.type === actions.FETCH_CONTACT_SUCCESS) {
-    // console.log(action);
     return Object.assign({}, state, {
         contacts: action.contacts
     })
   }
   if (action.type === actions.ADD_CONTACT_REQUEST) {
+    console.log(action.contacts);
     return Object.assign({}, state, {
       contacts: [...state.contacts, {
+          userId: action.userId,
           person: action.person,
           notes: action.notes
       }]  
     });
   }
   if (action.type === actions.DELETE_CONTACT_SUCCESS) {
-    // console.log(action, 'action');
     return Object.assign({}, state, {
       contacts: [...state.contacts.filter(
         contact => contact.id !== action.id
