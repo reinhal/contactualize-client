@@ -22,9 +22,9 @@ class Interaction extends React.Component {
     this.props.deleteInteraction(this.props.id);
   }
 
-  render(props) {
+  render() {
     let displayContactName = () => {
-      if (this.props.person_id !== null) {
+      if (this.props.person_id.title !== null) {
         return <h3 className='interaction-title'>{this.props.title} <span className='spanText'>with </span>{this.props.person_id.person}</h3>
       } else {
         return <h3 className='interaction-title'>{this.props.title}</h3>

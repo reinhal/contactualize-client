@@ -21,7 +21,6 @@ class ContactList extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let main;
     if(this.props.error) {
       main = (
@@ -41,7 +40,6 @@ class ContactList extends React.Component {
             />
           </li>
         ));
-        console.log('contacts', contacts);
         main = <ul>{contacts}</ul>;
     } 
     return (

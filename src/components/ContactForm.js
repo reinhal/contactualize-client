@@ -20,8 +20,7 @@ class ContactForm extends React.Component {
     }
   }
 
-  componentDidMount(props) {
-    console.log(this.props, "This props");
+  componentDidMount() {
     if (Object.keys(this.props.params).length !== 0) {
       soFetch(`${API_BASE_URL}/contacts/${this.props.params.id}`)
       .then(data => this.setState({ person: data.person, notes: data.notes }));

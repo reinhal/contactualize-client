@@ -42,18 +42,17 @@ export const fetchContact = () => (dispatch, getState) => {
 // --------------- Fetching A Specific Contact ------------------ //
 
 export const FETCH_THIS_CONTACT_REQUEST = 'FETCH_THIS_CONTACT_REQUEST';
-export const fetchThisContactRequest = (person, notes, id) => ({
+export const fetchThisContactRequest = (id, person, notes) => ({
     type: FETCH_THIS_CONTACT_REQUEST,
+    id,
     person, 
-    notes, 
-    id
+    notes
 });
 
 export const FETCH_THIS_CONTACT_SUCCESS = 'FETCH_THIS_CONTACT_SUCCESS';
-export const fetchThisContactSuccess = (person, notes) => ({
+export const fetchThisContactSuccess = (contact) => ({
     type: FETCH_THIS_CONTACT_SUCCESS,
-    person, 
-    notes
+    contact
 });
 
 export const FETCH_THIS_CONTACT_ERROR = 'FETCH_THIS_CONTACT_ERROR';
@@ -63,12 +62,11 @@ export const fetchThisContactError = (person, notes) => ({
     notes
 });
 
-export const fetchThisContact = (id) => (dispatch, getState) => {
-    dispatch(fetchThisContactRequest());
+export const fetchThisContact = (id, person, notes) => (dispatch, getState) => {
+    dispatch(fetchThisContactRequest(id, person, notes));
     const authToken = getState().auth.authToken;
     fetch(`${API_BASE_URL}/contacts/${id}`, {
         headers: {
-        'Content-type': 'application/json; charset=UTF-8',
         Authorization: `Bearer ${authToken}`
       }
     })
@@ -264,12 +262,9 @@ export const fetchThisInteractionRequest = (id, person_id, title, text) => ({
 });
 
 export const FETCH_THIS_INTERACTION_SUCCESS = 'FETCH_THIS_INTERACTION_SUCCESS';
-export const fetchThisInteractionSuccess = (person_id, title, text, id) => ({
+export const fetchThisInteractionSuccess = (interaction) => ({
     type: FETCH_THIS_INTERACTION_SUCCESS,
-    id,
-    person_id,
-    title,
-    text
+    interaction
 });
 
 export const FETCH_THIS_INTERACTION_ERROR = 'FETCH_THIS_INTERACTION_ERROR';
@@ -280,8 +275,8 @@ export const fetchThisInteractionError = (person_id, title, text) => ({
     text
 });
 
-export const fetchThisInteraction = (id) => (dispatch, getState) => {
-    // dispatch(fetchThisInteractionRequest(id));
+export const fetchThisInteraction = (id, person_id, title, text) => (dispatch, getState) => {
+    dispatch(fetchThisInteractionRequest(id, person_id, title, text));
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/interactions/${id}`, {
         headers: {

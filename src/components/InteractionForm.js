@@ -14,25 +14,31 @@ class InteractionForm extends React.Component {
 
     this.state = {
       contacts: [],
-      title: '',
-      text: ''
+      title: props.interaction.title,
+      text: props.interaction.text
     }
   }
 
   componentDidMount() {
-    console.log('PARAMS', this.props.params);
     if (Object.keys(this.props.params).length !== 0) {
       this.props.dispatch(fetchThisInteraction(this.props.params.id))
     }
     this.props.dispatch(fetchContact())
   }
+
+  componentWillReceiveProps(nextProps, prevProps) {
+    this.setState({
+      title: nextProps.interaction.title,
+      text: nextProps.interaction.text 
+    });
+  }
   
   onSubmit(e) {
     e.preventDefault();
     const interactionData = {
-      person_id: e.currentTarget.person_id.value,
-      title: e.currentTarget.title.value,
-      text: e.currentTarget.text.value,
+      person_id: this.props.interaction.person_id,
+      title: this.state.title,
+      text: this.state.text,
       id: this.props.params.id
     };
     let reqAction;
@@ -52,30 +58,19 @@ class InteractionForm extends React.Component {
 
   handleInteraction(e) {
     this.setState({
-      person_id: this.props.person_id,
-      title: this.props.title,
-      text: this.props.text
+      person_id: this.state.person_id,
+      title: this.state.title,
+      text: this.state.text
     });
   }
 
   render() {
-    console.log(this.props);
     let contacts = this.props.contacts;
     let optionItems = contacts.map((contact) => 
       <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>
     );
-    let interactions = this.props.interactions;
-    // let currentValue = this.props.interaction;
-    // console.log(currentValue);
-    let currentValue = () => {
-        interactions.map((interaction) => {
-          if(this.props.params === this.props.interactions.id) {
-            return interaction;
-            // console.log(this.props.params, interaction);
-          }
-        })
-      };
-    console.log(currentValue());
+    let currentValue = this.props.interaction;
+    console.log(currentValue);
       return (
         <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
           <fieldset className="interaction-form">
@@ -97,8 +92,9 @@ class InteractionForm extends React.Component {
                 name="title"
                 type="text"
                 className="newTitle" 
-                value={currentValue ? currentValue.title: ''}
-                onChange={this.onInputChange}
+                value={currentValue ? this.state.title: ''}
+                // onChange={this.onInputChange}
+                onChange={(e) => this.setState({title: e.currentTarget.value})}
               required />
             </div>
             <div>
@@ -107,8 +103,9 @@ class InteractionForm extends React.Component {
                 id="text" 
                 name="text"
                 rows="10"
-                value={currentValue ? currentValue.text: ''}
-                onChange={this.onInputChange}
+                value={currentValue ? this.state.text: ''}
+                // onChange={this.onInputChange}
+                onChange={(e) => this.setState({text: e.currentTarget.value})}
                 ></textarea>
             </div>
           </fieldset>
@@ -127,7 +124,8 @@ InteractionForm.defaultProps = {
 }
 const mapStateToProps = state => ({
   interactions: state.contactReducer.interactions,
-  contacts: state.contactReducer.contacts
+  contacts: state.contactReducer.contacts,
+  interaction: state.contactReducer.interaction
 });
 
 export default connect(mapStateToProps)(InteractionForm);
