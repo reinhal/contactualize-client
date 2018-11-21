@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import Title from './Title';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import {Field, reduxForm, focus} from 'redux-form';
@@ -32,6 +33,7 @@ export class SignUp extends React.Component {
     }
     return (
       <div>
+        <Title />
         <div className="signup-modal">
           <h2 className="sign-up-title">Try Contactualize Now</h2>
           <form

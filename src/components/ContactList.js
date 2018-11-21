@@ -9,10 +9,6 @@ class ContactList extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   contacts: null
-    // };
-
     this.deleteContact = this.deleteContact.bind(this);
   }
 

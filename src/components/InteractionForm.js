@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {API_BASE_URL} from '../config';
-import { soFetch } from '../utils/index';
-import {addInteraction, updateInteraction} from '../actions';
+import {addInteraction, updateInteraction, fetchContact, fetchThisInteraction, fetchInteraction} from '../actions';
 import './styles/InteractionForm.css';
 
 class InteractionForm extends React.Component {
@@ -22,18 +20,11 @@ class InteractionForm extends React.Component {
   }
 
   componentDidMount() {
+    console.log('PARAMS', this.props.params);
     if (Object.keys(this.props.params).length !== 0) {
-      soFetch(`${API_BASE_URL}/interactions/${this.props.params.id}`)
-      .then(data => this.setState({ person_id: data.person_id, title: data.title, text: data.text}));
+      this.props.dispatch(fetchThisInteraction(this.props.params.id))
     }
-    return fetch(`${API_BASE_URL}/contacts`)
-      .then((res) => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          contacts: data,
-        });
-      });
+    this.props.dispatch(fetchContact())
   }
   
   onSubmit(e) {
@@ -61,19 +52,30 @@ class InteractionForm extends React.Component {
 
   handleInteraction(e) {
     this.setState({
-      person_id: this.state.person_id,
-      title: this.state.title,
-      text: this.state.text
+      person_id: this.props.person_id,
+      title: this.props.title,
+      text: this.props.text
     });
   }
 
   render() {
-    let contacts = this.state.contacts;
+    console.log(this.props);
+    let contacts = this.props.contacts;
     let optionItems = contacts.map((contact) => 
       <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>
     );
-    const currentValue = this.state;
-    console.log(this.state, 'STATE');
+    let interactions = this.props.interactions;
+    // let currentValue = this.props.interaction;
+    // console.log(currentValue);
+    let currentValue = () => {
+        interactions.map((interaction) => {
+          if(this.props.params === this.props.interactions.id) {
+            return interaction;
+            // console.log(this.props.params, interaction);
+          }
+        })
+      };
+    console.log(currentValue());
       return (
         <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
           <fieldset className="interaction-form">
@@ -124,7 +126,8 @@ InteractionForm.defaultProps = {
   type: 'POST'
 }
 const mapStateToProps = state => ({
-  interactions: state.contactReducer.interactions
+  interactions: state.contactReducer.interactions,
+  contacts: state.contactReducer.contacts
 });
 
 export default connect(mapStateToProps)(InteractionForm);

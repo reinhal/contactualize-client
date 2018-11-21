@@ -65,7 +65,6 @@ export const contactReducer = (state=initialState, action) => {
     })
   }
   if (action.type === actions.ADD_CONTACT_REQUEST) {
-    console.log(action.contacts);
     return Object.assign({}, state, {
       contacts: [...state.contacts, {
           userId: action.userId,
@@ -90,10 +89,20 @@ export const contactReducer = (state=initialState, action) => {
         }]  
     });
   }
+  if (action.type === actions.FETCH_THIS_INTERACTION_REQUEST) {
+    console.log(action);
+    return Object.assign({}, state, {
+        interaction: state.interaction
+    });
+  }
   if (action.type === actions.FETCH_INTERACTION_SUCCESS) {
-    // console.log(action.interactions);
     return Object.assign({}, state, {
         interactions: [...action.interactions]
+    })
+  }
+  if (action.type === actions.FETCH_THIS_INTERACTION_SUCCESS) {
+    return Object.assign({}, state, {
+        interaction: [...action.interaction]
     })
   }
   if (action.type === actions.ADD_INTERACTION_REQUEST) {

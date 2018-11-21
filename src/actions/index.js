@@ -39,6 +39,51 @@ export const fetchContact = () => (dispatch, getState) => {
         .catch(error => fetchContactError(error));
 }
 
+// --------------- Fetching A Specific Contact ------------------ //
+
+export const FETCH_THIS_CONTACT_REQUEST = 'FETCH_THIS_CONTACT_REQUEST';
+export const fetchThisContactRequest = (person, notes, id) => ({
+    type: FETCH_THIS_CONTACT_REQUEST,
+    person, 
+    notes, 
+    id
+});
+
+export const FETCH_THIS_CONTACT_SUCCESS = 'FETCH_THIS_CONTACT_SUCCESS';
+export const fetchThisContactSuccess = (person, notes) => ({
+    type: FETCH_THIS_CONTACT_SUCCESS,
+    person, 
+    notes
+});
+
+export const FETCH_THIS_CONTACT_ERROR = 'FETCH_THIS_CONTACT_ERROR';
+export const fetchThisContactError = (person, notes) => ({
+    type: FETCH_THIS_CONTACT_ERROR,
+    person, 
+    notes
+});
+
+export const fetchThisContact = (id) => (dispatch, getState) => {
+    dispatch(fetchThisContactRequest());
+    const authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/contacts/${id}`, {
+        headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(contact => fetchThisContactSuccess(contact))
+        .catch(error => fetchThisContactError(error));
+}
+
+
 // ---------------  Creating Contacts --------------------------- //
 
 export const ADD_CONTACT_REQUEST = 'ADD_CONTACT_REQUEST';
@@ -207,6 +252,51 @@ export const fetchInteraction = () => (dispatch, getState) => {
         })
         .then(interactions => dispatch(fetchInteractionSuccess(interactions)))
         .catch(error => fetchInteractionError(error));
+}
+// ---------------  Getting A Specific Interaction --------------------------- //
+export const FETCH_THIS_INTERACTION_REQUEST = 'FETCH_THIS_INTERACTION_REQUEST';
+export const fetchThisInteractionRequest = (id, person_id, title, text) => ({
+    type: FETCH_THIS_INTERACTION_REQUEST,
+    id,
+    person_id,
+    title,
+    text
+});
+
+export const FETCH_THIS_INTERACTION_SUCCESS = 'FETCH_THIS_INTERACTION_SUCCESS';
+export const fetchThisInteractionSuccess = (person_id, title, text, id) => ({
+    type: FETCH_THIS_INTERACTION_SUCCESS,
+    id,
+    person_id,
+    title,
+    text
+});
+
+export const FETCH_THIS_INTERACTION_ERROR = 'FETCH_THIS_INTERACTION_ERROR';
+export const fetchThisInteractionError = (person_id, title, text) => ({
+    type: FETCH_THIS_INTERACTION_ERROR,
+    person_id,
+    title,
+    text
+});
+
+export const fetchThisInteraction = (id) => (dispatch, getState) => {
+    // dispatch(fetchThisInteractionRequest(id));
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/interactions/${id}`, {
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(interaction => dispatch(fetchThisInteractionSuccess(interaction)))
+        .catch(error => fetchThisInteractionError(error));
 }
 
 // ---------------  Creating Interactions --------------------------- //
