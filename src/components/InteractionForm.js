@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addInteraction, updateInteraction, fetchContact, fetchThisInteraction, fetchInteraction} from '../actions';
+import {addInteraction, updateInteraction, fetchContact, fetchThisInteraction} from '../actions';
 import './styles/InteractionForm.css';
 
 class InteractionForm extends React.Component {
@@ -35,12 +35,15 @@ class InteractionForm extends React.Component {
   
   onSubmit(e) {
     e.preventDefault();
+    console.log("INTERACTION", this.props.interaction);
     const interactionData = {
       person_id: this.props.interaction.person_id,
       title: this.state.title,
       text: this.state.text,
-      id: this.props.params.id
+      id: this.props.params.id,
+      userId: this.props.interaction.userId
     };
+    console.log('Interaction Data', interactionData);
     let reqAction;
     if (this.reqMethod === 'PUT') {
       reqAction = updateInteraction;
@@ -70,7 +73,7 @@ class InteractionForm extends React.Component {
       <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>
     );
     let currentValue = this.props.interaction;
-    console.log(currentValue);
+
       return (
         <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
           <fieldset className="interaction-form">

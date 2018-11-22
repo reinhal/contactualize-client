@@ -20,7 +20,7 @@ export default class Main extends React.Component {
           component={() => <Home /> }
           />
           <Route exact path='/register' 
-          component={() => <SignUp /> }
+          component={(props) => <SignUp {...props.match}/> }
           />
           <Route exact path='/new-contact' 
           component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }

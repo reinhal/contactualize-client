@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addContact, updateContact} from '../actions';
-import {API_BASE_URL} from '../config';
-import { soFetch } from '../utils/index';
+import {addContact, updateContact, fetchThisContact} from '../actions';
+// import {API_BASE_URL} from '../config';
+// import { soFetch } from '../utils/index';
 import './styles/ContactForm.css';
 
 class ContactForm extends React.Component {
@@ -15,25 +15,32 @@ class ContactForm extends React.Component {
     this.handlePerson = this.handlePerson.bind(this);
 
     this.state = {
-      person: '',
-      notes: ''
+      person: props.contact.person,
+      notes: props.contact.notes
     }
   }
 
   componentDidMount() {
     if (Object.keys(this.props.params).length !== 0) {
-      soFetch(`${API_BASE_URL}/contacts/${this.props.params.id}`)
-      .then(data => this.setState({ person: data.person, notes: data.notes }));
+      this.props.dispatch(fetchThisContact(this.props.params.id))
     }
+  }
+
+  componentWillReceiveProps(nextProps, prevProps) {
+    console.log('NEXT PROPS', nextProps);
+    this.setState({
+      title: nextProps.contact.title,
+      text: nextProps.contact.text 
+    });
   }
 
   onSubmit(e) {
     e.preventDefault();
     console.log(this.props);
     const contactData = {
-      person: e.currentTarget.person.value,
-      notes: e.currentTarget.notes.value, 
-      id: this.props.contacts.id,
+      person: this.state.person,
+      notes: this.state.notes, 
+      id: this.props.params.id,
       userId: this.props.contacts.userId
     };
     let reqAction;
@@ -53,13 +60,15 @@ class ContactForm extends React.Component {
 
   handlePerson(e) {
     this.setState({
-      person: this.state.person,
+      person: this.statep.person,
       notes: this.state.notes
     });
   }
 
   render() {
-    const current = this.state;
+    console.log("props", this.props);
+    console.log('state', this.state);
+    let current = this.props.contact;
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
         <fieldset className="contact-form">
@@ -75,8 +84,9 @@ class ContactForm extends React.Component {
               className="newName" 
               type="text" 
               name="person" 
-              value={current ? current.person: ''}
-              onChange={this.onInputChange}
+              value={current ? this.state.person: ''}
+              // onChange={this.onInputChange}
+              onChange={(e) => this.setState({person: e.currentTarget.value})}
             required />
           </div>
           <div>
@@ -86,8 +96,9 @@ class ContactForm extends React.Component {
               name="notes"
               className ="newNotes" 
               rows="15" 
-              value={current ? current.notes: ''} 
-              onChange={this.onInputChange} 
+              value={current ? this.state.notes: ''} 
+              // onChange={this.onInputChange} 
+              onChange={(e) => this.setState({notes: e.currentTarget.value})}
             ></textarea>
           </div>
         </fieldset>

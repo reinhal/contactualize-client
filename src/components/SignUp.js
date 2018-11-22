@@ -10,10 +10,6 @@ const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class SignUp extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
   onSubmit(values) {
     const {username, password, firstName, lastName} = values;
     const user = {username, password, firstName, lastName};
@@ -23,14 +19,6 @@ export class SignUp extends React.Component {
   }
 
   render() {
-    let error;
-    if (this.props.error) {
-      error = (
-          <div className="form-error" aria-live="polite">
-              {this.props.error}
-          </div>
-      );
-    }
     return (
       <div>
         <Title />

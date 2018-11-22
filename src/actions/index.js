@@ -77,7 +77,7 @@ export const fetchThisContact = (id, person, notes) => (dispatch, getState) => {
             }
             return res.json();
         })
-        .then(contact => fetchThisContactSuccess(contact))
+        .then(contact => dispatch(fetchThisContactSuccess(contact)))
         .catch(error => fetchThisContactError(error));
 }
 

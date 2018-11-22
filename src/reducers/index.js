@@ -84,6 +84,12 @@ export const contactReducer = (state=initialState, action) => {
       }]  
     });
   }
+  if (action.type === actions.FETCH_THIS_CONTACT_REQUEST ||
+      action.type === actions.FETCH_THIS_CONTACT_SUCCESS) {
+    return Object.assign({}, state, {
+      contact: action.contact || state.contact
+    });
+  }
   if (action.type === actions.DELETE_CONTACT_SUCCESS) {
     return Object.assign({}, state, {
       contacts: [...state.contacts.filter(
@@ -100,19 +106,25 @@ export const contactReducer = (state=initialState, action) => {
         }]  
     });
   }
-  if (action.type === actions.FETCH_THIS_INTERACTION_REQUEST) {
+  if (action.type === actions.UPDATE_CONTACT_SUCCESS) {
     return Object.assign({}, state, {
-      interaction: state.interaction
-  })
+      contact: action.contact
+    })
   }
+  if (action.type === actions.FETCH_THIS_INTERACTION_REQUEST ||
+      action.type === actions.FETCH_THIS_INTERACTION_SUCCESS) {
+    return Object.assign({}, state, {
+      interaction: action.interaction || state.interaction
+    });
+  }
+
+  // reducers are a lot of stuff, whenever I render and I receive
+  // data from REdux, make sure the data is receive, if not
+  // crash the application
+
   if (action.type === actions.FETCH_INTERACTION_SUCCESS) {
     return Object.assign({}, state, {
         interactions: [...action.interactions]
-    })
-  }
-  if (action.type === actions.FETCH_THIS_INTERACTION_SUCCESS) {
-    return Object.assign({}, state, {
-        interaction: action.interaction
     })
   }
   if (action.type === actions.ADD_INTERACTION_REQUEST) {
@@ -120,6 +132,14 @@ export const contactReducer = (state=initialState, action) => {
         interactions: [...state.interactions, {
             title: action.title,
             text: action.text
+        }]  
+    });
+  }
+  if (action.type === actions.ADD_INTERACTION_SUCCESS) {
+    return Object.assign({}, state, {
+        interactions: [...state.interactions, {
+            title: state.title,
+            text: state.text
         }]  
     });
   }
