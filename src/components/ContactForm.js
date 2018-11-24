@@ -13,13 +13,17 @@ class ContactForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.handlePerson = this.handlePerson.bind(this);
-
+    console.log('CONTACT PROPS', props);
+    // this.state = {
+    //   person: props.contact.person,
+    //   notes: props.contact.notes
+    // }
     this.state = {
-      person: props.contact.person,
-      notes: props.contact.notes
+      person: '',
+      notes: ''
     }
   }
-
+// look at reqMethod conidtionals and how/when state is being used
   componentDidMount() {
     if (Object.keys(this.props.params).length !== 0) {
       this.props.dispatch(fetchThisContact(this.props.params.id))
@@ -60,7 +64,7 @@ class ContactForm extends React.Component {
 
   handlePerson(e) {
     this.setState({
-      person: this.statep.person,
+      person: this.state.person,
       notes: this.state.notes
     });
   }

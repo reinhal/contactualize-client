@@ -7,7 +7,6 @@ import LoginForm from './LoginForm';
 
 import './styles/LandingPage.css';
 
-
 export function LandingPage(props) {
   if (props.loggedIn) {
     return <Redirect to="/home" />;

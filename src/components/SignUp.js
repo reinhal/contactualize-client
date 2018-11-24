@@ -1,15 +1,25 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Input from './Input';
 import Title from './Title';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import {Field, reduxForm, focus} from 'redux-form';
+import {Redirect} from 'react-router-dom';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import './styles/SignUp.css';
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+
+    if (props.loggedIn) {
+      return <Redirect to="/home" />;
+    }
+  }
+
   onSubmit(values) {
     const {username, password, firstName, lastName} = values;
     const user = {username, password, firstName, lastName};
@@ -38,15 +48,15 @@ export class SignUp extends React.Component {
               className='signup-field'
               component={Input}
               type="text"
-              name="new-username"
+              name="username"
               validate={[required, nonEmpty, isTrimmed]}
             />
             <label className='signup-label' htmlFor="password">Password</label>
             <Field
               className='signup-field'
               component={Input}
-              type="new-password"
-              name="new-password"
+              type="password"
+              name="password"
               validate={[required, passwordLength, isTrimmed]}
             />
             <label className='signup-label' htmlFor="passwordConfirm">Confirm password</label>
@@ -71,6 +81,12 @@ export class SignUp extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+SignUp = connect(mapStateToProps)(SignUp);
 
 export default reduxForm({
   form: 'registration',

@@ -24,7 +24,7 @@ fieldset {
   margin: 0px;
 }
 
-#firstName, #lastName, #new-username, #new-password, #passwordConfirm {
+#firstName, #lastName, #username, #password, #passwordConfirm {
   width: 100%;
   border: solid #112F41 1px;
   margin: 0 auto;

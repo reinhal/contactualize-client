@@ -217,8 +217,9 @@ export const deleteContact = (id) => (dispatch, getState) => {
 // ---------------  Getting Interactions --------------------------- //
 
 export const FETCH_INTERACTION_REQUEST = 'FETCH_INTERACTION_REQUEST';
-export const fetchInteractionRequest = () => ({
-    type: FETCH_INTERACTION_REQUEST
+export const fetchInteractionRequest = interactions => ({
+    type: FETCH_INTERACTION_REQUEST,
+    interactions
 });
 
 export const FETCH_INTERACTION_SUCCESS = 'FETCH_INTERACTION_SUCCESS';
@@ -248,7 +249,7 @@ export const fetchInteraction = () => (dispatch, getState) => {
             }
             return res.json();
         })
-        .then(interactions => dispatch(fetchInteractionSuccess(interactions)))
+        .then(interactions => {/*console.log('INTERACTIONS', interactions);*/dispatch(fetchInteractionSuccess(interactions))})
         .catch(error => fetchInteractionError(error));
 }
 // ---------------  Getting A Specific Interaction --------------------------- //
