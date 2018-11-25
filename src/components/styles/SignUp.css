@@ -16,6 +16,7 @@ fieldset {
   border: solid #112F41 2px;
   padding: 30px;
   padding-bottom: 45px;
+  margin-top: 100px;
 }
 
 .signup-label {
@@ -98,7 +99,7 @@ button.landingpage-signup-button:hover {
     font-size: 18px;
   }
 
-  .signup-div {
+  .signup-modal {
     width: 80%;
     padding: 10px;
   }
@@ -106,5 +107,13 @@ button.landingpage-signup-button:hover {
   .signup-form {
     margin: 0 auto;
     width: 80%;
+  }
+
+  #firstName, #lastName, #username, #password, #passwordConfirm {
+    font-size: 12px;
+  }
+
+  .form-input {
+    display: inline;
   }
 }
