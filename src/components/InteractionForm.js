@@ -14,6 +14,7 @@ class InteractionForm extends React.Component {
 
     this.state = {
       contacts: [],
+      person_id: props.interaction.person_id,
       title: props.interaction.title,
       text: props.interaction.text
     }
@@ -28,6 +29,7 @@ class InteractionForm extends React.Component {
 
   componentWillReceiveProps(nextProps, prevProps) {
     this.setState({
+      person_id: nextProps.interaction.person_id,
       title: nextProps.interaction.title,
       text: nextProps.interaction.text 
     });
@@ -35,9 +37,10 @@ class InteractionForm extends React.Component {
   
   onSubmit(e) {
     e.preventDefault();
-    console.log("INTERACTION", this.props.interaction);
+    console.log("INTERACTION", this.props);
+    this.handleInteraction();
     const interactionData = {
-      person_id: this.props.interaction.person_id,
+      person_id: this.state.person_id,
       title: this.state.title,
       text: this.state.text,
       id: this.props.params.id,
@@ -84,7 +87,7 @@ class InteractionForm extends React.Component {
             </legend>
             <div>
               <label className="interaction-form-label" htmlFor="Contact">Contact*</label>
-              <select name="person_id">
+              <select name="person_id" onChange={this.onInputChange}>
                 {optionItems}
               </select>
             </div>
@@ -113,7 +116,7 @@ class InteractionForm extends React.Component {
             </div>
           </fieldset>
           <div className="button-div">
-            <button className="interaction-button" type="submit" onClick={this.handleInteraction}>{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
+            <button className="interaction-button" type="submit">{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
           </div>
         </form>
     );

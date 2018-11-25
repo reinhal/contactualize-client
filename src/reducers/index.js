@@ -84,12 +84,18 @@ export const contactReducer = (state=initialState, action) => {
       }]  
     });
   }
-  if (action.type === actions.FETCH_THIS_CONTACT_REQUEST ||
-      action.type === actions.FETCH_THIS_CONTACT_SUCCESS) {
+  if (action.type === actions.FETCH_THIS_CONTACT_REQUEST) {
+    return Object.assign({}, state, {
+      contact: state.contact || action.contact
+    });
+  }
+
+  if (action.type === actions.FETCH_THIS_CONTACT_SUCCESS) {
     return Object.assign({}, state, {
       contact: action.contact || state.contact
     });
   }
+
   if (action.type === actions.DELETE_CONTACT_SUCCESS) {
     return Object.assign({}, state, {
       contacts: [...state.contacts.filter(

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {addContact, updateContact, fetchThisContact} from '../actions';
-// import {API_BASE_URL} from '../config';
-// import { soFetch } from '../utils/index';
 import './styles/ContactForm.css';
 
 class ContactForm extends React.Component {
@@ -13,15 +11,13 @@ class ContactForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.handlePerson = this.handlePerson.bind(this);
-    console.log('CONTACT PROPS', props);
-    // this.state = {
-    //   person: props.contact.person,
-    //   notes: props.contact.notes
-    // }
+    console.log('CONTACT FORM PROPS', props);
+
     this.state = {
-      person: '',
-      notes: ''
+      person: props.contact.person,
+      notes: props.contact.notes
     }
+ 
   }
 // look at reqMethod conidtionals and how/when state is being used
   componentDidMount() {
@@ -121,6 +117,7 @@ ContactForm.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+  contact: state.contactReducer.contact,
   contacts: state.contactReducer.contacts
 });
 

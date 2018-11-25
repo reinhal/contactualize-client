@@ -53,6 +53,7 @@ class Contact extends React.Component {
   }
 
   render() {
+    console.log('CONTACT PROPS', this.props);
     let interactions = this.props.interactions;
     let interactionItems = () => {
       if(Array.isArray(interactions)) {
