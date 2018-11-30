@@ -27,8 +27,8 @@ class ContactForm extends React.Component {
 
   componentWillReceiveProps(nextProps, prevProps) {
     this.setState({
-      title: nextProps.contact.title,
-      text: nextProps.contact.text 
+      person: nextProps.contact.person,
+      notes: nextProps.contact.notes 
     });
   }
 
