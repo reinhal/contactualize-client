@@ -37,7 +37,6 @@ class InteractionForm extends React.Component {
   
   onSubmit(e) {
     e.preventDefault();
-    console.log("INTERACTION", this.props);
     this.handleInteraction();
     const interactionData = {
       person_id: this.state.person_id,
@@ -72,53 +71,58 @@ class InteractionForm extends React.Component {
 
   render() {
     let contacts = this.props.contacts;
-    let optionItems = contacts.map((contact) => 
-      <option key= {`contact-${contact.id}`} value={contact.id}>{contact.person}</option>
+    let optionItems = contacts.map((contact, idx) => 
+    <option 
+      key= {`contact-${contact.id}`} 
+      value={contact.id}
+      selected={idx === 0}
+    >
+      {contact.person}
+    </option>
     );
     let currentValue = this.props.interaction;
-
-      return (
-        <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
-          <fieldset className="interaction-form">
-            <legend>
-            {this.reqMethod === 'POST'
-              ? 'Add Interaction'
-              : 'Update Interaction'}
-            </legend>
-            <div>
-              <label className="interaction-form-label" htmlFor="Contact">Contact*</label>
-              <select name="person_id" onChange={this.onInputChange}>
-                {optionItems}
-              </select>
-            </div>
-            <div>
-              <label className="interaction-form-label" htmlFor="title">Title*</label>
-              <input 
-                id="title"
-                name="title"
-                type="text"
-                className="newTitle" 
-                value={currentValue ? this.state.title: ''}
-                // onChange={this.onInputChange}
-                onChange={(e) => this.setState({title: e.currentTarget.value})}
-              required />
-            </div>
-            <div>
-              <label className="interaction-form-label" htmlFor="text">Text*</label>
-              <textarea 
-                id="text" 
-                name="text"
-                rows="10"
-                value={currentValue ? this.state.text: ''}
-                // onChange={this.onInputChange}
-                onChange={(e) => this.setState({text: e.currentTarget.value})}
-                ></textarea>
-            </div>
-          </fieldset>
-          <div className="button-div">
-            <button className="interaction-button" type="submit">{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
+    return (
+      <form id="create-interaction" onSubmit={e => this.onSubmit(e)}>
+        <fieldset className="interaction-form">
+          <legend>
+          {this.reqMethod === 'POST'
+            ? 'Add Interaction'
+            : 'Update Interaction'}
+          </legend>
+          <div>
+            <label className="interaction-form-label" htmlFor="Contact">Contact*</label>
+            <select name="person_id" onChange={this.onInputChange}>
+              {optionItems}
+            </select>
           </div>
-        </form>
+          <div>
+            <label className="interaction-form-label" htmlFor="title">Title*</label>
+            <input 
+              id="title"
+              name="title"
+              type="text"
+              className="newTitle" 
+              value={currentValue ? this.state.title: ''}
+              // onChange={this.onInputChange}
+              onChange={(e) => this.setState({title: e.currentTarget.value})}
+            required />
+          </div>
+          <div>
+            <label className="interaction-form-label" htmlFor="text">Text*</label>
+            <textarea 
+              id="text" 
+              name="text"
+              rows="10"
+              value={currentValue ? this.state.text: ''}
+              // onChange={this.onInputChange}
+              onChange={(e) => this.setState({text: e.currentTarget.value})}
+              ></textarea>
+          </div>
+        </fieldset>
+        <div className="button-div">
+          <button className="interaction-button" type="submit">{this.reqMethod === 'POST' ? 'Create' : 'Update'} </button>
+        </div>
+      </form>
     );
   }
 }

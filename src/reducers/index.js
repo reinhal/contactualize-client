@@ -106,15 +106,15 @@ export const contactReducer = (state=initialState, action) => {
   if (action.type === actions.UPDATE_CONTACT_REQUEST) {
     return Object.assign({}, state, {
         contacts: [...state.contacts, {
+            id: action.id,
             person: action.person,
-            notes: action.notes,
-            id: action.id
+            notes: action.notes
         }]  
     });
   }
   if (action.type === actions.UPDATE_CONTACT_SUCCESS) {
     return Object.assign({}, state, {
-      contact: action.contact
+      contact: state.contact
     })
   }
   if (action.type === actions.FETCH_THIS_INTERACTION_REQUEST ||
@@ -136,6 +136,7 @@ export const contactReducer = (state=initialState, action) => {
   if (action.type === actions.ADD_INTERACTION_REQUEST) {
     return Object.assign({}, state, {
         interactions: [...state.interactions, {
+            person_id: action.person_id,
             title: action.title,
             text: action.text
         }]  
@@ -144,6 +145,7 @@ export const contactReducer = (state=initialState, action) => {
   if (action.type === actions.ADD_INTERACTION_SUCCESS) {
     return Object.assign({}, state, {
         interactions: [...state.interactions, {
+            person_id: state.person_id,
             title: state.title,
             text: state.text
         }]  
@@ -152,6 +154,7 @@ export const contactReducer = (state=initialState, action) => {
   if (action.type === actions.UPDATE_INTERACTION_REQUEST) {
     return Object.assign({}, state, {
         interactions: [...state.interactions, {
+            person_id: action.person_id,
             title: action.title,
             text: action.text
         }]  
@@ -159,7 +162,7 @@ export const contactReducer = (state=initialState, action) => {
   }
   if (action.type === actions.UPDATE_INTERACTION_SUCCESS) {
     return Object.assign({}, state, {
-      interaction: action.interaction
+      interaction: state.interaction
     })
   }
   if (action.type === actions.DELETE_INTERACTION_SUCCESS) {

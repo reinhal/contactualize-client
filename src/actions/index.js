@@ -140,17 +140,19 @@ export const updateContactRequest = (person, notes, id) => ({
 });
 
 export const UPDATE_CONTACT_SUCCESS = 'UPDATE_CONTACT_SUCCESS';
-export const updateContactSuccess = (person, notes) => ({
+export const updateContactSuccess = (person, notes, id) => ({
     type: UPDATE_CONTACT_SUCCESS,
     person, 
-    notes
+    notes,
+    id
 });
 
 export const UPDATE_CONTACT_ERROR = 'UPDATE_CONTACT_ERROR';
-export const updateContactError = (person, notes) => ({
+export const updateContactError = (person, notes, id) => ({
     type: UPDATE_CONTACT_ERROR,
     person, 
-    notes
+    notes, 
+    id
 });
 
 export const updateContact = (contactData, cb) => (dispatch, getState) => {

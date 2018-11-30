@@ -11,7 +11,6 @@ class ContactForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.handlePerson = this.handlePerson.bind(this);
-    console.log('CONTACT FORM PROPS', props);
 
     this.state = {
       person: props.contact.person,
@@ -19,7 +18,7 @@ class ContactForm extends React.Component {
     }
  
   }
-// look at reqMethod conidtionals and how/when state is being used
+
   componentDidMount() {
     if (Object.keys(this.props.params).length !== 0) {
       this.props.dispatch(fetchThisContact(this.props.params.id))
@@ -27,7 +26,6 @@ class ContactForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps, prevProps) {
-    console.log('NEXT PROPS', nextProps);
     this.setState({
       title: nextProps.contact.title,
       text: nextProps.contact.text 
@@ -36,13 +34,16 @@ class ContactForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.props);
+    this.handlePerson();
     const contactData = {
       person: this.state.person,
       notes: this.state.notes, 
-      id: this.props.params.id,
-      userId: this.props.contacts.userId
+      id: this.props.contact.id,
+      userId: this.props.contact.userId
     };
+    console.log('Contact Data', contactData);
+    console.log('Contact Form State', this.state);
+    console.log('Contact Form Props', this.props);
     let reqAction;
     if (this.reqMethod === 'PUT') {
       reqAction = updateContact;
@@ -66,8 +67,6 @@ class ContactForm extends React.Component {
   }
 
   render() {
-    console.log("props", this.props);
-    console.log('state', this.state);
     let current = this.props.contact;
     return (
       <form id="create-contact" onSubmit={e => this.onSubmit(e)}>
