@@ -57,9 +57,6 @@ h3 {
 
 .edit-contact-link:hover {
   color: red;
-  font-size: 16px;
-  padding: -10px;
-  margin: -2px;
 }
 
 .delete-contact {
@@ -74,9 +71,6 @@ h3 {
 
 .delete-contact:hover {
   color: red;
-  font-size: 16px;
-  padding: -10px;
-  margin: -5px;
 }
 
 .interactionTitle {

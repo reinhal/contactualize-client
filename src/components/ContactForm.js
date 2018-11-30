@@ -41,9 +41,6 @@ class ContactForm extends React.Component {
       id: this.props.contact.id,
       userId: this.props.contact.userId
     };
-    console.log('Contact Data', contactData);
-    console.log('Contact Form State', this.state);
-    console.log('Contact Form Props', this.props);
     let reqAction;
     if (this.reqMethod === 'PUT') {
       reqAction = updateContact;

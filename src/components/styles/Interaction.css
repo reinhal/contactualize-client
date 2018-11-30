@@ -45,9 +45,6 @@ h3 {
 
 .edit-interaction-link:hover {
   color: red;
-  font-size: 16px;
-  padding: 2px;
-  margin: -1px;
 }
 
 .delete-interaction {
@@ -63,8 +60,6 @@ h3 {
 
 .delete-interaction:hover {
   color: red;
-  font-size: 16px;
-  margin: -1px;
 }
 
 .spanText {

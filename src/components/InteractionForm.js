@@ -45,7 +45,6 @@ class InteractionForm extends React.Component {
       id: this.props.params.id,
       userId: this.props.interaction.userId
     };
-    console.log('Interaction Data', interactionData);
     let reqAction;
     if (this.reqMethod === 'PUT') {
       reqAction = updateInteraction;
