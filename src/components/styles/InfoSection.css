@@ -1,6 +1,18 @@
+.info-section-title {
+  margin-top: 50px;
+}
+
+
 .info-section-text {
   width: 50%;
   margin: 0 auto;
+  padding-bottom: 50px;
+}
+.dashboard-image {
+  width: 75%;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
 }
 
 .info-section-container {

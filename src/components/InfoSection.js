@@ -4,17 +4,12 @@ import './styles/InfoSection.css';
 
 export default function InfoSection() {
   return (
-    <div className="info-section-container">
-      <section>
+    <div>
+      <section className="info-section-container">
         <h2 className="info-section-title">Keep in touch with family, friends and contacts.</h2>
-        <p>[<em>placeholder for screenshot of Contactualize dashboard</em>]</p>
-        <p className="info-section-text">Contactualize helps keep you in touch with your personal network.  Create your list of your people. Add important notes for each person. Record the interactions you have with each person and remember what is happening in their lives.</p>
+        <p className="info-section-text">Contactualize helps keep you in touch with your personal network.  Create your list of your people. Add important notes for each person. Record the social interactions you have with each person. Rememeber and follow up on what is happening in their lives.</p>
       </section>
-      <section>
-        <h2 className="info-section-title">Remember what has happened between the two of you.</h2>
-        <p>[<em>placeholder for screenshot of creating a new contact</em>]</p>
-        <p className="info-section-text" >The key to staying in touch and following up with who you know.  Contactualize provides you with a simple interface to create for each contact that includes basic contact information, important notes and a record of each interaction that has occurred.</p>
-      </section>
+        <img className="dashboard-image" src="https://i.ibb.co/JxLbWp9/Screen-Shot-2018-12-01-at-3-38-04-PM.png" alt="Contactualize Dashboard" border="0" />
     </div>
   );
 }
