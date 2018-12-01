@@ -14,7 +14,6 @@ const matchesPassword = matches('password');
 export class SignUp extends React.Component {
   constructor(props) {
     super(props);
-
     if (props.loggedIn) {
       return <Redirect to="/home" />;
     }
