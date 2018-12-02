@@ -26,6 +26,7 @@ export class LoginForm extends React.Component {
                     <div className="login-div display">
                         <div className="login-modal">
                             <h2 className="login-title">Welcome Back!</h2>
+                            <h3 className="demo-account">DEMO ACCOUNT username: Demo password: test123456 </h3>
                             <form
                                 className="login-form"
                                 onSubmit={this.props.handleSubmit(values =>

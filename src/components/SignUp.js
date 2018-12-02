@@ -32,7 +32,7 @@ export class SignUp extends React.Component {
       <div>
         <Title />
         <div className="signup-modal">
-          <h2 className="sign-up-title">Try Contactualize Now</h2>
+          <h2 className="sign-up-title">Create an Account</h2>
           <form
             className="signup-form"
             onSubmit={this.props.handleSubmit(values =>
