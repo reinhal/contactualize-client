@@ -8,7 +8,7 @@ A live version can be found at:   https://contactualize-client.herokuapp.com/
 
 **Current live version:** 0.5
 
-![LandingPage]( vLandingPage.png)
+![LandingPage](/ScreenShots/LandingPage.png)
 
 ## Features
 
