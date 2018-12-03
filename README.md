@@ -8,29 +8,21 @@ A live version can be found at:   https://contactualize-client.herokuapp.com/
 
 **Current live version:** 0.5
 
-![LandingPage](/Users/lisa/GitStuff/projects/contactualize-client/LandingPage.png)
+![LandingPage](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/LandingPage.png)
 
 ## Features
 
 #### User Created and Password Protected Account
 
-![Login](/Users/lisa/GitStuff/projects/contactualize-client/Login.png)
-
-![Register](/Users/lisa/GitStuff/projects/contactualize-client/Register.png)
-
-
+![Account](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/Account.png)
 
 #### Contacts
 
-#### ![ContactList](/Users/lisa/GitStuff/projects/contactualize-client/ContactList.png)
-
-![ContactForm](/Users/lisa/GitStuff/projects/contactualize-client/ContactForm.png)
+![Contact](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/Contact.png)
 
 #### Interactions
 
-![InteractionList](/Users/lisa/GitStuff/projects/contactualize-client/InteractionList.png)
-
-![InteractionForm](/Users/lisa/Desktop/InteractionForm.png)
+![Interaction](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/Interaction.png)
 
 ## Technical Requirements
 
