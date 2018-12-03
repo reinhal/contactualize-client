@@ -8,12 +8,17 @@ A live version can be found at:   https://contactualize-client.herokuapp.com/
 
 **Current live version:** 0.5
 
+<<<<<<< HEAD
 ![LandingPage](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/LandingPage.png)
+=======
+![LandingPage](/ScreenShots/LandingPage.png)
+>>>>>>> 800d3e3fff21e926cc4f3d5f4ecef40d7c8740fc
 
 ## Features
 
 #### User Created and Password Protected Account
 
+<<<<<<< HEAD
 ![Account](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/Account.png)
 
 #### Contacts
@@ -23,6 +28,25 @@ A live version can be found at:   https://contactualize-client.herokuapp.com/
 #### Interactions
 
 ![Interaction](/Users/lisa/GitStuff/projects/contactualize-client/ScreenShots/Interaction.png)
+=======
+![Login](/ScreenShots/Login.png)
+
+![Register](/ScreenShots/Register.png)
+
+
+
+#### Contacts
+
+#### ![ContactList](/ScreenShots/ContactList.png)
+
+![ContactForm](/ScreenShots/ContactForm.png)
+
+#### Interactions
+
+![InteractionList](/ScreenShots/InteractionList.png)
+
+![InteractionForm](/ScreenShots/InteractionForm.png)
+>>>>>>> 800d3e3fff21e926cc4f3d5f4ecef40d7c8740fc
 
 ## Technical Requirements
 
