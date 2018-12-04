@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './Home';
-import SignUp from './SignUp';
+import RegistrationPage from './RegistrationPage';
 import ContactForm from './ContactForm';
 import LandingPage from './LandingPage';
 import ContactList from './ContactList';
@@ -20,7 +20,7 @@ export default class Main extends React.Component {
           component={() => <Home /> }
           />
           <Route exact path='/register' 
-          component={(props) => <SignUp {...props.match} history={props.history}/> }
+          component={(props) => <RegistrationPage {...props.match} history={props.history}/> }
           />
           <Route exact path='/new-contact' 
           component={(props) => <ContactForm contactLegend="Create a New Contact" contactButton="Create" type="POST" {...props.match} history={props.history} /> }
