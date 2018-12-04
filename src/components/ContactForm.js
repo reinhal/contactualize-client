@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {addContact, updateContact, fetchThisContact} from '../actions';
 import './styles/ContactForm.css';
 
-class ContactForm extends React.Component {
+export class ContactForm extends React.Component {
   constructor(props) {
     super(props);
 

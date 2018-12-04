@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 import './styles/DashboardWindow.css';
 
-export default class DashboardWindow extends React.Component {
+export default class  DashboardWindow extends React.Component {
   constructor(props) {
     super(props);
 

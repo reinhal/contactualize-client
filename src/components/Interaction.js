@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import './styles/Interaction.css';
 
-class Interaction extends React.Component {
+export class Interaction extends React.Component {
   constructor(props) {
     super(props);
 

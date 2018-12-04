@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import './styles/Contact.css';
 
   
-class Contact extends React.Component {
+export class Contact extends React.Component {
   constructor(props) {
     super(props);
 

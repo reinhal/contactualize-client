@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import {refreshAuthToken} from './actions/auth';
 import './App.css';
 
-class App extends React.Component {
+export class App extends React.Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically

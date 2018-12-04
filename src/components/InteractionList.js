@@ -5,7 +5,7 @@ import Interaction from './Interaction';
 
 import './styles/InteractionList.css';
 
-class InteractionList extends React.Component {
+export class InteractionList extends React.Component {
   constructor(props) {
     super(props);
 

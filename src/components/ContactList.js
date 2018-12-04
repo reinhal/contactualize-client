@@ -5,7 +5,7 @@ import Contact from './Contact';
 
 import './styles/ContactList.css';
 
-class ContactList extends React.Component {
+export class ContactList extends React.Component {
   constructor(props) {
     super(props);
 

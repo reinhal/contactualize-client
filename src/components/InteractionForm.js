@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {addInteraction, updateInteraction, fetchContact, fetchThisInteraction} from '../actions';
 import './styles/InteractionForm.css';
 
-class InteractionForm extends React.Component {
+export class InteractionForm extends React.Component {
   constructor(props) {
     super(props);
 
