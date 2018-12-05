@@ -20,6 +20,7 @@ export class Contact extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.interactionText = this.interactionText.bind(this);
     this.displayInteractions = this.displayInteractions.bind(this);
+    this.showHideInteractions = this.showHideInteractions.bind(this);
   }
 
   handleDelete(e) {
@@ -52,6 +53,14 @@ export class Contact extends React.Component {
     }
   }
 
+  showHideInteractions() {
+    if (!this.state.displayed) {
+      return  <button className="interaction-detail-button" onClick={this.displayInteractions}> {this.interactionText()}⬆︎</button>
+    } else  {
+      return <button className="interaction-detail-button" onClick={this.displayInteractions}> {this.interactionText()}⬇︎</button>
+    }
+  }
+
   render() {
     let interactions = this.props.interactions;
     let interactionItems = () => {
@@ -71,7 +80,8 @@ export class Contact extends React.Component {
                 <p><span className="contact-person">{this.props.person}:</span> {this.props.notes}</p>
               </div>
               <div>
-                <button className="interaction-detail-button" onClick={this.displayInteractions}>{this.interactionText()}</button>
+                {this.showHideInteractions()}
+                {/* <button className="interaction-detail-button" onClick={this.displayInteractions}>{this.interactionText()}</button> */}
               <ol className={this.state.displayed ? "interaction-items" : ""}>{interactionItems()}</ol>
               </div>
               <div>
