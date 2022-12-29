@@ -10,7 +10,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.1",
+    "react-scripts": "^2.1.8",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0"
@@ -24,7 +24,7 @@
   "devDependencies": {
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
-    "jest": "^23.6.0"
+    "jest": "^29.3.1"
   },
   "browserslist": [
     ">0.2%",
